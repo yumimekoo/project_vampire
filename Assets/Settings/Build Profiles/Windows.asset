@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Web - Desktop - Development
+  m_Name: Windows
   m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.Build.Profile.BuildProfile
   m_AssetVersion: 1
-  m_BuildTarget: 20
-  m_Subtarget: 0
-  m_PlatformId: 84a3bb9e7420477f885e98145999eb20
+  m_BuildTarget: 19
+  m_Subtarget: 2
+  m_PlatformId: 4e3c793746204150860bf175a9a41a05
   m_PlatformBuildProfile:
-    rid: 4244771801813745665
+    rid: 543204340023164992
   m_OverrideGlobalSceneList: 0
-  m_Scenes:
-  - m_enabled: 1
-    m_path: Assets/Scenes/SampleScene.unity
+  m_Scenes: []
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -37,7 +35,7 @@ MonoBehaviour:
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
     - line: '|   companyName: mysagames'
-    - line: '|   productName: web_vampire_devbuild'
+    - line: '|   productName: vampire_devbuild'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
     - line: '|   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b:
@@ -168,9 +166,7 @@ MonoBehaviour:
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
     - line: '|   bundleVersion: 1.0'
-    - line: '|   preloadedAssets:'
-    - line: '|   - {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
-        type: 3}'
+    - line: '|   preloadedAssets: []'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
@@ -321,8 +317,8 @@ MonoBehaviour:
     - line: '|   m_BuildTargetIcons: []'
     - line: '|   m_BuildTargetPlatformIcons: []'
     - line: '|   m_BuildTargetBatching:'
-    - line: '|   - m_BuildTarget: WebGL'
-    - line: '|     m_StaticBatching: 0'
+    - line: '|   - m_BuildTarget: Standalone'
+    - line: '|     m_StaticBatching: 1'
     - line: '|     m_DynamicBatching: 0'
     - line: '|   m_BuildTargetShaderSettings: []'
     - line: '|   m_BuildTargetGraphicsJobs: []'
@@ -589,14 +585,14 @@ MonoBehaviour:
     - line: '|   webGLExceptionSupport: 1'
     - line: '|   webGLNameFilesAsHashes: 0'
     - line: '|   webGLShowDiagnostics: 0'
-    - line: '|   webGLDataCaching: 0'
+    - line: '|   webGLDataCaching: 1'
     - line: '|   webGLDebugSymbols: 0'
     - line: '|   webGLEmscriptenArgs: '
     - line: '|   webGLModulesDirectory: '
     - line: '|   webGLTemplate: APPLICATION:Default'
     - line: '|   webGLAnalyzeBuildSize: 0'
     - line: '|   webGLUseEmbeddedResources: 0'
-    - line: '|   webGLCompressionFormat: 2'
+    - line: '|   webGLCompressionFormat: 0'
     - line: '|   webGLWasmArithmeticExceptions: 0'
     - line: '|   webGLLinkerTarget: 1'
     - line: '|   webGLThreadsSupport: 0'
@@ -608,20 +604,18 @@ MonoBehaviour:
     - line: '|   webGLMemoryGeometricGrowthStep: 0.2'
     - line: '|   webGLMemoryGeometricGrowthCap: 96'
     - line: '|   webGLPowerPreference: 2'
-    - line: '|   webGLWebAssemblyTable: 1'
-    - line: '|   webGLWebAssemblyBigInt: 1'
+    - line: '|   webGLWebAssemblyTable: 0'
+    - line: '|   webGLWebAssemblyBigInt: 0'
     - line: '|   webGLCloseOnQuit: 0'
-    - line: '|   webWasm2023: 1'
+    - line: '|   webWasm2023: 0'
     - line: '|   webEnableSubmoduleStrippingCompatibility: 0'
     - line: '|   scriptingDefineSymbols: {}'
     - line: '|   additionalCompilerArguments: {}'
     - line: '|   platformArchitecture: {}'
     - line: '|   scriptingBackend:'
     - line: '|     Android: 1'
-    - line: '|   il2cppCompilerConfiguration:'
-    - line: '|     WebGL: 0'
-    - line: '|   il2cppCodeGeneration:'
-    - line: '|     WebGL: 1'
+    - line: '|   il2cppCompilerConfiguration: {}'
+    - line: '|   il2cppCodeGeneration: {}'
     - line: '|   il2cppStacktraceInformation: {}'
     - line: '|   managedStrippingLevel: {}'
     - line: '|   incrementalIl2cppBuild: {}'
@@ -734,10 +728,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4244771801813745665
-      type: {class: WebGLPlatformSettings, ns: UnityEditor.WebGL, asm: UnityEditor.WebGL.Extensions}
+    - rid: 543204340023164992
+      type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
       data:
-        m_Development: 1
+        m_Development: 0
         m_ConnectProfiler: 0
         m_BuildWithDeepProfilingSupport: 0
         m_AllowDebugging: 0
@@ -746,11 +740,13 @@ MonoBehaviour:
         m_ExplicitNullChecks: 0
         m_ExplicitDivideByZeroChecks: 0
         m_ExplicitArrayBoundsChecks: 0
-        m_CompressionType: -1
+        m_CompressionType: 0
         m_InstallInBuildFolder: 0
         m_InsightsSettingsContainer:
           m_BuildProfileEngineDiagnosticsState: 2
-        m_CodeOptimization: 0
-        m_WebGLClientBrowserPath: 
-        m_WebGLClientBrowserType: 0
-        m_WebGLTextureSubtarget: 1
+        m_WindowsBuildAndRunDeployTarget: 0
+        m_Architecture: 0
+        m_CreateSolution: 0
+        m_CopyPDBFiles: 0
+        m_WindowsDevicePortalAddress: 
+        m_WindowsDevicePortalUsername: 

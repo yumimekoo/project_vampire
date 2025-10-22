@@ -19,7 +19,7 @@ MonoBehaviour:
   dashRegenerationRate: 0.5
   maxHealth: 200
   attackDamage: 10
-  attackSpeed: 1
-  bulletSpeed: 2
-  bulletDistance: 5
-  bulletSpread: 0.5
+  attackSpeed: 17.2345
+  bulletSpeed: 50
+  bulletDistance: 10
+  bulletSpread: 0
