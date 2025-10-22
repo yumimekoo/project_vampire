@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TESTING : MonoBehaviour
@@ -9,5 +10,13 @@ public class TESTING : MonoBehaviour
     {
         Debug.Log(playerStatsManager.GetStat(StatType.MoveSpeed));
         Debug.Log(playerStatsManager.GetStat(StatType.DashRegenerationRate));
+        StartCoroutine(SetDashCooldownAfterDelay());
+    }
+
+    private IEnumerator SetDashCooldownAfterDelay()
+    {
+        yield return new WaitForSeconds(10f); // 10 Sekunden warten
+        //playerStatsManager.SetStat(StatType.DashCooldown, 6f); // Wert setzen
+        ///Debug.Log("DashCooldown auf 6 gesetzt!");
     }
 }

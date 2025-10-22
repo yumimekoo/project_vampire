@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -35,5 +37,13 @@ public class PlayerStatsManager : MonoBehaviour
     public float GetStat(StatType stat)
     {
         return currentStats.TryGetValue(stat, out float value) ? value : 0f;
+    }
+
+    internal void SetStat(StatType stat, float value)
+    {
+        if (currentStats.ContainsKey(stat))
+            currentStats[stat] = value;
+        else
+            currentStats.Add(stat, value);
     }
 }
