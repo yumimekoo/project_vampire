@@ -14,3 +14,12 @@ public enum StatType
     BulletDistance,
     BulletSpread
 }
+
+public enum StatMulti
+{
+    MovePercent,
+    AttackPercent,
+    DashCooldownPercent,
+    MaxHealthPercent,
+    AttackSpeedPercent,
+}
