@@ -16,7 +16,7 @@ public class TESTING : MonoBehaviour
     private IEnumerator SetDashCooldownAfterDelay()
     {
         yield return new WaitForSeconds(10f); // 10 Sekunden warten
-        //playerStatsManager.SetStat(StatType.DashCooldown, 6f); // Wert setzen
+        playerStatsManager.SetStat(StatType.AttackSpeed, 15f); // Wert setzen
         ///Debug.Log("DashCooldown auf 6 gesetzt!");
     }
 }
