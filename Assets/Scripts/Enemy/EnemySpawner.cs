@@ -4,12 +4,16 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawn Settings")]
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject enemyPrefab2;
+    [SerializeField] private GameObject enemyPrefab3;
+    [SerializeField] private GameObject enemyPrefab4;
     [SerializeField] private int enemiesPerWave = 1;
     [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private float spawnRadius = 3f;
 
     [Header("References")]
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private EnemyBulletPool pool;
 
     private float nextSpawnTime;
 
@@ -45,11 +49,14 @@ public class EnemySpawner : MonoBehaviour
             Vector2 spawnPos = Random.insideUnitCircle.normalized * spawnRadius;
             Vector3 worldPos = new Vector3(spawnPos.x, spawnPos.y, 0) + transform.position;
 
-            GameObject enemy = Instantiate(enemyPrefab, worldPos, Quaternion.identity);
+            //GameObject enemy = Instantiate(enemyPrefab, worldPos, Quaternion.identity);
+            //GameObject enemy = Instantiate(enemyPrefab2, worldPos, Quaternion.identity);
+            //GameObject enemy = Instantiate(enemyPrefab3, worldPos, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab4, worldPos, Quaternion.identity);
 
             EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
             if (enemyBase != null)
-                enemyBase.Initialize(playerTransform);
+                enemyBase.Initialize(playerTransform, pool);
         }
     }
 }

@@ -31,11 +31,6 @@ public class BulletInputHandler : MonoBehaviour
         //}
     }
 
-    private void FixedUpdate()
-    {
-        Debug.Log(nextShootTime);
-    }
-
 
 //private void TryShoot()
 //{

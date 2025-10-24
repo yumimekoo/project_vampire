@@ -13,10 +13,10 @@ public class EnemyBase : MonoBehaviour
     public float Health {  get; private set; }
 
 
-    public void Initialize(Transform playerTransform)
+    public void Initialize(Transform playerTransform, EnemyBulletPool pool)
     {
         player = playerTransform;
-        behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform);
+        behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform, pool);
     }
 
     private void Awake()

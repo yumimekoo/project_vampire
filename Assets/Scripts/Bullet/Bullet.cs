@@ -17,8 +17,8 @@ public class Bullet : MonoBehaviour
         damage = stats.GetStat(StatType.AttackDamage);
         startPos = transform.position;
     }
- 
-    void Update()
+
+    protected virtual void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
 
@@ -29,11 +29,19 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
+        if(other.CompareTag("Obstacle"))
         {
             // implement onhit and damage
+            BulletPool.Instance.ReturnBullet(gameObject);
+        }
+
+        if (other.CompareTag("Enemy"))
+        {
+            var data = other.GetComponent<EnemyBase>();
+            data.TakeDamage(damage);
+            // TakeDamage in EnemyBase.cs of other
             BulletPool.Instance.ReturnBullet(gameObject);
         }
     }
