@@ -32,6 +32,7 @@ public class PlayerStatsManager : MonoBehaviour
         currentStats[StatType.BulletSpeed] = baseStats.bulletSpeed;
         currentStats[StatType.BulletDistance] = baseStats.bulletDistance;
         currentStats[StatType.BulletSpread] = baseStats.bulletSpread;
+        currentStats[StatType.Defense] = baseStats.defense;
     }
 
     public float GetStat(StatType stat)

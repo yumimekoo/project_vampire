@@ -13,6 +13,7 @@ public class PlayerBaseStatsSO : ScriptableObject
 
     [Header("Combat")]
     public float maxHealth;
+    public float defense;
     public float attackDamage;
     public float attackSpeed;
 

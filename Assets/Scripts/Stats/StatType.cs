@@ -8,6 +8,7 @@ public enum StatType
     Dashes,
     DashRegenerationRate,
     MaxHealth,
+    Defense,
     AttackDamage,
     AttackSpeed,
     BulletSpeed,

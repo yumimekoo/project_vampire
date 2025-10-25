@@ -35,7 +35,7 @@ public class EnemyBullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Schaden am Spieler anwenden
-            other.GetComponent<PlayerHealth>()?.TakeDamage(10);
+            other.GetComponent<PlayerHealth>()?.TakeDamage(damageEnemy);
             EnemyBulletPool.Instance.ReturnBullet(gameObject);
         }
 
