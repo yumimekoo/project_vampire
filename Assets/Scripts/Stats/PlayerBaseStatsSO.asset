@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8725f901afc3f64fab3bf7762c0173b, type: 3}
   m_Name: PlayerBaseStatsSO
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseStatsSO
-  moveSpeed: 2
+  moveSpeed: 3
   dashDistance: 1
-  dashCD: 3
+  dashCD: 1
   dashes: 4
   dashRegenerationRate: 0.5
   maxHealth: 200
+  defense: 0
   attackDamage: 10
   attackSpeed: 3
   bulletSpeed: 10

@@ -10,7 +10,10 @@ public class EnemyData : ScriptableObject
     public float moveSpeed;
     public float attackDamage;
     public float attackRange;
+    public float attackCooldown;
     public float droppedExperience;
     public float droppedMoney;
+
+    public bool isDealingContactDamage;
     public EnemyBehaviorType behaviorType;
 }

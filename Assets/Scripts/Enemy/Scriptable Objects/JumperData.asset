@@ -17,6 +17,8 @@ MonoBehaviour:
   moveSpeed: 0.3
   attackDamage: 1
   attackRange: 1
+  attackCooldown: 2
   droppedExperience: 21
   droppedMoney: 21
+  isDealingContactDamage: 1
   behaviorType: 2

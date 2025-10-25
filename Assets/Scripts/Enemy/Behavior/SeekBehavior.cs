@@ -17,5 +17,6 @@ public class SeekBehavior : IEnemyBehavior
     {
         Vector2 direction = (target.position - enemy.transform.position).normalized;
         rb.linearVelocity = direction * enemy.GetData().moveSpeed;
+        enemy.TryAttack();
     }
 }

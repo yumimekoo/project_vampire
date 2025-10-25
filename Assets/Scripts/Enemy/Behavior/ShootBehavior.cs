@@ -8,7 +8,7 @@ public class ShootBehavior : IEnemyBehavior
     private readonly EnemyBase enemy;
     private readonly EnemyBulletPool pool;
     private readonly float safeRange = 3f;
-    private readonly float shootCooldown = 2f;
+    //private readonly float shootCooldown = 2f;
     private float shootTimer;
     private bool isShooting;
     private float shootTimerCurrent;
@@ -19,7 +19,7 @@ public class ShootBehavior : IEnemyBehavior
         this.rb = rb;
         this.player = player;
         this.enemy = enemy;
-        shootTimer = Random.Range(0f, shootCooldown); // damit nicht alle gleichzeitig schieﬂen
+        shootTimer = Random.Range(0f, enemy.GetData().attackCooldown); // damit nicht alle gleichzeitig schieﬂen
         this.pool = pool;
     }
 
@@ -48,7 +48,7 @@ public class ShootBehavior : IEnemyBehavior
         if (shootTimer <= 0f && distance <= enemy.GetData().attackRange)
         {
             ShootAtPlayer();
-            shootTimer = shootCooldown;
+            shootTimer = enemy.GetData().attackCooldown;
             isShooting = true;
             shootTimerCurrent = shootDuration;
             return; // Gegner bleibt kurz stehen

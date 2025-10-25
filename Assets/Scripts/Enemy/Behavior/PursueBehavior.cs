@@ -27,5 +27,6 @@ public class PursueBehavior : IEnemyBehavior
 
         Vector2 direction = (targetPos - rb.position).normalized;
         rb.linearVelocity = direction * enemy.GetData().moveSpeed;
+        enemy.TryAttack();
     }
 }

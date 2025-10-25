@@ -60,4 +60,5 @@ public class JumpBehavior : IEnemyBehavior
         Vector2 jumpDir = ((Vector2) player.position - rb.position).normalized;
         rb.linearVelocity = jumpDir * jumpForce;
     }
+
 }

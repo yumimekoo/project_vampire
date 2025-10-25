@@ -17,6 +17,7 @@ MonoBehaviour:
   moveSpeed: 1
   attackDamage: 1
   attackRange: 2
+  attackCooldown: 1
   droppedExperience: 4
   droppedMoney: 4
   behaviorType: 0
