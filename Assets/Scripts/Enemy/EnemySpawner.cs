@@ -32,6 +32,11 @@ public class EnemySpawner : MonoBehaviour
         nextSpawnTime = Time.time + spawnInterval;
     }
 
+    internal void StartSpawning(WaveInfo currentWave)
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Update is called once per frame
     void Update()
     {
