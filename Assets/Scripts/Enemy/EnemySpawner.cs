@@ -51,8 +51,8 @@ public class EnemySpawner : MonoBehaviour
 
             //GameObject enemy = Instantiate(enemyPrefab, worldPos, Quaternion.identity);
             //GameObject enemy = Instantiate(enemyPrefab2, worldPos, Quaternion.identity);
-            GameObject enemy = Instantiate(enemyPrefab3, worldPos, Quaternion.identity);
-            //GameObject enemy = Instantiate(enemyPrefab4, worldPos, Quaternion.identity);
+            //GameObject enemy = Instantiate(enemyPrefab3, worldPos, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab4, worldPos, Quaternion.identity);
 
             EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
             if (enemyBase != null)
