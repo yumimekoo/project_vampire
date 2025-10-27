@@ -7,14 +7,15 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private WaveDataSO waveData;
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private PlayerHealth playerHealth;
-    [SerializeField] private GameObject shopUI;
+    [SerializeField] private ShopUI shopUI;
 
     private int currentWaveIndex = 0;
-    private bool waveActive = false;
+    public bool waveActive;
     private float waveTimer;
 
     void Start()
     {
+        waveActive = false;
         StartCoroutine(StartNextWave());
     }
 
@@ -46,11 +47,39 @@ public class WaveManager : MonoBehaviour
 
     private void EndWave()
     {
-        throw new NotImplementedException();
+        Debug.Log("Wave ended.");
+        waveActive = false;
+        enemySpawner.StopSpawning();
+        enemySpawner.ClearAllEnemies();
+        shopUI.ShowUI();
+    }
+
+    public void OnNextWaveButton()
+    {
+        playerHealth.HealToFull();
+        currentWaveIndex++;
+        StartCoroutine(StartNextWave());
     }
 
     private WaveInfo GetCurrentWave()
     {
-        throw new NotImplementedException();
+        if (currentWaveIndex < waveData.waves.Count)
+            return waveData.waves[currentWaveIndex];
+        else
+            return GenerateEndlessWave(currentWaveIndex);
+    }
+
+    private WaveInfo GenerateEndlessWave(int waveNumber)
+    {
+        WaveInfo newWave = new WaveInfo
+        {
+            waveNumber = waveNumber + 1,
+            waveDuration = 30f + waveNumber * 2f,
+            minEnemies = 3 + waveNumber,
+            maxEnemies = 6 + waveNumber * 2,
+            spawnRate = Mathf.Max(0.5f, 2f - waveNumber * 0.1f),
+            possibleEnemies = waveData.waves[^1].possibleEnemies,
+        };
+        return newWave;
     }
 }

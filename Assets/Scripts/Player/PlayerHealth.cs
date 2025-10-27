@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -56,5 +57,12 @@ public class PlayerHealth : MonoBehaviour
     public float GetHealthPercent()
     {
         return currentHealth / maxHealth;
+    }
+
+    internal void HealToFull()
+    {
+        Debug.Log("Healed to Full");
+        currentHealth = maxHealth;
+        //UpdateHealthUI();
     }
 }

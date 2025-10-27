@@ -12,8 +12,8 @@ public class WaveInfo
 {
     public int waveNumber;
     public float waveDuration;
-    public int minEnemys;
-    public int maxEnemys;
+    public int minEnemies;
+    public int maxEnemies;
     public float spawnRate;
-    public EnemyData[] possibleEnemies;
+    public GameObject[] possibleEnemies;
 }
