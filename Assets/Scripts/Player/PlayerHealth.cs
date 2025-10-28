@@ -4,15 +4,18 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] PlayerStatsManager statsManager;
-    private float currentHealth;
-    private float maxHealth;
+    public float currentHealth;
+    public float maxHealth;
 
     private bool isDead = false;
     private bool isInvulnerable;
+
+    public event System.Action<float, float> OnHealthChanged;
     void Start()
     {
         if (statsManager == null)
         {
+            Debug.Log("TookStatsManager");
             statsManager = GetComponent<PlayerStatsManager>();
         }
 
@@ -31,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= finalDamage;
         Debug.Log($"Player took {finalDamage} damage ({ currentHealth}/{ maxHealth})");
 
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+
         if(currentHealth <= 0f)
         {
             Die();
@@ -42,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth = Mathf.Min(currentHealth+amount, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
         Debug.Log($"Healed {amount}. Current HP: {currentHealth}/{maxHealth}");
     }
 
@@ -63,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Healed to Full");
         currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
         //UpdateHealthUI();
     }
 }

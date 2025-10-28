@@ -9,10 +9,11 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private ShopUI shopUI;
 
-    private int currentWaveIndex = 0;
+    public int currentWaveIndex = 0;
     public bool waveActive;
     private float waveTimer;
 
+    public event System.Action OnWaveChanged;
     void Start()
     {
         waveActive = false;
@@ -58,6 +59,7 @@ public class WaveManager : MonoBehaviour
     {
         playerHealth.HealToFull();
         currentWaveIndex++;
+        OnWaveChanged?.Invoke();
         StartCoroutine(StartNextWave());
     }
 

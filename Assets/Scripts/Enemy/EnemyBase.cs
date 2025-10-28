@@ -9,20 +9,21 @@ public class EnemyBase : MonoBehaviour
     private Transform player;
     private IEnemyBehavior behavior;
     private Rigidbody2D rb;
-
+    private LevelManager levelManager;
     public float Health {  get; private set; }
     public float lastAttackTime = -999f;
 
-    public void Initialize(Transform playerTransform, EnemyBulletPool pool)
+    public void Initialize(Transform playerTransform, EnemyBulletPool pool, LevelManager level)
     {
         player = playerTransform;
+        levelManager = level;
         behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform, pool);
+        Health = data.maxHealth * levelManager.GetEnemyDifficultyMultiplier();
     }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        Health = data.maxHealth;
 
     }
     public void Update()
@@ -43,7 +44,7 @@ public class EnemyBase : MonoBehaviour
 
         if(distance <= data.attackRange)
         {
-            player.GetComponent<PlayerHealth>()?.TakeDamage(data.attackDamage);
+            player.GetComponent<PlayerHealth>()?.TakeDamage(data.attackDamage * levelManager.GetEnemyDifficultyMultiplier());
             return true;
         }
 
@@ -60,6 +61,9 @@ public class EnemyBase : MonoBehaviour
     public void Die()
     {
         // TODO: Add death effects, pooling usw. experience to player
+        levelManager.AddXP(data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier());
+        levelManager.AddScore((int) (data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier() * levelManager.GetLevel()));
+        levelManager.AddMoney((int)(data.droppedMoney * levelManager.GetEnemyDifficultyMultiplier()));
         Destroy(gameObject);
     }
 
