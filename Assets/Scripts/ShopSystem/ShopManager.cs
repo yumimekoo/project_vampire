@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private UIDocument shopUI;
     [SerializeField] private int rerollCost = 50;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private RarityScalingDataSO rarityScalingData;
 
     private List<ShopItemDataSO> currentItems = new List<ShopItemDataSO>();
     private VisualElement root,
@@ -115,8 +116,52 @@ public class ShopManager : MonoBehaviour
 
     private List<ShopItemDataSO> GetItemsForCurrentLevel()
     {
-        // hier die rarity berechnung mit level etc,. 
+        ItemRarity rarity = rarityScalingData.GetRarityForLevel(levelManager.GetLevel());
         var allItems = Resources.LoadAll<ShopItemDataSO>("ShopItems");
-        return allItems.Where(i => i.rarity == ItemRarity.Common).ToList();
+        return allItems.Where(i => i.rarity == rarity).ToList();
     }
+
+    [ContextMenu("Test Rarity Distribution")]
+    private void TestRarityDistribution()
+    {
+        int playerLevel = 25; // Oder beliebiger Test-Level
+        int testRuns = 10000; // Anzahl der Würfe für Statistik
+
+        int commonCount = 0;
+        int uncommonCount = 0;
+        int rareCount = 0;
+        int mythicCount = 0;
+        int legendaryCount = 0;
+
+        for (int i = 0; i < testRuns; i++)
+        {
+            ItemRarity rarity = rarityScalingData.GetRarityForLevel(playerLevel);
+            switch (rarity)
+            {
+                case ItemRarity.Common:
+                    commonCount++;
+                    break;
+                case ItemRarity.Uncommon:
+                    uncommonCount++;
+                    break;
+                case ItemRarity.Rare:
+                    rareCount++;
+                    break;
+                case ItemRarity.Mythic:
+                    mythicCount++;
+                    break;
+                case ItemRarity.Legendary:
+                    legendaryCount++;
+                    break;
+            }
+        }
+
+        Debug.Log($"Rarity distribution at level {playerLevel} ({testRuns} runs):");
+        Debug.Log($"Common: {commonCount} ({(commonCount / (float) testRuns) * 100f:F2}%)");
+        Debug.Log($"Uncommon: {uncommonCount} ({(uncommonCount / (float) testRuns) * 100f:F2}%)");
+        Debug.Log($"Rare: {rareCount} ({(rareCount / (float) testRuns) * 100f:F2}%)");
+        Debug.Log($"Mythic: {mythicCount} ({(mythicCount / (float) testRuns) * 100f:F2}%)");
+        Debug.Log($"Legendary: {legendaryCount} ({(legendaryCount / (float) testRuns) * 100f:F2}%)");
+    }
+
 }

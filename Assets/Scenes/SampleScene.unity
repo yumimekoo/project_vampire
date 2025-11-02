@@ -407,6 +407,7 @@ MonoBehaviour:
   shopUI: {fileID: 245923122}
   rerollCost: 50
   levelManager: {fileID: 1815376185}
+  rarityScalingData: {fileID: 11400000, guid: 41809db45202c7e46bfc5143d46c4ac4, type: 2}
 --- !u!1 &363370079
 GameObject:
   m_ObjectHideFlags: 0
