@@ -16,6 +16,7 @@ public class ShopManager : MonoBehaviour
         itemContainer;
     private Button rerollButton;
     private Label moneyLabel;
+    private Dictionary<ShopItemDataSO, VisualElement> itemElements = new();
 
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class ShopManager : MonoBehaviour
         RollItems();
     }
 
-    private void RollItems()
+    public void RollItems()
     {
         itemContainer.Clear();
         currentItems.Clear();
@@ -53,17 +54,20 @@ public class ShopManager : MonoBehaviour
         itemElement.AddToClassList("shop-item");
 
         var nameLabel = new Label(itemData.itemName);
+        nameLabel.AddToClassList("shop-name");
         var descLabel = new Label(itemData.description);
+        descLabel.AddToClassList("shop-desc");
         var priceLabel = new Label($"{itemData.basePrice} $");
+        priceLabel.AddToClassList("shop-price");
         var buyButton = new Button(() => BuyItem(itemData)) { text = "Buy"};
-
+        buyButton.AddToClassList("shop-buy");
         itemElement.Add(nameLabel);
         itemElement.Add(descLabel);
         itemElement.Add(priceLabel);
         itemElement.Add(buyButton);
 
         itemContainer.Add(itemElement);
-
+        itemElements[itemData] = itemElement;
     }
 
     private void BuyItem(ShopItemDataSO item)
@@ -71,6 +75,12 @@ public class ShopManager : MonoBehaviour
         if (levelManager.TrySpendMoney(item.basePrice))
         {
             ApplyItemEffect(item);
+            if (itemElements.TryGetValue(item, out var element))
+            {
+                element.AddToClassList("shop-item-disabled");
+                var button = element.Q<Button>();
+                button.SetEnabled(false);
+            }
         }
         else
         {
@@ -106,6 +116,7 @@ public class ShopManager : MonoBehaviour
     private List<ShopItemDataSO> GetItemsForCurrentLevel()
     {
         // hier die rarity berechnung mit level etc,. 
+        var allItems = Resources.LoadAll<ShopItemDataSO>("ShopItems");
         return allItems.Where(i => i.rarity == ItemRarity.Common).ToList();
     }
 }

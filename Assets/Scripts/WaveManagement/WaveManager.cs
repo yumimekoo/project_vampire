@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private ShopUI shopUI;
+    [SerializeField] private ShopManager shopManager;
 
     public int currentWaveIndex = 0;
     public bool waveActive;
@@ -57,6 +58,7 @@ public class WaveManager : MonoBehaviour
 
     public void OnNextWaveButton()
     {
+        shopManager.RollItems();
         playerHealth.HealToFull();
         currentWaveIndex++;
         OnWaveChanged?.Invoke();
