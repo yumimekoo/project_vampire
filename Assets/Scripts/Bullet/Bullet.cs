@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
         distance = stats.GetStat(StatType.BulletDistance);
         damage = stats.GetStat(StatType.AttackDamage);
         startPos = transform.position;
+        GameEvents.OnBulletFired?.Invoke(this);
     }
 
     protected virtual void Update()
@@ -42,6 +43,7 @@ public class Bullet : MonoBehaviour
             var data = other.GetComponent<EnemyBase>();
             data.TakeDamage(damage);
             // TakeDamage in EnemyBase.cs of other
+            GameEvents.OnBulletHit?.Invoke(this, data);
             BulletPool.Instance.ReturnBullet(gameObject);
         }
     }

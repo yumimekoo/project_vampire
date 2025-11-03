@@ -408,6 +408,9 @@ MonoBehaviour:
   rerollCost: 50
   levelManager: {fileID: 1815376185}
   rarityScalingData: {fileID: 11400000, guid: 41809db45202c7e46bfc5143d46c4ac4, type: 2}
+  playerStatsManager: {fileID: 1194823393}
+  playerHealth: {fileID: 1078518625}
+  skillManager: {fileID: 1968244643}
 --- !u!1 &363370079
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +695,7 @@ MonoBehaviour:
   playerHealth: {fileID: 1078518625}
   levelManager: {fileID: 1815376185}
   waveManager: {fileID: 1936386366}
+  playerStatsManager: {fileID: 1194823393}
 --- !u!1 &386959076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1869,7 @@ Transform:
   - {fileID: 2006774952}
   - {fileID: 1936386367}
   - {fileID: 1815376184}
+  - {fileID: 1968244642}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105801730
@@ -2822,7 +2827,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600326131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22b68be9839284f4da3706f7b56c946b, type: 3}
   m_Name: 
@@ -3023,7 +3028,7 @@ MonoBehaviour:
   currentLevel: 1
   currentXP: 0
   xpToNextLevel: 100
-  playerMoney: 0
+  playerMoney: 60000
   playerScore: 0
   xpGrowthFactor: 1.25
   enemyDifficultyMultiplier: 1.1
@@ -3168,6 +3173,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1091622508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1968244641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968244642}
+  - component: {fileID: 1968244643}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1968244642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968244641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1091622508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968244643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968244641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f305d6c59a32948afb7f3402b957ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillManager
 --- !u!1 &2006774951
 GameObject:
   m_ObjectHideFlags: 0

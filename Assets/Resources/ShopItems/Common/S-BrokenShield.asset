@@ -21,6 +21,13 @@ MonoBehaviour:
   positiveEffects:
   - statType: 6
     value: 2
+  positiveEffectMultis: []
   negativeEffects:
   - statType: 7
     value: 2
+  negativeEffectMultis: []
+  passiveSkillEffects:
+  - effectName: BleedOnHit
+    trigger: 1
+    value1: 3
+    value2: 4

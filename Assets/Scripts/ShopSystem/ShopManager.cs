@@ -11,6 +11,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private int rerollCost = 50;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private RarityScalingDataSO rarityScalingData;
+    [SerializeField] private PlayerStatsManager playerStatsManager;
+    [SerializeField] private PlayerHealth playerHealth;   
+    [SerializeField] private SkillManager skillManager;
 
     private List<ShopItemDataSO> currentItems = new List<ShopItemDataSO>();
     private VisualElement root,
@@ -39,11 +42,17 @@ public class ShopManager : MonoBehaviour
         itemContainer.Clear();
         currentItems.Clear();
 
-        var possibleItems = GetItemsForCurrentLevel();
-
         for (int i = 0; i < 3; i++)
         {
-            var randomItem = possibleItems[UnityEngine.Random.Range(0, possibleItems.Count)];
+            var possibleItems = GetItemsForCurrentLevel();
+            ShopItemDataSO randomItem = null;
+            do
+            {
+                randomItem = possibleItems[UnityEngine.Random.Range(0, possibleItems.Count)];
+            }
+            while (currentItems.Contains(randomItem));
+
+            //var randomItem = possibleItems[UnityEngine.Random.Range(0, possibleItems.Count)];
             currentItems.Add(randomItem);
             CreateItemUI(randomItem);
         }
@@ -76,6 +85,7 @@ public class ShopManager : MonoBehaviour
         if (levelManager.TrySpendMoney(item.basePrice))
         {
             ApplyItemEffect(item);
+            playerHealth.UpdateMaxHealth();
             if (itemElements.TryGetValue(item, out var element))
             {
                 element.AddToClassList("shop-item-disabled");
@@ -98,7 +108,38 @@ public class ShopManager : MonoBehaviour
 
     private void ApplyItemEffect(ShopItemDataSO item)
     {
-        // TODO: kommt noch mit switch case? 
+        switch (item.type)
+        {
+            case ItemType.StatUpgrade:
+                foreach (var effect in item.positiveEffects)
+                {
+                    playerStatsManager.AddFlatStat(effect.statType, effect.value);
+                }
+                foreach (var effect in item.negativeEffects)
+                {
+                    playerStatsManager.ReduceFlatStat(effect.statType, effect.value);
+                }
+                foreach (var effect in item.positiveEffectMultis)
+                {
+                    playerStatsManager.AddPercentStat(effect.statMulti, effect.value);
+                }
+                foreach (var effect in item.negativeEffectMultis)
+                {
+                    playerStatsManager.ReducePercentStat(effect.statMulti, effect.value);
+                }
+                break;
+            case ItemType.ActiveSkill:
+                // TODO Active Skill Implementation
+                Debug.Log("Active Skill Purchased - Implementation Pending");
+                break;
+            case ItemType.PassiveSkill:
+                skillManager.ApplyItem(item);
+                Debug.Log("Passive Skill Purchased - Implementation Pending");
+                break;
+            default:
+                Debug.LogWarning("Unknown item type");
+                break;
+        }
         Debug.Log($"Bought {item.itemName}");
     }
 

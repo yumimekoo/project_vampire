@@ -10,26 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-Circleglass
+  m_Name: P-test
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Circleglass
-  description: Faster Bullet Speed
-  type: 0
+  itemName: PASSIVETEST
+  description: cvx
+  type: 2
   rarity: 0
-  basePrice: 8
+  basePrice: 0
   icon: {fileID: 0}
-  positiveEffects:
-  - statType: 8
-    value: 30
-  - statType: 5
-    value: 200
-  positiveEffectMultis:
-  - statMulti: 1
-    value: 3
-  negativeEffects:
-  - statType: 3
-    value: 2
-  negativeEffectMultis:
-  - statMulti: 0
-    value: 0.5
-  passiveSkillEffects: []
+  positiveEffects: []
+  positiveEffectMultis: []
+  negativeEffects: []
+  negativeEffectMultis: []
+  passiveSkillEffects:
+  - effectName: BleedOnHit
+    trigger: 1
+    value1: 3
+    value2: 3

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,6 +9,7 @@ public class OverlayUI : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth; 
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private WaveManager waveManager;
+    [SerializeField] private PlayerStatsManager playerStatsManager;
 
     // UI Elements
     private Label 
@@ -35,6 +37,12 @@ public class OverlayUI : MonoBehaviour
         levelManager.OnScoreChanged += UpdateScoreUI;
         levelManager.OnMoneyChanged += UpdateMoneyUI;
         waveManager.OnWaveChanged += UpdateWaveUI;
+        playerStatsManager.OnStatChanged += UpdateStats;
+    }
+
+    private void UpdateStats()
+    {
+        Debug.Log("muss noch");
     }
 
     private void Start()

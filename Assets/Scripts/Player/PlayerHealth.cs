@@ -72,4 +72,10 @@ public class PlayerHealth : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
         //UpdateHealthUI();
     }
+
+    public void UpdateMaxHealth()
+    {
+        maxHealth = statsManager.GetStat(StatType.MaxHealth) * statsManager.GetStatMulti(StatMulti.MaxHealthPercent);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
 }
