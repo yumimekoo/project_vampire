@@ -5,7 +5,8 @@ using UnityEngine.Rendering;
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
-    
+    private EnemyHealthBar healthBarInstance;
+
     private Transform player;
     private IEnemyBehavior behavior;
     private Rigidbody2D rb;
@@ -19,6 +20,14 @@ public class EnemyBase : MonoBehaviour
         levelManager = level;
         behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform, pool);
         Health = data.maxHealth * levelManager.GetEnemyDifficultyMultiplier();
+    }
+
+    public void SetHealthBar(EnemyHealthBar bar)
+    {
+        healthBarInstance = bar;
+        bar.Initialize(transform);
+        Debug.Log("Setting health bar: " + data.maxHealth + "/" + data.maxHealth);
+        bar.UpdateHealthBar(data.maxHealth, data.maxHealth);
     }
 
     private void Awake()
@@ -54,6 +63,8 @@ public class EnemyBase : MonoBehaviour
     public void TakeDamage(float amount)
     {
         Health -= amount;
+        Health = Mathf.Max(Health, 0);
+        healthBarInstance?.UpdateHealthBar(Health, data.maxHealth);
         if (Health <= 0)
             Die();
     }
@@ -65,6 +76,7 @@ public class EnemyBase : MonoBehaviour
         levelManager.AddScore((int) (data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier() * levelManager.GetLevel()));
         levelManager.AddMoney((int)(data.droppedMoney * levelManager.GetEnemyDifficultyMultiplier()));
         Destroy(gameObject);
+        Destroy(healthBarInstance.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

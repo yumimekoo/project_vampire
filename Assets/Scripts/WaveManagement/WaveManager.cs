@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private ShopUI shopUI;
     [SerializeField] private ShopManager shopManager;
+    [SerializeField] private PlayerMovementController playerMovementController;
 
     public int currentWaveIndex = 0;
     public bool waveActive;
@@ -58,6 +59,7 @@ public class WaveManager : MonoBehaviour
 
     public void OnNextWaveButton()
     {
+        playerMovementController.ResetDashes();
         shopManager.RollItems();
         playerHealth.HealToFull();
         currentWaveIndex++;

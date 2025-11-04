@@ -10,25 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-BrokenShield
+  m_Name: P-HealOverTime
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Broken Shield
-  description: Raises Defense and reduces Attack
+  itemName: HealOverTimeOnPlayerHit
+  description: HealOverTimeOnPlayerHit
   type: 2
   rarity: 0
-  basePrice: 12
+  basePrice: 0
   icon: {fileID: 0}
-  positiveEffects:
-  - statType: 6
-    value: 2
+  positiveEffects: []
   positiveEffectMultis: []
-  negativeEffects:
-  - statType: 7
-    value: 2
+  negativeEffects: []
   negativeEffectMultis: []
   passiveSkillEffects:
-  - effectName: BleedOnHit
-    trigger: 1
-    duration: 3
-    value: 5
-    cooldown: 3
+  - effectName: HealOverTimeOnPlayerHit
+    trigger: 3
+    duration: 5
+    value: 2
+    cooldown: 10

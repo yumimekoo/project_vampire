@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        GameEvents.OnPlayerHit?.Invoke(this);
     }
 
     public void Heal(float amount)

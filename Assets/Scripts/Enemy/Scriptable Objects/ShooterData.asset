@@ -15,9 +15,10 @@ MonoBehaviour:
   enemyName: Shooty
   maxHealth: 5
   moveSpeed: 2
-  attackDamage: 12
+  attackDamage: 20
   attackRange: 4
   attackCooldown: 2
   droppedExperience: 12
   droppedMoney: 12
+  isDealingContactDamage: 0
   behaviorType: 3

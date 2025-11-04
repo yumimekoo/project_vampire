@@ -11,7 +11,7 @@ public class SkillManager : MonoBehaviour
         {
             if(activeEffects.TryGetValue(passive.effectName, out ISkillEffect existing))
             {
-                existing.AddStack(passive.value1, passive.value2);
+                existing.AddStack(passive.duration, passive.value);
                 Debug.Log($"Stacked existing effect: {passive.effectName}");
             }
             else
@@ -36,7 +36,9 @@ public class SkillManager : MonoBehaviour
         switch (data.effectName)
         {
             case "BleedOnHit":
-                            return new BleedOnHitEffect(data.value1, data.value2, data.cooldown);
+                            return new BleedOnHitEffect(data.duration, data.value, data.cooldown);
+            case "HealOverTimeOnPlayerHit":
+                            return new HealOverTimeOnPlayerHit(data.duration, data.value, data.cooldown);
             // case "AnotherEffect": etc.
             default:
                 return null;

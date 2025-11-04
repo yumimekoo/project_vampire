@@ -20,6 +20,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         dashes = MaxDashes;
         dashTimer = 0f;
+        ResetDashes();
     }
 
     private void Update()
@@ -89,6 +90,12 @@ public class PlayerMovementController : MonoBehaviour
                 StartDash();
             }
         }
+    }
+
+    public void ResetDashes()
+    {
+        dashes = 0;
+        dashTimer = MaxDashes * statsManager.GetStat(StatType.DashCooldown);
     }
 
     private void OnGUI()

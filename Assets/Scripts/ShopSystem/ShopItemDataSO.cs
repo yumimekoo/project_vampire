@@ -27,8 +27,8 @@ public class ShopItemDataSO : ScriptableObject
     {
         public string effectName;
         public PassiveTrigger trigger;
-        public float value1;
-        public float value2;
+        public float duration;
+        public float value;
         public float cooldown;
     }
 

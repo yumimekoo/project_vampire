@@ -8,9 +8,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private EnemyBulletPool pool;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private EnemyHealthBar healthBarPrefab;
 
     public Transform[] spawnPoints;
     private List<GameObject> activeEnemies = new();
+    private List<GameObject> activeHealthBars = new();
     private Coroutine spawnCoroutine;
 
     public void StartSpawning(WaveInfo wave)
@@ -46,9 +48,14 @@ public class EnemySpawner : MonoBehaviour
 
                 GameObject enemyObj = Instantiate(prefabEnemy, spawnPoint.position, Quaternion.identity);
                 EnemyBase enemyBase = enemyObj.GetComponent<EnemyBase>();
+
+                EnemyHealthBar bar = Instantiate(healthBarPrefab, enemyObj.transform.position, Quaternion.identity);
+                enemyBase.SetHealthBar(bar);
+
                 if (enemyBase != null)
                     enemyBase.Initialize(playerTransform, pool, levelManager);
                 activeEnemies.Add(enemyObj);
+                activeHealthBars.Add(bar.gameObject);
             }
 
             // Warte bis zum nächsten Spawn-Zyklus
@@ -62,8 +69,18 @@ public class EnemySpawner : MonoBehaviour
         foreach (var enemy in activeEnemies)
         {
             if(enemy != null)
+            {
                 Destroy(enemy);
+            }
+        }
+        foreach (var bar in activeHealthBars)
+        {
+            if(bar != null)
+            {
+                Destroy(bar.gameObject);
+            }
         }
         activeEnemies.Clear();
+        activeHealthBars.Clear();
     }
 }

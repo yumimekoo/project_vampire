@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,11 +52,12 @@ public class BleedOnHitEffect : ISkillEffect
     private IEnumerator ApplyBleed (EnemyBase enemy)
     {
         float elapsed = 0f;
+        float tickInterval = 0.2f;
         while (elapsed < duration && enemy != null)
         {
-            enemy.TakeDamage(dps * Time.deltaTime);
-            elapsed += Time.deltaTime;
-            yield return null;
+            enemy.TakeDamage(dps * tickInterval);
+            yield return new WaitForSeconds(tickInterval);
+            elapsed += tickInterval;
         }
         activeBleeds.Remove(enemy);
     }
