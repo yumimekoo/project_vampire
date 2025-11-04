@@ -3575,6 +3575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122855351}
   - component: {fileID: 2122855352}
+  - component: {fileID: 2122855353}
   m_Layer: 0
   m_Name: UITab
   m_TagString: Untagged
@@ -3611,7 +3612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: 8e1b4be3ca65bbd45bc3ee23732c8098, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: dca35ee3ae7c1514fb04f7d488b9c90d, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -3620,6 +3621,19 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &2122855353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122855350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f052532cd3cd17b4296835d64b6473c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTabMenuController
+  tabMenu: {fileID: 2122855352}
 --- !u!1 &2135709286
 GameObject:
   m_ObjectHideFlags: 0
