@@ -3,17 +3,30 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    private List<ISkillEffect> activeEffects = new List<ISkillEffect>();
+    private Dictionary<string, ISkillEffect> activeEffects = new();
 
     public void ApplyItem(ShopItemDataSO item)
     {
         foreach (var passive in item.passiveSkillEffects)
         {
-            ISkillEffect effect = CreateEffectFromData(passive);
-            if(effect != null)
+            if(activeEffects.TryGetValue(passive.effectName, out ISkillEffect existing))
             {
-                effect.Register();
-                activeEffects.Add(effect);
+                existing.AddStack(passive.value1, passive.value2);
+                Debug.Log($"Stacked existing effect: {passive.effectName}");
+            }
+            else
+            {
+                ISkillEffect newEffect = CreateEffectFromData(passive);
+                if(newEffect != null)
+                {
+                    newEffect.Register();
+                    activeEffects.Add(passive.effectName, newEffect);
+                    Debug.Log($"Registered new effect: {passive.effectName}");
+                }
+                else
+                {
+                    Debug.LogWarning($"Failed to create effect: {passive.effectName}");
+                }
             }
         }
     }
@@ -23,7 +36,7 @@ public class SkillManager : MonoBehaviour
         switch (data.effectName)
         {
             case "BleedOnHit":
-                            return new BleedOnHitEffect(data.value1, data.value2);
+                            return new BleedOnHitEffect(data.value1, data.value2, data.cooldown);
             // case "AnotherEffect": etc.
             default:
                 return null;
@@ -32,11 +45,10 @@ public class SkillManager : MonoBehaviour
 
     public void ClearEffects()
     {
-        foreach (var e in activeEffects)
+        foreach (var e in activeEffects.Values)
         {
             e.Unregister();
-
-            activeEffects.Clear();
         }
+        activeEffects.Clear();
     }
 }

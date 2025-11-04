@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
   itemName: Broken Shield
   description: Raises Defense and reduces Attack
-  type: 0
+  type: 2
   rarity: 0
   basePrice: 12
   icon: {fileID: 0}
@@ -29,5 +29,6 @@ MonoBehaviour:
   passiveSkillEffects:
   - effectName: BleedOnHit
     trigger: 1
-    value1: 3
-    value2: 4
+    value1: 10
+    value2: 10
+    cooldown: 3

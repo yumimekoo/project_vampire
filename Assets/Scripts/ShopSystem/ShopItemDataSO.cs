@@ -29,6 +29,7 @@ public class ShopItemDataSO : ScriptableObject
         public PassiveTrigger trigger;
         public float value1;
         public float value2;
+        public float cooldown;
     }
 
     public string itemName;
