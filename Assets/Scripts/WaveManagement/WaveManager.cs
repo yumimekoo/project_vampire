@@ -83,7 +83,7 @@ public class WaveManager : MonoBehaviour
             waveDuration = 30f + waveNumber * 2f,
             minEnemies = 3 + waveNumber,
             maxEnemies = 6 + waveNumber * 2,
-            spawnRate = Mathf.Max(0.5f, 2f - waveNumber * 0.1f),
+            spawnRate = Mathf.Max(7f, 14f - waveNumber * 0.1f),
             possibleEnemies = waveData.waves[^1].possibleEnemies,
         };
         return newWave;

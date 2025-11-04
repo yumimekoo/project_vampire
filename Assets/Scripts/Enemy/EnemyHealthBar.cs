@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyHealthBar : MonoBehaviour
 {
     [SerializeField] private Image fillImage;
-    [SerializeField] private Vector3 offset = new Vector3(0, 1.5f, 0);
+    [SerializeField] private Vector3 offset = new Vector3(0, -10f, 0);
     private Transform target;
 
     public void Initialize(Transform targetTransform)
