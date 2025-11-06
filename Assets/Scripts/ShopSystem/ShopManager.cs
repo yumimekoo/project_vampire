@@ -71,10 +71,19 @@ public class ShopManager : MonoBehaviour
         priceLabel.AddToClassList("shop-price");
         var buyButton = new Button(() => BuyItem(itemData)) { text = "Buy"};
         buyButton.AddToClassList("shop-buy");
+       
+        if(itemData.icon != null)
+        {
+            var icon = new VisualElement();
+            icon.style.backgroundImage = new StyleBackground(itemData.icon.texture);
+            itemElement.Add(icon);
+        }
+
         itemElement.Add(nameLabel);
         itemElement.Add(descLabel);
         itemElement.Add(priceLabel);
         itemElement.Add(buyButton);
+
 
         itemContainer.Add(itemElement);
         itemElements[itemData] = itemElement;
