@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -11,6 +12,7 @@ public class LevelManager : MonoBehaviour
     [Header("Level Settings")]
     [SerializeField] private int playerMoney = 0;
     [SerializeField] private int playerScore = 0;
+    [SerializeField] public int playerHighscore = 0;
 
     [Header("Level Settings")]
     [SerializeField] private float xpGrowthFactor = 1.25f;
@@ -28,7 +30,11 @@ public class LevelManager : MonoBehaviour
     // -----------
     // XP SYSTEM 
     // -----------
-
+    public void Awake()
+    {
+        HighScoreUpdate();
+        OnScoreChanged?.Invoke(playerScore);
+    }
     public void AddXP(float amount)
     {
         currentXP += amount;
@@ -81,7 +87,26 @@ public class LevelManager : MonoBehaviour
     public void AddScore(int amount)
     {
         playerScore += amount;
+        HighScoreUpdate();
         OnScoreChanged?.Invoke(playerScore);
+    }
+
+    private void HighScoreUpdate()
+    {
+        if(PlayerPrefs.HasKey("highscore"))
+        {
+            playerHighscore = PlayerPrefs.GetInt("highscore");
+            if(playerScore > playerHighscore)
+            {
+                playerHighscore = playerScore;
+                PlayerPrefs.SetInt("highscore", playerHighscore);
+            }
+        }
+        else
+        {
+            playerHighscore = playerScore;
+            PlayerPrefs.SetInt("highscore", playerHighscore);
+        }
     }
 
     public void ResetScore()

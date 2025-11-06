@@ -15,6 +15,7 @@ public class OverlayUI : MonoBehaviour
     private Label 
         waveLabel,
         scoreLabel,
+        highscoreLabel,
         levelLabel,
         moneyLabel;
     private ProgressBar 
@@ -26,6 +27,7 @@ public class OverlayUI : MonoBehaviour
         var root = overlayUI.rootVisualElement;
         waveLabel = root.Q<Label>("waveLabel");
         scoreLabel = root.Q<Label>("scoreLabel");
+        highscoreLabel = root.Q<Label>("highscoreLabel");
         levelLabel = root.Q<Label>("levelLabel");
         moneyLabel = root.Q<Label>("moneyLabel");
         xpBar = root.Q<ProgressBar>("xpBar");
@@ -104,6 +106,9 @@ public class OverlayUI : MonoBehaviour
         if (scoreLabel == null)
             return;
         scoreLabel.text = $"Score: {score}";
+        if (highscoreLabel == null)
+            return;
+        highscoreLabel.text = $"Highscore: {levelManager.playerHighscore}";
     }
 
     private void UpdateAllUIs()

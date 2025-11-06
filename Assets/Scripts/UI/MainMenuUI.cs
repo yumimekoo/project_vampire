@@ -26,6 +26,8 @@ public class MainMenuUI : MonoBehaviour
         playButton = root.Q<Button>("buttonPlay");
         quitButton = root.Q<Button>("buttonExit");
 
+        highscore.text = $"{PlayerPrefs.GetInt("highscore", 0)}!!!";
+
         playButton.clicked += () =>
         {
             LoadSceneWithProgress("SampleScene");
