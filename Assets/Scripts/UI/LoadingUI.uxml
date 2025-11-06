@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; padding-top: 250px; padding-right: 250px; padding-bottom: 250px; padding-left: 250px; background-color: rgba(0, 0, 0, 0.76);">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgb(255, 255, 255); border-top-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; justify-content: center; align-items: center;">
+            <ui:Label text="Loading..." style="font-size: 60px;" />
+            <ui:ProgressBar value="22" name="loading" style="width: 400px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

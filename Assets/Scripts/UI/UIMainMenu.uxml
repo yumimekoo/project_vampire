@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="background" style="flex-grow: 1;">
+        <ui:Label text="super irgendas" name="labelTitle" style="font-size: 80px;" />
+        <ui:Label text="oh yess" name="labelSubtitle" style="font-size: 40px;" />
+        <ui:Label text="236.956!" name="labelHighscore" style="font-size: 80px;" />
+        <ui:Button text="Play" name="buttonPlay" style="font-size: 30px;" />
+        <ui:Button text="Exit" name="buttonExit" style="font-size: 30px;" />
+    </ui:VisualElement>
+</ui:UXML>
