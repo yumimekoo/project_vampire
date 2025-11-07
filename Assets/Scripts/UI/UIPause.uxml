@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; padding-top: 220px; padding-right: 220px; padding-bottom: 220px; padding-left: 220px; align-items: center; justify-content: center; align-self: stretch;">
+        <ui:Button text="continue" name="buttonContinue" style="width: 150px;" />
+        <ui:Button text="new game" name="buttonNewGame" style="width: 150px;" />
+        <ui:Button text="exit" name="buttonExit" style="width: 150px;" />
+    </ui:VisualElement>
+</ui:UXML>
