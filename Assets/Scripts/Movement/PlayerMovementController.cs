@@ -48,7 +48,10 @@ public class PlayerMovementController : MonoBehaviour
     {
         isDashing = true;
         dashDirection = moveInput != Vector2.zero ? moveInput : Vector2.up;
- 
+
+        animator.SetFloat("MoveX", dashDirection.x);
+        animator.SetFloat("MoveY", dashDirection.y);
+        animator.SetTrigger("Dash");
 
         float dashDistance = statsManager.GetStat(StatType.DashDistance);
         rb.linearVelocity = dashDirection.normalized * dashDistance / 0.1f;
