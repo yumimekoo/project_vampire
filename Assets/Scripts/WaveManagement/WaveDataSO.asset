@@ -15,9 +15,9 @@ MonoBehaviour:
   waves:
   - waveNumber: 0
     waveDuration: 15
-    minEnemies: 3
-    maxEnemies: 3
-    spawnRate: 3
+    minEnemies: 1
+    maxEnemies: 1
+    spawnRate: 15
     possibleEnemies:
     - {fileID: 3748472330514613518, guid: 1b75b9ef6c2a73c41964583212d28406, type: 3}
     - {fileID: 3748472330514613518, guid: 167d6e9abe06ee7489a146825b37e53a, type: 3}

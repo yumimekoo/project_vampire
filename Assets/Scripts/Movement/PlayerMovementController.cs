@@ -5,6 +5,7 @@ public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private PlayerStatsManager statsManager;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
 
     private Vector2 moveInput;
     private bool isDashing = false;
@@ -27,6 +28,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         HandleInput();
         UpdateDashTimer();
+        UpdateAnimator();
     }
     private void FixedUpdate()
     {
@@ -90,6 +92,15 @@ public class PlayerMovementController : MonoBehaviour
                 StartDash();
             }
         }
+    }
+
+    private void UpdateAnimator() 
+    {
+        bool isMoving = moveInput.sqrMagnitude > 0.01f;
+
+        animator.SetFloat("MoveX", moveInput.x);
+        animator.SetFloat("MoveY", moveInput.y);
+        animator.SetBool("isMoving", isMoving);
     }
 
     public void ResetDashes()
