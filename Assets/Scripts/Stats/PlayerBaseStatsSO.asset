@@ -18,7 +18,7 @@ MonoBehaviour:
   dashes: 4
   dashRegenerationRate: 0.5
   maxHealth: 200
-  defense: 0
+  defense: 1
   attackDamage: 10
   attackSpeed: 3
   bulletSpeed: 10

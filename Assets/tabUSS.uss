@@ -1,0 +1,18 @@
+:root {
+}
+
+.stat-container {
+}
+
+.stat-name {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 20px;
+}
+
+.stat-value {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-align: upper-right;
+    background-color: rgba(217, 215, 215, 0);
+}
