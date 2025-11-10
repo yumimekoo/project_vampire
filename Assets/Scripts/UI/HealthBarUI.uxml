@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/healthbarUI.uss?fileID=7433441132597879392&amp;guid=d93adf8ab7579c04ba2b3433fed5e115&amp;type=3#healthbarUI" />
+    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; background-image: none;">
+        <ui:VisualElement style="flex-grow: 0; height: 11%; flex-direction: row;">
+            <ui:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; width: 33%; align-self: center; justify-content: center; left: 9px; top: 2px;">
+                <ui:ProgressBar value="100" name="healthBar" style="width: 525px; justify-content: space-around;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

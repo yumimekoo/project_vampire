@@ -10,9 +10,47 @@ VisualElement > VisualElement > #xpBar > #unity-progress-bar > .unity-progress-b
 }
 
 VisualElement > VisualElement > #hpBar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__title-container {
-    background-color: rgba(175, 0, 0, 0.46);
+    background-color: rgba(255, 255, 255, 0);
 }
 
 VisualElement > VisualElement > #hpBar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__progress {
-    background-color: rgb(192, 0, 0);
+    background-color: rgb(110, 14, 31);
+}
+
+VisualElement > VisualElement > VisualElement > #hpBar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__title-container {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+VisualElement > VisualElement > VisualElement > #hpBar > #unity-progress-bar > .unity-progress-bar__background {
+    background-color: rgb(96, 89, 89);
+}
+
+.healthLabel {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 25px;
+    -unity-font-style: normal;
+    -unity-text-outline-color: rgb(72, 72, 72);
+    -unity-text-outline-width: 0;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    color: rgb(186, 145, 209);
+}
+
+.wave-number {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 35px;
+    color: rgb(186, 145, 209);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    letter-spacing: 0;
+    -unity-font-style: normal;
+    background-color: rgba(0, 0, 0, 0.24);
+    -unity-text-align: middle-left;
+    white-space: normal;
+}
+
+.time {
+    font-size: 35px;
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(186, 145, 209);
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
 }

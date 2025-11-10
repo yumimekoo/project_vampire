@@ -48,6 +48,11 @@ public class WaveManager : MonoBehaviour
         EndWave();
     }
 
+    public float GetRemainingTime()
+    {
+        return Mathf.Max(0f, waveTimer);
+    }
+
     private void EndWave()
     {
         Debug.Log("Wave ended.");
@@ -61,6 +66,7 @@ public class WaveManager : MonoBehaviour
     public void OnNextWaveButton()
     {
         playerMovementController.ResetDashes();
+        playerMovementController.SetToZero();
         shopManager.RollItems();
         playerHealth.HealToFull();
         currentWaveIndex++;

@@ -47,8 +47,8 @@ public class PlayerMovementController : MonoBehaviour
     {
         //Debug.Log("Ist richtung null");
         //rb.MovePosition(Vector3.zero);
-        //rb.linearVelocity = Vector2.zero;
-        //rb.angularVelocity = 0f;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
         rb.transform.position = Vector3.zero;
     }
 

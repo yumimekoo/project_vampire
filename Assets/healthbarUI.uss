@@ -1,0 +1,14 @@
+:root {
+}
+
+VisualElement > VisualElement > #VisualElement > .unity-progress-bar > #unity-progress-bar > .unity-progress-bar__background > .unity-progress-bar__progress {
+    background-color: rgb(110, 14, 31);
+    height: 22px;
+}
+
+VisualElement > VisualElement > #VisualElement > .unity-progress-bar > #unity-progress-bar > .unity-progress-bar__background {
+    background-color: rgb(96, 89, 89);
+}
+
+VisualElement > VisualElement > #VisualElement > .unity-progress-bar > #unity-progress-bar {
+}

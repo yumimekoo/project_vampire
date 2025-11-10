@@ -17,7 +17,10 @@ public class OverlayUI : MonoBehaviour
         scoreLabel,
         highscoreLabel,
         levelLabel,
-        moneyLabel;
+        moneyLabel,
+        lowHealthLabel,
+        highHealthLabel,
+        remainingTime;
     private ProgressBar 
         xpBar,
         hpBar;
@@ -25,13 +28,15 @@ public class OverlayUI : MonoBehaviour
     private void Awake()
     {
         var root = overlayUI.rootVisualElement;
-        waveLabel = root.Q<Label>("waveLabel");
+        waveLabel = root.Q<Label>("waveNumber");
         scoreLabel = root.Q<Label>("scoreLabel");
         highscoreLabel = root.Q<Label>("highscoreLabel");
         levelLabel = root.Q<Label>("levelLabel");
         moneyLabel = root.Q<Label>("moneyLabel");
         xpBar = root.Q<ProgressBar>("xpBar");
-        hpBar = root.Q<ProgressBar>("hpBar");
+        lowHealthLabel = root.Q<Label>("lowHealthLabel");
+        highHealthLabel = root.Q<Label>("highHealthLabel");
+        remainingTime = root.Q<Label>("remainingTime");
 
         playerHealth.OnHealthChanged += UpdateHealthBar;
         levelManager.OnXPChanged += UpdateXPBar;
@@ -52,6 +57,11 @@ public class OverlayUI : MonoBehaviour
         UpdateAllUIs();
     }
 
+    private void Update()
+    {
+        TimerUI();
+    }
+
     private void OnDestroy()
     {
         playerHealth.OnHealthChanged -= UpdateHealthBar;
@@ -66,10 +76,8 @@ public class OverlayUI : MonoBehaviour
 
     private void UpdateHealthBar(float current, float max)
     {
-        if (hpBar == null)
-            return;
-        hpBar.value = (current / max) * 100f;
-        hpBar.title = $"{Mathf.RoundToInt(current)} / {Mathf.RoundToInt(max)}";
+        lowHealthLabel.text = $"{Mathf.RoundToInt(current)}";
+        highHealthLabel.text = $"{Mathf.RoundToInt(max)}";
     }
 
     private void UpdateXPBar(float current, float max)
@@ -77,6 +85,7 @@ public class OverlayUI : MonoBehaviour
         if (xpBar == null)
             return;
         xpBar.value = (current / max) * 100f;
+
         xpBar.title = $"{Mathf.RoundToInt(current)} / {Mathf.RoundToInt(max)}";
     }
 
@@ -98,10 +107,22 @@ public class OverlayUI : MonoBehaviour
     {
         if (waveLabel == null)
             return;
-        waveLabel.text = $"Wave {waveManager.currentWaveIndex + 1}";
+        waveLabel.text = $"{waveManager.currentWaveIndex + 1}";
     }
 
-    private void UpdateScoreUI(int score)
+    private void TimerUI()
+    {
+        if (remainingTime != null)
+        {
+            float timeLeft = waveManager.GetRemainingTime();
+            int minutes = Mathf.FloorToInt(timeLeft / 60f);
+            int seconds = Mathf.FloorToInt(timeLeft % 60f);
+            remainingTime.text = $"{minutes:00}:{seconds:00}";
+        }
+    }
+ 
+
+private void UpdateScoreUI(int score)
     {
         if (scoreLabel == null)
             return;
