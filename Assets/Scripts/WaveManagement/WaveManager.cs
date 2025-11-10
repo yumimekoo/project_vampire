@@ -54,6 +54,7 @@ public class WaveManager : MonoBehaviour
         waveActive = false;
         enemySpawner.StopSpawning();
         enemySpawner.ClearAllEnemies();
+        playerMovementController.SetToZero();
         shopUI.ShowUI();
     }
 

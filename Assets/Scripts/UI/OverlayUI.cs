@@ -120,4 +120,8 @@ public class OverlayUI : MonoBehaviour
         UpdateScoreUI(0);
         UpdateXPBar(0, 100);
     }
+
+    public void ShowUI() => overlayUI.rootVisualElement.style.display = DisplayStyle.Flex;
+
+    public void HideUI() => overlayUI.rootVisualElement.style.display = DisplayStyle.None;
 }

@@ -136,6 +136,17 @@ public class PlayerTabMenuController : MonoBehaviour
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
 
+    public void HideUI()
+    {
+        GameState.inTabPauseMenu = false;
+        isTabHeld = false;
+        tabMenu.rootVisualElement.style.display = DisplayStyle.None;
+        if (timeScaleCoroutine != null)
+        {
+            StopCoroutine(timeScaleCoroutine);
+        }
+        Time.timeScale = 1f;
+    }
 
 
 }

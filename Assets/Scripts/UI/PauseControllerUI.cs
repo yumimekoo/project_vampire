@@ -56,7 +56,7 @@ public class PauseControllerUI : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !GameState.inShop)
+        if(Input.GetKeyDown(KeyCode.Escape) && !GameState.inShop && !GameState.inTabPauseMenu)
         {
             if (!GameState.inPauseMenu)
             {
@@ -88,5 +88,12 @@ public class PauseControllerUI : MonoBehaviour
         }
         Time.timeScale = end;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    }
+
+    public void HideUI()
+    {
+        pauseUI.rootVisualElement.style.display = DisplayStyle.None;
+        GameState.inPauseMenu = false;
+        Time.timeScale = 1f;
     }
 }

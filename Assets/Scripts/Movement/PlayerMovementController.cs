@@ -26,19 +26,35 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
-        UpdateDashTimer();
-        UpdateAnimator();
+        if (!GameState.inPauseMenu && !GameState.inShop && !GameState.inPauseMenu)
+        {
+            HandleInput();
+            UpdateDashTimer();
+            UpdateAnimator();
+        }
+
     }
     private void FixedUpdate()
     {
-        if (!isDashing)
-            Move();
+        if (!GameState.inPauseMenu && !GameState.inShop)
+        {
+            if (!isDashing)
+                Move();
+        }
+    }
+
+    public void SetToZero()
+    {
+        //Debug.Log("Ist richtung null");
+        //rb.MovePosition(Vector3.zero);
+        //rb.linearVelocity = Vector2.zero;
+        //rb.angularVelocity = 0f;
+        rb.transform.position = Vector3.zero;
     }
 
     private void Move()
     {
-        float speed = statsManager.GetStat(StatType.MoveSpeed);
+        float speed = statsManager.GetStat(StatType.MoveSpeed) + statsManager.GetStatMulti(StatMulti.MovePercent);
         Vector2 targetVelocity = moveInput * speed;
 
         rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref currentVelocity, 0.075f);

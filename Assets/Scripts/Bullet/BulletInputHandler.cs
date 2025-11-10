@@ -10,40 +10,20 @@ public class BulletInputHandler : MonoBehaviour
     private float nextShootTime = 0f;
     void Update()
     {
-
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    nextShootTime = Time.time;
-        //}
-
-        //attackTimer -= Time.deltaTime;
-        if (Input.GetButton("Fire1") && Time.time >= nextShootTime) 
+        if(!GameState.inPauseMenu && !GameState.inTabPauseMenu && !GameState.inShop)
         {
-            Shoot();
+            if (Input.GetButton("Fire1") && Time.time >= nextShootTime)
+            {
+                Shoot();
 
-            float attackSpeed = statsManager.GetStat(StatType.AttackSpeed);
-            nextShootTime = Time.time + 1f / attackSpeed;
+                float attackSpeed = statsManager.GetStat(StatType.AttackSpeed);
+                nextShootTime = Time.time + 1f / attackSpeed;
+            }
         }
 
-        //if (Input.GetButtonUp("Fire1"))
-        //{
-        //    nextShootTime = 0f;
-        //}
     }
 
 
-//private void TryShoot()
-//{
-//    float attackSpeed = statsManager.GetStat(StatType.AttackSpeed);
-//    float attackCooldown = 1f/ attackSpeed;
-
-//    if (attackTimer <= 0f)
-//    {
-//        Shoot();
-//        attackTimer = attackCooldown;
-
-//    }   
-//}
 
 private void Shoot()
     {

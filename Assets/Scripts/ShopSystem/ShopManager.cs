@@ -171,11 +171,16 @@ public class ShopManager : MonoBehaviour
         return allItems.Where(i => i.rarity == rarity).ToList();
     }
 
+    private void CloseAllOtherUI()
+    {
+
+    }
+
     [ContextMenu("Test Rarity Distribution")]
     private void TestRarityDistribution()
     {
         int playerLevel = 25; // Oder beliebiger Test-Level
-        int testRuns = 10000; // Anzahl der Würfe für Statistik
+        int testRuns = 10000; // Anzahl der W?rfe f?r Statistik
 
         int commonCount = 0;
         int uncommonCount = 0;
