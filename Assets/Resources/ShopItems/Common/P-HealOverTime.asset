@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 2
   rarity: 0
   basePrice: 0
-  icon: {fileID: 0}
+  icon: {fileID: -4248584314167769519, guid: b77908d7818f4974e941956710ed5c27, type: 3}
   positiveEffects: []
   positiveEffectMultis: []
   negativeEffects: []

@@ -1,0 +1,10 @@
+:root {
+}
+
+.background {
+}
+
+.name-label {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 30px;
+}

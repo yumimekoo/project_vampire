@@ -35,7 +35,7 @@ public class MainMenuUI : MonoBehaviour
 
         mainMenuBackground.style.backgroundImage = new StyleBackground(frames[0]);
 
-        highscore.text = $"{PlayerPrefs.GetInt("highscore", 0)}!!!";
+        highscore.text = $"{PlayerPrefs.GetInt("highscore", 0)} !";
 
         playButton.clicked += () =>
         {
@@ -56,6 +56,8 @@ public class MainMenuUI : MonoBehaviour
             x => loadingRoot.style.opacity = x,
             0f, 1f
             );
+
+        StartPulse();
     }
 
     private void Update()
@@ -70,6 +72,26 @@ public class MainMenuUI : MonoBehaviour
             currentFrame = (currentFrame + 1) % frames.Length;
             mainMenuBackground.style.backgroundImage = new StyleBackground(frames[currentFrame]);
         }
+    }
+
+
+    void StartPulse()
+    {
+        // Holt den aktuellen Wert als Startpunkt
+        float currentSize = 130;
+
+        // DOTween-Animation
+        DOTween.To(
+            () => currentSize,
+            x => {
+                currentSize = x;
+                highscore.style.fontSize = x;
+            },
+            160,
+            1f
+        )
+        .SetEase(Ease.InOutSine)
+        .SetLoops(-1, LoopType.Yoyo); // endloses Hin-und-Her
     }
 
     //public void LoadSceneWithProgress(string name)

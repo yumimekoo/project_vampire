@@ -15,6 +15,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;   
     [SerializeField] private SkillManager skillManager;
 
+    [SerializeField] private VisualTreeAsset commonItemTemplate;
+
     private List<ShopItemDataSO> currentItems = new List<ShopItemDataSO>();
     private VisualElement root,
         itemContainer;
@@ -60,29 +62,22 @@ public class ShopManager : MonoBehaviour
 
     private void CreateItemUI(ShopItemDataSO itemData)
     {
-        var itemElement = new VisualElement();
-        itemElement.AddToClassList("shop-item");
+        var itemElement = commonItemTemplate.CloneTree();
+        var nameLabel = itemElement.Q<Label>("nameLabel");
+        var descLabel = itemElement.Q<Label>("descLabel");
+        var buyButton = itemElement.Q<Button>("buyButton");
+        var iconElement = itemElement.Q<VisualElement>("iconElement");
 
-        var nameLabel = new Label(itemData.itemName);
-        nameLabel.AddToClassList("shop-name");
-        var descLabel = new Label(itemData.description);
-        descLabel.AddToClassList("shop-desc");
-        var priceLabel = new Label($"{itemData.basePrice} $");
-        priceLabel.AddToClassList("shop-price");
-        var buyButton = new Button(() => BuyItem(itemData)) { text = "Buy"};
-        buyButton.AddToClassList("shop-buy");
-       
-        if(itemData.icon != null)
+        if (itemData.icon != null)
         {
-            var icon = new VisualElement();
-            icon.style.backgroundImage = new StyleBackground(itemData.icon.texture);
-            itemElement.Add(icon);
+            
+            iconElement.style.backgroundImage = new StyleBackground(itemData.icon.texture);
         }
 
-        itemElement.Add(nameLabel);
-        itemElement.Add(descLabel);
-        itemElement.Add(priceLabel);
-        itemElement.Add(buyButton);
+        nameLabel.text = itemData.itemName;
+        descLabel.text = itemData.description;
+        buyButton.text = $"{itemData.basePrice}$";
+        buyButton.clicked += () => BuyItem(itemData);
 
 
         itemContainer.Add(itemElement);

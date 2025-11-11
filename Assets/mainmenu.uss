@@ -1,0 +1,10 @@
+:root {
+}
+
+.button {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 50px;
+    color: rgb(208, 155, 255);
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}

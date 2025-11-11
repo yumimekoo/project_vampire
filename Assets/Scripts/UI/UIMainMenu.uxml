@@ -1,11 +1,21 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/mainmenu.uss?fileID=7433441132597879392&amp;guid=39852b7951156e844b5ab1b18814165f&amp;type=3#mainmenu" />
     <ui:VisualElement name="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/main-menu.aseprite?fileID=743177922535602542&amp;guid=693044937cc8ab7458d7cb4fd5723791&amp;type=3#main-menu&quot;); -unity-background-image-tint-color: rgb(255, 255, 255);">
         <ui:VisualElement name="vignette" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/NicePng_vignette-png-1920x1080_8780791.png?fileID=2800000&amp;guid=a26fc544e4427ac41803d5c0c0a2388b&amp;type=3#NicePng_vignette-png-1920x1080_8780791&quot;); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
-            <ui:Label text="super irgendas" name="labelTitle" style="font-size: 80px;" />
-            <ui:Label text="oh yess" name="labelSubtitle" style="font-size: 40px;" />
-            <ui:Label text="236.956!" name="labelHighscore" style="font-size: 80px;" />
-            <ui:Button text="Play" name="buttonPlay" style="font-size: 30px;" />
-            <ui:Button text="Exit" name="buttonExit" style="font-size: 30px;" />
+            <ui:VisualElement style="flex-grow: 0; height: 55%;">
+                <ui:VisualElement style="flex-grow: 0; height: 100px;" />
+                <ui:Label text="Wizard67" name="labelTitle" style="font-size: 280px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); -unity-font-style: normal; color: rgb(208, 155, 255); -unity-text-align: upper-center; text-shadow: 5px 5px 10px rgb(255, 255, 255); padding-bottom: 0; margin-bottom: -10px;" />
+                <ui:Label text=":3" name="labelSubtitle" style="font-size: 50px; -unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); color: rgb(191, 69, 186); text-shadow: 2px 2px 2px rgb(255, 255, 255); margin-top: 0; padding-top: 0;" />
+                <ui:Label text="236.956!" name="labelHighscore" style="font-size: 130px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); color: rgb(191, 69, 186); -unity-text-align: upper-right; rotate: -12deg; text-shadow: 3px 3px 1px rgb(255, 255, 255); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-right: 50px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 0; align-self: center;">
+                <ui:VisualElement style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px;">
+                    <ui:Button text="Play" name="buttonPlay" class="button" style="width: 384px; height: 96px; min-width: 384px; max-width: 384px; min-height: 96px; max-height: 96px; background-image: url(&quot;project://database/Assets/Sprites/buttonPrefab.aseprite?fileID=1782798293583943734&amp;guid=6809ba3236bdbd142b573f4c0ecaa0bf&amp;type=3#buttonPrefab&quot;); background-color: rgba(0, 0, 0, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px;">
+                    <ui:Button text="Exit" name="buttonExit" class="button" style="width: 384px; height: 96px; min-width: 384px; max-width: 384px; min-height: 96px; max-height: 96px; background-image: url(&quot;project://database/Assets/Sprites/buttonPrefab.aseprite?fileID=1782798293583943734&amp;guid=6809ba3236bdbd142b573f4c0ecaa0bf&amp;type=3#buttonPrefab&quot;); background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

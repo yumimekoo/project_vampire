@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveDataSO
   waves:
   - waveNumber: 0
-    waveDuration: 15
+    waveDuration: 2
     minEnemies: 4
     maxEnemies: 4
     spawnRate: 3
