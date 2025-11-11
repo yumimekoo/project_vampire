@@ -54,3 +54,25 @@ VisualElement > VisualElement > VisualElement > #hpBar > #unity-progress-bar > .
     color: rgb(186, 145, 209);
     text-shadow: 2px 2px 0 rgb(0, 0, 0);
 }
+
+.score-label {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 30px;
+    color: rgb(186, 145, 209);
+    text-shadow: 1px 2px 0 rgb(255, 255, 255);
+}
+
+.money-label {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 30px;
+    color: rgb(186, 145, 209);
+    text-shadow: 1px 1px 0 rgb(255, 255, 255);
+}
+
+.level-label {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 40px;
+    -unity-text-align: upper-left;
+    color: rgb(158, 197, 59);
+    text-shadow: 2px 1px 0 rgb(0, 0, 0);
+}

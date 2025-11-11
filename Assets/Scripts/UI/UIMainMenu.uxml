@@ -1,9 +1,11 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="background" style="flex-grow: 1;">
-        <ui:Label text="super irgendas" name="labelTitle" style="font-size: 80px;" />
-        <ui:Label text="oh yess" name="labelSubtitle" style="font-size: 40px;" />
-        <ui:Label text="236.956!" name="labelHighscore" style="font-size: 80px;" />
-        <ui:Button text="Play" name="buttonPlay" style="font-size: 30px;" />
-        <ui:Button text="Exit" name="buttonExit" style="font-size: 30px;" />
+    <ui:VisualElement name="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/main-menu.aseprite?fileID=743177922535602542&amp;guid=693044937cc8ab7458d7cb4fd5723791&amp;type=3#main-menu&quot;); -unity-background-image-tint-color: rgb(255, 255, 255);">
+        <ui:VisualElement name="vignette" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/NicePng_vignette-png-1920x1080_8780791.png?fileID=2800000&amp;guid=a26fc544e4427ac41803d5c0c0a2388b&amp;type=3#NicePng_vignette-png-1920x1080_8780791&quot;); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
+            <ui:Label text="super irgendas" name="labelTitle" style="font-size: 80px;" />
+            <ui:Label text="oh yess" name="labelSubtitle" style="font-size: 40px;" />
+            <ui:Label text="236.956!" name="labelHighscore" style="font-size: 80px;" />
+            <ui:Button text="Play" name="buttonPlay" style="font-size: 30px;" />
+            <ui:Button text="Exit" name="buttonExit" style="font-size: 30px;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

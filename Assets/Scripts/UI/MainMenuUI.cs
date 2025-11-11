@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using DG.Tweening;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class MainMenuUI : MonoBehaviour
     private Button 
         playButton,
         quitButton;
+
+    private int currentFrame;
+    private float timer;
+    public Sprite[] frames;
+    public float frameRate = 8f;
+
     void Start()
     {
         var root = mainUI.rootVisualElement;
@@ -26,11 +33,13 @@ public class MainMenuUI : MonoBehaviour
         playButton = root.Q<Button>("buttonPlay");
         quitButton = root.Q<Button>("buttonExit");
 
+        mainMenuBackground.style.backgroundImage = new StyleBackground(frames[0]);
+
         highscore.text = $"{PlayerPrefs.GetInt("highscore", 0)}!!!";
 
         playButton.clicked += () =>
         {
-            LoadSceneWithProgress("SampleScene");
+            LoadScene("SampleScene");
         };
 
         quitButton.clicked += () =>
@@ -42,34 +51,63 @@ public class MainMenuUI : MonoBehaviour
         };
 
         var loadingRoot = loadingUI.rootVisualElement;
-        loadingBar = loadingRoot.Q<ProgressBar>("loading");
-        loadingUI.rootVisualElement.style.display = DisplayStyle.None;
+        DOTween.To(
+            () => (float) loadingRoot.resolvedStyle.opacity,
+            x => loadingRoot.style.opacity = x,
+            0f, 1f
+            );
     }
 
-    public void LoadSceneWithProgress(string name)
+    private void Update()
     {
-        StartCoroutine(LoadSceneAsync(name));
-    }
+        if (frames.Length == 0)
+            return;
 
-    public IEnumerator LoadSceneAsync(string name)
-    {
-        loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
-        loadingBar.value = 0f;
-       
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
-        asyncLoad.allowSceneActivation = false;
-
-        while (!asyncLoad.isDone)
+        timer += Time.deltaTime;
+        if (timer >= 1f / frameRate)
         {
-            float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
-            loadingBar.value = progress * 100f;
-            if (asyncLoad.progress >= 0.9f)
-            {
-                asyncLoad.allowSceneActivation = true;
-            }
-            yield return null;
+            timer = 0f;
+            currentFrame = (currentFrame + 1) % frames.Length;
+            mainMenuBackground.style.backgroundImage = new StyleBackground(frames[currentFrame]);
         }
     }
+
+    //public void LoadSceneWithProgress(string name)
+    //{
+    //    StartCoroutine(LoadSceneAsync(name));
+    //}
+
+    public void LoadScene(string name)
+    {
+        DOTween.To(
+            () => (float) loadingUI.rootVisualElement.resolvedStyle.opacity,
+            x => loadingUI.rootVisualElement.style.opacity = x,
+            1f, 1f
+            ).OnComplete(() =>
+            {
+                SceneManager.LoadSceneAsync(name);
+            });
+    }
+
+    //public IEnumerator LoadSceneAsync(string name)
+    //{
+    //    loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
+    //    loadingBar.value = 0f;
+       
+    //    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
+    //    asyncLoad.allowSceneActivation = false;
+
+    //    while (!asyncLoad.isDone)
+    //    {
+    //        float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
+    //        loadingBar.value = progress * 100f;
+    //        if (asyncLoad.progress >= 0.9f)
+    //        {
+    //            asyncLoad.allowSceneActivation = true;
+    //        }
+    //        yield return null;
+    //    }
+    //}
 
 
 }

@@ -166,6 +166,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
   mainUI: {fileID: 616455959}
   loadingUI: {fileID: 1333362846}
+  frames:
+  - {fileID: 743177922535602542, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  - {fileID: 721627886198041840, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  - {fileID: 3623574607350129951, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  - {fileID: 1906873043558575022, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  - {fileID: -2423918690936766427, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  - {fileID: 9183840041111934122, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  - {fileID: 76471197062370942, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  - {fileID: -9065431853217176678, guid: 693044937cc8ab7458d7cb4fd5723791, type: 3}
+  frameRate: 8
 --- !u!114 &616455959
 MonoBehaviour:
   m_ObjectHideFlags: 0

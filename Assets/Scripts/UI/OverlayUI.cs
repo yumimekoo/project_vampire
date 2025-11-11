@@ -15,31 +15,24 @@ public class OverlayUI : MonoBehaviour
     private Label 
         waveLabel,
         scoreLabel,
-        highscoreLabel,
         levelLabel,
         moneyLabel,
         lowHealthLabel,
         highHealthLabel,
         remainingTime;
-    private ProgressBar 
-        xpBar,
-        hpBar;
 
     private void Awake()
     {
         var root = overlayUI.rootVisualElement;
         waveLabel = root.Q<Label>("waveNumber");
         scoreLabel = root.Q<Label>("scoreLabel");
-        highscoreLabel = root.Q<Label>("highscoreLabel");
         levelLabel = root.Q<Label>("levelLabel");
         moneyLabel = root.Q<Label>("moneyLabel");
-        xpBar = root.Q<ProgressBar>("xpBar");
         lowHealthLabel = root.Q<Label>("lowHealthLabel");
         highHealthLabel = root.Q<Label>("highHealthLabel");
         remainingTime = root.Q<Label>("remainingTime");
 
         playerHealth.OnHealthChanged += UpdateHealthBar;
-        levelManager.OnXPChanged += UpdateXPBar;
         levelManager.OnLevelChanged += UpdateLevelUI;
         levelManager.OnScoreChanged += UpdateScoreUI;
         levelManager.OnMoneyChanged += UpdateMoneyUI;
@@ -65,7 +58,6 @@ public class OverlayUI : MonoBehaviour
     private void OnDestroy()
     {
         playerHealth.OnHealthChanged -= UpdateHealthBar;
-        levelManager.OnXPChanged -= UpdateXPBar;
         levelManager.OnLevelChanged -= UpdateLevelUI;
         levelManager.OnMoneyChanged -= UpdateMoneyUI;
         waveManager.OnWaveChanged -= UpdateWaveUI;
@@ -80,27 +72,18 @@ public class OverlayUI : MonoBehaviour
         highHealthLabel.text = $"{Mathf.RoundToInt(max)}";
     }
 
-    private void UpdateXPBar(float current, float max)
-    {
-        if (xpBar == null)
-            return;
-        xpBar.value = (current / max) * 100f;
-
-        xpBar.title = $"{Mathf.RoundToInt(current)} / {Mathf.RoundToInt(max)}";
-    }
-
     private void UpdateLevelUI()
     {
         if (levelLabel == null)
             return;
-        levelLabel.text = $"Level: {levelManager.currentLevel}";
+        levelLabel.text = $"{levelManager.currentLevel}";
     }
 
     private void UpdateMoneyUI(int money)
     {
         if (moneyLabel == null)
             return;
-        moneyLabel.text = $"$ {money}";
+        moneyLabel.text = $"{money} $";
     }
 
     private void UpdateWaveUI()
@@ -126,10 +109,7 @@ private void UpdateScoreUI(int score)
     {
         if (scoreLabel == null)
             return;
-        scoreLabel.text = $"Score: {score}";
-        if (highscoreLabel == null)
-            return;
-        highscoreLabel.text = $"Highscore: {levelManager.playerHighscore}";
+        scoreLabel.text = $"{score}";   
     }
 
     private void UpdateAllUIs()
@@ -139,7 +119,6 @@ private void UpdateScoreUI(int score)
         UpdateWaveUI();
         UpdateMoneyUI(0);
         UpdateScoreUI(0);
-        UpdateXPBar(0, 100);
     }
 
     public void ShowUI() => overlayUI.rootVisualElement.style.display = DisplayStyle.Flex;

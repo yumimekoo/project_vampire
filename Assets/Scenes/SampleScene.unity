@@ -1224,6 +1224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarUnderlayUI
   healthbarunderlayUI: {fileID: 495452090}
   playerHealth: {fileID: 1078518625}
+  levelManager: {fileID: 1815376185}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
