@@ -10839,7 +10839,12 @@ MonoBehaviour:
   playerStatsManager: {fileID: 1194823393}
   playerHealth: {fileID: 1078518625}
   skillManager: {fileID: 1968244643}
-  commonItemTemplate: {fileID: 9197481963319205126, guid: 962ec4c34989bb74fbb5ce10ddf59194, type: 3}
+  commonItemTemplate: {fileID: 9197481963319205126, guid: 6c683d55213b9c144ab52563f5b2299b, type: 3}
+  uncommonItemTemplate: {fileID: 9197481963319205126, guid: 962ec4c34989bb74fbb5ce10ddf59194, type: 3}
+  rareItemTemplate: {fileID: 9197481963319205126, guid: 962ec4c34989bb74fbb5ce10ddf59194, type: 3}
+  mythicItemTemplate: {fileID: 9197481963319205126, guid: 6c683d55213b9c144ab52563f5b2299b, type: 3}
+  legendaryItemTemplate: {fileID: 9197481963319205126, guid: 6c683d55213b9c144ab52563f5b2299b, type: 3}
+  passiveSkillTemplate: {fileID: 9197481963319205126, guid: 962ec4c34989bb74fbb5ce10ddf59194, type: 3}
 --- !u!1 &363370079
 GameObject:
   m_ObjectHideFlags: 0
@@ -13897,7 +13902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480b9e8a8ad9f2d4e95341882bb103fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  currentLevel: 1
+  currentLevel: 15
   currentXP: 0
   xpToNextLevel: 100
   playerMoney: 60000

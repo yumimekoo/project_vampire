@@ -12,6 +12,7 @@ public class EnemyBase : MonoBehaviour
     private Rigidbody2D rb;
     private LevelManager levelManager;
     public float Health {  get; private set; }
+    public float maxHealthMultiplied {  get; private set; }
     public float lastAttackTime = -999f;
 
     public void Initialize(Transform playerTransform, EnemyBulletPool pool, LevelManager level)
@@ -20,14 +21,15 @@ public class EnemyBase : MonoBehaviour
         levelManager = level;
         behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform, pool);
         Health = data.maxHealth * levelManager.GetEnemyDifficultyMultiplier();
+        maxHealthMultiplied = data.maxHealth * levelManager.GetEnemyDifficultyMultiplier();
     }
 
     public void SetHealthBar(EnemyHealthBar bar)
     {
         healthBarInstance = bar;
         bar.Initialize(transform);
-        Debug.Log("Setting health bar: " + data.maxHealth + "/" + data.maxHealth);
-        bar.UpdateHealthBar(data.maxHealth, data.maxHealth);
+        Debug.Log("Setting health bar: " + maxHealthMultiplied + "/" + maxHealthMultiplied);
+        bar.UpdateHealthBar(maxHealthMultiplied, maxHealthMultiplied);
     }
 
     private void Awake()
@@ -64,7 +66,7 @@ public class EnemyBase : MonoBehaviour
     {
         Health -= amount;
         Health = Mathf.Max(Health, 0);
-        healthBarInstance?.UpdateHealthBar(Health, data.maxHealth);
+        healthBarInstance?.UpdateHealthBar(Health, maxHealthMultiplied);
         if (Health <= 0)
             Die();
     }

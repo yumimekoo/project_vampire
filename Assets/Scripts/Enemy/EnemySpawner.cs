@@ -50,11 +50,11 @@ public class EnemySpawner : MonoBehaviour
                 EnemyBase enemyBase = enemyObj.GetComponent<EnemyBase>();
 
                 EnemyHealthBar bar = Instantiate(healthBarPrefab, enemyObj.transform.position, Quaternion.identity);
-                enemyBase.SetHealthBar(bar);
 
                 if (enemyBase != null)
                     enemyBase.Initialize(playerTransform, pool, levelManager);
                 activeEnemies.Add(enemyObj);
+                enemyBase.SetHealthBar(bar);
                 activeHealthBars.Add(bar.gameObject);
             }
 

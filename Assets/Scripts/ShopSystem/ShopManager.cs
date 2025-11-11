@@ -16,6 +16,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private SkillManager skillManager;
 
     [SerializeField] private VisualTreeAsset commonItemTemplate;
+    [SerializeField] private VisualTreeAsset uncommonItemTemplate;
+    [SerializeField] private VisualTreeAsset rareItemTemplate;
+    [SerializeField] private VisualTreeAsset mythicItemTemplate;
+    [SerializeField] private VisualTreeAsset legendaryItemTemplate;
+    [SerializeField] private VisualTreeAsset passiveSkillTemplate;
 
     private List<ShopItemDataSO> currentItems = new List<ShopItemDataSO>();
     private VisualElement root,
@@ -62,7 +67,7 @@ public class ShopManager : MonoBehaviour
 
     private void CreateItemUI(ShopItemDataSO itemData)
     {
-        var itemElement = commonItemTemplate.CloneTree();
+        var itemElement = GetTemplateForItem(itemData).CloneTree();
         var nameLabel = itemElement.Q<Label>("nameLabel");
         var descLabel = itemElement.Q<Label>("descLabel");
         var buyButton = itemElement.Q<Button>("buyButton");
@@ -84,6 +89,23 @@ public class ShopManager : MonoBehaviour
         itemElements[itemData] = itemElement;
     }
 
+    private VisualTreeAsset GetTemplateForItem(ShopItemDataSO item)
+    {
+        if (item.type == ItemType.PassiveSkill || item.type == ItemType.ActiveSkill)
+        {
+            return passiveSkillTemplate;
+        }
+
+        return item.rarity switch
+        {
+            ItemRarity.Common => commonItemTemplate,
+            ItemRarity.Uncommon => uncommonItemTemplate,
+            ItemRarity.Rare => rareItemTemplate,
+            ItemRarity.Mythic => mythicItemTemplate,
+            ItemRarity.Legendary => legendaryItemTemplate,
+            _ => commonItemTemplate,
+        };
+    }
     private void BuyItem(ShopItemDataSO item)
     {
         if (levelManager.TrySpendMoney(item.basePrice))

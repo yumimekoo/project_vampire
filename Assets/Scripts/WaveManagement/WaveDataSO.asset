@@ -24,9 +24,9 @@ MonoBehaviour:
     - {fileID: 3748472330514613518, guid: 6fba62ab0b363f34499465d4b633358d, type: 3}
     - {fileID: 3748472330514613518, guid: 9f6ba863f5c2f384484e276a1e97e719, type: 3}
   - waveNumber: 1
-    waveDuration: 60
+    waveDuration: 4
     minEnemies: 1
     maxEnemies: 1
-    spawnRate: 30
+    spawnRate: 2
     possibleEnemies:
-    - {fileID: 3748472330514613518, guid: 167d6e9abe06ee7489a146825b37e53a, type: 3}
+    - {fileID: 3748472330514613518, guid: 6fba62ab0b363f34499465d4b633358d, type: 3}
