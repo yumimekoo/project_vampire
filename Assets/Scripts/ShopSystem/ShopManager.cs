@@ -292,6 +292,7 @@ public class ShopManager : MonoBehaviour
 
     public void ShowUI()
     {
+        UpdateMoneyDisplay();
         overlayUI.HideUI();
         underlayUI.HideUI();
         tabUI.HideUI();
