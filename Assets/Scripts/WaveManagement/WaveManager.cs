@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WaveManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private ShopManager shopUI;
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private PlayerMovementController playerMovementController;
+    [SerializeField] private UIDocument tutorialUI;
 
     public int currentWaveIndex = 0;
     public bool waveActive;
@@ -33,12 +35,29 @@ public class WaveManager : MonoBehaviour
         WaveInfo currentWave = GetCurrentWave();
         Debug.Log($"Starting waave {currentWave.waveNumber}");
 
+        if(GameState.isTutroial && currentWave.waveNumber == 0)
+        {
+            Debug.Log("Tutorial wave - waiting for player to start");
+            tutorialUI.rootVisualElement.style.display = DisplayStyle.Flex;
+
+            while(GameState.isTutroial)
+            {
+                yield return null;
+            }
+            tutorialUI.rootVisualElement.style.display = DisplayStyle.None;
+            yield return new WaitForSeconds(3f);
+            Debug.Log("Tutorial completed");
+        }
+
+
         waveActive = true;
         waveTimer = currentWave.waveDuration;
 
         enemySpawner.StartSpawning(currentWave);
 
-        while(waveTimer > 0f)
+        // hier UI animieren mit wave number etc.
+
+        while (waveTimer > 0f)
         {
             waveTimer -= Time.deltaTime;
             yield return null; 

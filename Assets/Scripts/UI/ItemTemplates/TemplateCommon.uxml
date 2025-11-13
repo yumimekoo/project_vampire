@@ -26,7 +26,7 @@
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 0; justify-content: space-evenly; align-items: center; align-self: auto; width: 200px; min-width: 200px; max-width: 200px;">
                 <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
-                    <ui:Button text="Button" name="buyButton" style="width: 200%; min-width: 200px; max-width: 200px; height: 32px; min-height: 32px; max-height: 32px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 20px;" />
+                    <ui:Button text="Button" name="buyButton" style="width: 120%; min-width: 120px; max-width: 120px; height: 39px; min-height: 39px; max-height: 39px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 20px; background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Sprites/Items/commonButton.aseprite?fileID=-2650807033485314267&amp;guid=3056253325ac9a141867e90f68e62dca&amp;type=3#commonButton&quot;); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); color: rgb(49, 49, 49); text-shadow: 1px 1px 0 rgb(215, 215, 215);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
