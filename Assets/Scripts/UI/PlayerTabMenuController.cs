@@ -88,7 +88,6 @@ public class PlayerTabMenuController : MonoBehaviour
 
     private void CloseTabMenu()
     {
-        GameState.inTabPauseMenu = false;
         isTabHeld = false;
         tabMenu.rootVisualElement.style.display = DisplayStyle.None;
 
@@ -97,6 +96,7 @@ public class PlayerTabMenuController : MonoBehaviour
             StopCoroutine(timeScaleCoroutine);
         }
         timeScaleCoroutine = StartCoroutine(AdjustTimeScale(Time.timeScale, 1f));
+        
     }
 
     private void AssignValues()
@@ -132,8 +132,15 @@ public class PlayerTabMenuController : MonoBehaviour
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             yield return null;
         }
+
         Time.timeScale = end;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+        if (GameState.inTabPauseMenu && !isTabHeld)
+        {
+            Debug.Log("Tab menu closed");
+            GameState.inTabPauseMenu = false;
+        }
     }
 
     public void HideUI()

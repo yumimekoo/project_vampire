@@ -23,6 +23,7 @@ public class PlayerStatsManager : MonoBehaviour
         InitBaseStats();
         InitMinValues();
         InitStatMulti();
+        OnStatChanged?.Invoke();
     }
 
     private void InitStatMulti()

@@ -1,19 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] private List<ShopItemDataSO> allItems;
     [SerializeField] private UIDocument shopUI;
     [SerializeField] private int rerollCost = 50;
+    [SerializeField] private int rerollCount = 0;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private RarityScalingDataSO rarityScalingData;
     [SerializeField] private PlayerStatsManager playerStatsManager;
     [SerializeField] private PlayerHealth playerHealth;   
     [SerializeField] private SkillManager skillManager;
+    [SerializeField] public WaveManager waveManager;
+    [SerializeField] private PauseControllerUI pauseUI;
+    [SerializeField] private PlayerTabMenuController tabUI;
+    [SerializeField] private OverlayUI overlayUI;
+    [SerializeField] private HealthBarUnderlayUI underlayUI;
+    [SerializeField] private PlayerStatsManager stats;
 
     [SerializeField] private VisualTreeAsset commonItemTemplate;
     [SerializeField] private VisualTreeAsset uncommonItemTemplate;
@@ -25,23 +32,83 @@ public class ShopManager : MonoBehaviour
     private List<ShopItemDataSO> currentItems = new List<ShopItemDataSO>();
     private VisualElement root,
         itemContainer;
-    private Button rerollButton;
-    private Label moneyLabel;
-    private Dictionary<ShopItemDataSO, VisualElement> itemElements = new();
 
+    private Button 
+        rerollButton,
+        nextWave;
+
+    private Label 
+        moneyLabel,
+        rerollLabel;
+
+    private Label
+        labelMaxHealth,
+        labelMaxHealthP,
+        labelAttackDamage,
+        labelAttackDamageP,
+        labelAttackSpeed,
+        labelAttackSpeedP,
+        labelBulletSpeed,
+        labelBulletDistance,
+        labelBulletSpread,
+        labelDefense;
+
+    private Label
+        labelMoveSpeed,
+        labelMoveSpeedP,
+        labelDashDistance,
+        labelDashCooldown,
+        labelDashCooldownP,
+        labelDashes;
+
+    private Dictionary<ShopItemDataSO, VisualElement> itemElements = new();
     private void Awake()
     {
         root = shopUI.rootVisualElement;
         itemContainer = root.Q<VisualElement>("itemContainer");
         rerollButton = root.Q<Button>("rerollButton");
+        rerollLabel = root.Q<Label>("rerollPrice");
         moneyLabel = root.Q<Label>("moneyLabel");
+        nextWave = root.Q<Button>("nextWave");
+
+        nextWave.clicked += () =>
+        {
+            rerollCount = 0;
+            waveManager.OnNextWaveButton();
+            HideUI();
+        };
 
         rerollButton.clicked += RerollShop;
+
+        // STATS
+
+        labelMaxHealth = root.Q<Label>("labelMaxHealth");
+        labelMaxHealthP = root.Q<Label>("labelMaxHealthP");
+        labelAttackDamage = root.Q<Label>("labelAttackDamage");
+        labelAttackDamageP = root.Q<Label>("labelAttackDamageP");
+        labelAttackSpeed = root.Q<Label>("labelAttackSpeed");
+        labelAttackSpeedP = root.Q<Label>("labelAttackSpeedP");
+        labelBulletSpeed = root.Q<Label>("labelBulletSpeed");
+        labelBulletDistance = root.Q<Label>("labelBulletDistance");
+        labelBulletSpread = root.Q<Label>("labelBulletSpread");
+        labelDefense = root.Q<Label>("labelDefense");
+
+        labelMoveSpeed = root.Q<Label>("labelMoveSpeed");
+        labelMoveSpeedP = root.Q<Label>("labelMoveSpeedP");
+        labelDashDistance = root.Q<Label>("labelDashDistance");
+        labelDashCooldown = root.Q<Label>("labelDashCooldown");
+        labelDashCooldownP = root.Q<Label>("labelDashCooldownP");
+        labelDashes = root.Q<Label>("labelDashes");
+
+        HideUI();
+        
     }
 
     private void Start()
     {
         RollItems();
+        UpdateMoneyDisplay();
+        AssignValues();
     }
 
     public void RollItems()
@@ -118,6 +185,7 @@ public class ShopManager : MonoBehaviour
                 var button = element.Q<Button>();
                 button.SetEnabled(false);
             }
+            AssignValues();
         }
         else
         {
@@ -129,7 +197,7 @@ public class ShopManager : MonoBehaviour
 
     private void UpdateMoneyDisplay()
     {
-        moneyLabel.text = $"Money: {levelManager.GetMoney()}";
+        moneyLabel.text = $"{levelManager.GetMoney()} $";
     }
 
     private void ApplyItemEffect(ShopItemDataSO item)
@@ -173,6 +241,10 @@ public class ShopManager : MonoBehaviour
     {
         if (levelManager.TrySpendMoney(rerollCost))
         {
+            UpdateMoneyDisplay();
+            rerollCount++;
+            rerollCost += 25 * (rerollCount + 1);
+            rerollLabel.text = $"{rerollCost} $";
             RollItems();
         }
         else
@@ -188,10 +260,46 @@ public class ShopManager : MonoBehaviour
         return allItems.Where(i => i.rarity == rarity).ToList();
     }
 
-    private void CloseAllOtherUI()
+    private void AssignValues()
     {
+        labelMaxHealth.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.MaxHealth) * 10) / 10}";
+        labelAttackDamage.text = $"{Mathf.Round(stats.GetStat(StatType.AttackDamage) * 10) / 10}";
+        labelAttackSpeed.text = $"{Mathf.Round(stats.GetStat(StatType.AttackSpeed) * 10) / 10}";
+        labelBulletSpread.text = $"{Mathf.Round(stats.GetStat(StatType.BulletSpread) * 10) / 10}";
+        labelBulletDistance.text = $"{Mathf.Round(stats.GetStat(StatType.BulletDistance) * 10) / 10}";
+        labelBulletSpeed.text = $"{Mathf.Round(stats.GetStat(StatType.BulletSpeed) * 10) / 10}";
+        labelDefense.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.Defense) * 10) / 10}";
+        labelMoveSpeed.text = $"{Mathf.Round(stats.GetStat(StatType.MoveSpeed) * 10) / 10}";
+        labelDashDistance.text = $"{Mathf.Round(stats.GetStat(StatType.DashDistance) * 10) / 10}";
+        labelDashCooldown.text = $"{Mathf.Round(stats.GetStat(StatType.DashCooldown) * 10) / 10}";
+        labelDashes.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.Dashes) * 10) / 10}";
+
+        labelMaxHealthP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.MaxHealthPercent) * 20) / 20}";
+        labelAttackDamageP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.AttackPercent) * 20) / 20}";
+        labelAttackSpeedP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.AttackSpeedPercent) * 20) / 20}";
+        labelMoveSpeedP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.MovePercent) * 20) / 20}";
+        labelDashCooldownP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.DashCooldownPercent) * 20) / 20}";
 
     }
+
+    public void HideUI()
+    {
+        overlayUI.ShowUI();
+        underlayUI.ShowUI();
+        GameState.inShop = false;
+        shopUI.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
+    public void ShowUI()
+    {
+        overlayUI.HideUI();
+        underlayUI.HideUI();
+        tabUI.HideUI();
+        pauseUI.HideUI();
+        GameState.inShop = true;
+        shopUI.rootVisualElement.style.display = DisplayStyle.Flex;
+    }
+
 
     [ContextMenu("Test Rarity Distribution")]
     private void TestRarityDistribution()

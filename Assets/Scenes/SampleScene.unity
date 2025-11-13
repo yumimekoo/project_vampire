@@ -10478,6 +10478,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -3, y: 11, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 21
+      m_TileSpriteIndex: 21
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -2, y: 11, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 9
+      m_TileSpriteIndex: 9
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 6
@@ -10498,7 +10518,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ed17558e0ade743729f0cc92f6d5604b, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: e51b477697a14420f9a4d8e0263124cf, type: 2}
-  - m_RefCount: 6
+  - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: c56f2ce4021e64b6ca56a03651543593, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: f27472e44416f4b17a02bb37fb6d947b, type: 2}
@@ -10522,7 +10542,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1f3210a25a39e41e38c451bb9de1e766, type: 2}
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 0015e9ee1ebf14a94aaf0b8110f15846, type: 2}
-  - m_RefCount: 11
+  - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: 3ef547db6df8c47238c1c699e9b5291b, type: 2}
   - m_RefCount: 11
     m_Data: {fileID: 11400000, guid: 869226a70d9cc4254886b43981798b16, type: 2}
@@ -10563,7 +10583,7 @@ Tilemap:
     m_Data: {fileID: 1471858211, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 63579188, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
-  - m_RefCount: 6
+  - m_RefCount: 7
     m_Data: {fileID: -1971606754, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 246475545, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
@@ -10587,7 +10607,7 @@ Tilemap:
     m_Data: {fileID: -1193952359, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: -1350479653, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
-  - m_RefCount: 11
+  - m_RefCount: 12
     m_Data: {fileID: -1850365834, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
   - m_RefCount: 11
     m_Data: {fileID: -1911797220, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
@@ -10610,7 +10630,7 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: -2097147630, guid: fdaf2632e24d6ab418d96aa44154d4fc, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1000
+  - m_RefCount: 1002
     m_Data:
       e00: 1
       e01: 0
@@ -10629,13 +10649,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1000
+  - m_RefCount: 1002
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -20, y: -14, z: 0}
-  m_Size: {x: 40, y: 25, z: 1}
+  m_Size: {x: 40, y: 26, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -10755,7 +10775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 245923120}
   - component: {fileID: 245923122}
-  - component: {fileID: 245923121}
   - component: {fileID: 245923123}
   m_Layer: 0
   m_Name: UIShop
@@ -10779,23 +10798,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1300497470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &245923121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245923119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e241e5d2707dc458294e26cce55941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShopUI
-  shopUI: {fileID: 245923122}
-  waveManager: {fileID: 1936386366}
-  pauseUI: {fileID: 1308250213}
-  tabUI: {fileID: 2122855353}
-  overlayUI: {fileID: 381500393}
 --- !u!114 &245923122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10831,20 +10833,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96309c064df5cb5409d8b70ae9f17e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
-  allItems: []
   shopUI: {fileID: 245923122}
   rerollCost: 50
+  rerollCount: 0
   levelManager: {fileID: 1815376185}
   rarityScalingData: {fileID: 11400000, guid: 41809db45202c7e46bfc5143d46c4ac4, type: 2}
   playerStatsManager: {fileID: 1194823393}
   playerHealth: {fileID: 1078518625}
   skillManager: {fileID: 1968244643}
+  waveManager: {fileID: 1936386366}
+  pauseUI: {fileID: 1308250213}
+  tabUI: {fileID: 2122855353}
+  overlayUI: {fileID: 381500393}
+  underlayUI: {fileID: 495452091}
+  stats: {fileID: 1194823393}
   commonItemTemplate: {fileID: 9197481963319205126, guid: 6c683d55213b9c144ab52563f5b2299b, type: 3}
   uncommonItemTemplate: {fileID: 9197481963319205126, guid: 962ec4c34989bb74fbb5ce10ddf59194, type: 3}
-  rareItemTemplate: {fileID: 9197481963319205126, guid: 962ec4c34989bb74fbb5ce10ddf59194, type: 3}
-  mythicItemTemplate: {fileID: 9197481963319205126, guid: 6c683d55213b9c144ab52563f5b2299b, type: 3}
-  legendaryItemTemplate: {fileID: 9197481963319205126, guid: 6c683d55213b9c144ab52563f5b2299b, type: 3}
-  passiveSkillTemplate: {fileID: 9197481963319205126, guid: 962ec4c34989bb74fbb5ce10ddf59194, type: 3}
+  rareItemTemplate: {fileID: 9197481963319205126, guid: fcb5a5e7b65637a4fbd2318150b53236, type: 3}
+  mythicItemTemplate: {fileID: 9197481963319205126, guid: fd2ae7d7578af454e80bf1b2bff066b8, type: 3}
+  legendaryItemTemplate: {fileID: 9197481963319205126, guid: 1c9a6f14921e3044cb1aeb015f489c89, type: 3}
+  passiveSkillTemplate: {fileID: 9197481963319205126, guid: 5a892fa49af00264c820d380598b0b01, type: 3}
 --- !u!1 &363370079
 GameObject:
   m_ObjectHideFlags: 0
@@ -13139,6 +13147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseControllerUI
   pauseUI: {fileID: 1308250214}
+  overlayUI: {fileID: 381500393}
+  underlayUI: {fileID: 495452091}
 --- !u!114 &1308250214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13902,7 +13912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480b9e8a8ad9f2d4e95341882bb103fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  currentLevel: 15
+  currentLevel: 1
   currentXP: 0
   xpToNextLevel: 100
   playerMoney: 60000
@@ -14077,7 +14087,7 @@ MonoBehaviour:
   waveData: {fileID: 11400000, guid: 5d5d41c0c246f4d41b9eb94fd4eca6f0, type: 2}
   enemySpawner: {fileID: 755423941}
   playerHealth: {fileID: 1078518625}
-  shopUI: {fileID: 245923121}
+  shopUI: {fileID: 245923123}
   shopManager: {fileID: 245923123}
   playerMovementController: {fileID: 1078518622}
   currentWaveIndex: 0

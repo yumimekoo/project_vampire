@@ -38,5 +38,14 @@ public class HealthBarUnderlayUI : MonoBehaviour
         playerHealth.OnHealthChanged -= UpdateHealthBar;
         levelManager.OnXPChanged -= UpdateXPBar;
     }
+
+    public void ShowUI()
+    {
+        healthbarunderlayUI.rootVisualElement.style.display = DisplayStyle.Flex;
+    }
+    public void HideUI()
+    {
+        healthbarunderlayUI.rootVisualElement.style.display = DisplayStyle.None;
+    }
 }
 

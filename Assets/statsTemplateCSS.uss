@@ -1,0 +1,20 @@
+:root {
+}
+
+.stat-value {
+    font-size: 20px;
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    color: rgb(235, 235, 235);
+}
+
+.stat-name {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    font-size: 20px;
+    color: rgb(235, 235, 235);
+}
+
+.stat-category {
+    font-size: 35px;
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    color: rgb(235, 235, 235);
+}

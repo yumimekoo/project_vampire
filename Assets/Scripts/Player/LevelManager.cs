@@ -30,8 +30,10 @@ public class LevelManager : MonoBehaviour
     // -----------
     // XP SYSTEM 
     // -----------
-    public void Awake()
+
+    public void Start()
     {
+        OnMoneyChanged?.Invoke(playerMoney);
         HighScoreUpdate();
         OnScoreChanged?.Invoke(playerScore);
     }

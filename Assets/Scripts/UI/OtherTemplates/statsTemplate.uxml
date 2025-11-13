@@ -1,0 +1,78 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/statsTemplateCSS.uss?fileID=7433441132597879392&amp;guid=00963d98fe69714468bbfb0a93517fb9&amp;type=3#statsTemplateCSS" />
+    <ui:VisualElement style="flex-grow: 0; width: 460px; padding-top: 60px; padding-right: 60px; padding-bottom: 60px; padding-left: 72px; height: 864px; min-height: 864px; max-height: 864px; min-width: 460px; max-width: 460px; background-image: url(&quot;project://database/Assets/Sprites/UI/stats-background.aseprite?fileID=9094009715373455264&amp;guid=0fefc7275a8c3f741896f6c980a99cfa&amp;type=3#stats-background&quot;);">
+        <ui:VisualElement name="Stats" style="flex-grow: 0;">
+            <ui:Label text="Stats:" style="font-size: 44px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); padding-top: 17px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; -unity-text-align: upper-center; color: rgb(235, 235, 235);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Combat" style="flex-grow: 0;">
+            <ui:Label text="Combat:" triple-click-selects-line="false" class="stat-category" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Max Health:" class="stat-name" />
+            <ui:Label text="0.23" name="labelMaxHealth" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="(Max Health %: " enable-rich-text="true" class="stat-name" />
+            <ui:Label text="123" name="labelMaxHealthP" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Attack Damage:" class="stat-name" />
+            <ui:Label text="456" name="labelAttackDamage" class="stat-value" style="height: 25px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="(Attack Damage %:" class="stat-name" />
+            <ui:Label text="789" name="labelAttackDamageP" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Attack Speed:" class="stat-name" />
+            <ui:Label text="Label" name="labelAttackSpeed" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="(Attack Speed %:" class="stat-name" />
+            <ui:Label text="012" name="labelAttackSpeedP" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Bullet Speed:" class="stat-name" />
+            <ui:Label text="Label" name="labelBulletSpeed" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Bullet Distance: " class="stat-name" />
+            <ui:Label text="Label" name="labelBulletDistance" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Bullet Spread: " class="stat-name" />
+            <ui:Label text="Label" name="labelBulletSpread" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Defense: " class="stat-name" />
+            <ui:Label text="Label" name="labelDefense" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Movement" style="flex-grow: 0;">
+            <ui:Label text="Movement:" class="stat-category" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Movement Speed: " class="stat-name" />
+            <ui:Label text="Label" name="labelMoveSpeed" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="(Movement Speed %: " class="stat-name" />
+            <ui:Label text="Label" name="labelMoveSpeedP" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Dash Distance:" class="stat-name" />
+            <ui:Label text="Label" name="labelDashDistance" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Dash Cooldown (per Dash):" class="stat-name" />
+            <ui:Label text="Label" name="labelDashCooldown" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="(Dash Cooldown %:" class="stat-name" />
+            <ui:Label text="Label" name="labelDashCooldownP" class="stat-value" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+            <ui:Label text="Dashes:" class="stat-name" />
+            <ui:Label text="Label" name="labelDashes" class="stat-value" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

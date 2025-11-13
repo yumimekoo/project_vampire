@@ -37,12 +37,6 @@ public class OverlayUI : MonoBehaviour
         levelManager.OnScoreChanged += UpdateScoreUI;
         levelManager.OnMoneyChanged += UpdateMoneyUI;
         waveManager.OnWaveChanged += UpdateWaveUI;
-        playerStatsManager.OnStatChanged += UpdateStats;
-    }
-
-    private void UpdateStats()
-    {
-        Debug.Log("muss noch");
     }
 
     private void Start()

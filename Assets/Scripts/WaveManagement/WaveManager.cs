@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private WaveDataSO waveData;
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private PlayerHealth playerHealth;
-    [SerializeField] private ShopUI shopUI;
+    [SerializeField] private ShopManager shopUI;
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private PlayerMovementController playerMovementController;
 

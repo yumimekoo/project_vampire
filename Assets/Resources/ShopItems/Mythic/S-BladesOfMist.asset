@@ -18,5 +18,12 @@ MonoBehaviour:
   rarity: 3
   basePrice: 2000
   icon: {fileID: 0}
-  positiveEffects: []
+  positiveEffects:
+  - statType: 7
+    value: 40
+  positiveEffectMultis:
+  - statMulti: 1
+    value: 0.4
   negativeEffects: []
+  negativeEffectMultis: []
+  passiveSkillEffects: []

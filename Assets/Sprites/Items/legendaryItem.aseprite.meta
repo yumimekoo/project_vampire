@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: legendaryItem
     originalName: 
-    pivot: {x: 0.5, y: -0.015463917}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,8 +137,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 94
-      height: 194
+      width: 100
+      height: 200
     spriteID: ac40390f4df00384789c109166bc27a9
     spriteBone: []
     spriteOutline: []
@@ -167,10 +167,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 3
-        y: 3
-        width: 94
-        height: 194
+        x: 0
+        y: 0
+        width: 100
+        height: 200
       spriteId: ac40390f4df00384789c109166bc27a9
     linkedCells: []
     tileCells: []

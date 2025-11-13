@@ -7,6 +7,10 @@ using UnityEngine.UIElements;
 public class PauseControllerUI : MonoBehaviour
 {
     [SerializeField] private UIDocument pauseUI;
+
+    [SerializeField] private OverlayUI overlayUI;
+    [SerializeField] private HealthBarUnderlayUI underlayUI;
+
     private Button
         continueButton,
         newGameButton,
@@ -44,7 +48,8 @@ public class PauseControllerUI : MonoBehaviour
 
     private void ContinueButton()
     {
-        Debug.Log("In Continue, click registerd");
+        overlayUI.ShowUI();
+        underlayUI.ShowUI();
         pauseUI.rootVisualElement.style.display = DisplayStyle.None;
         GameState.inPauseMenu = false;
         if (timeScaleCoroutine != null)
@@ -62,6 +67,8 @@ public class PauseControllerUI : MonoBehaviour
             {
 
                 pauseUI.rootVisualElement.style.display = DisplayStyle.Flex;
+                overlayUI.HideUI();
+                underlayUI.HideUI();
                 GameState.inPauseMenu = true;
                 if (timeScaleCoroutine != null)
                 {
