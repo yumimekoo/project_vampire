@@ -140,6 +140,55 @@ public class ShopManager : MonoBehaviour
         var buyButton = itemElement.Q<Button>("buyButton");
         var iconElement = itemElement.Q<VisualElement>("iconElement");
 
+    
+        for (int i = 1; i <= 3; i++)
+        {
+            itemElement.Q<Label>($"pos{i}").style.display = DisplayStyle.None;
+            itemElement.Q<Label>($"neg{i}").style.display = DisplayStyle.None;
+        }
+       
+
+        var allPositiveEffects = new List<(string text, float value)>();
+        var allNegativeEffects = new List<(string text, float value)>();
+
+        if (itemData.positiveEffects != null)
+        {
+            foreach (var e in itemData.positiveEffects)
+                allPositiveEffects.Add(($"{GetVorzeichenPositive(e.statType)}{e.value} {GetEffectText(e.statType)}", e.value));
+        }
+        if (itemData.positiveEffectMultis != null)
+        {
+            foreach (var e in itemData.positiveEffectMultis)
+                allPositiveEffects.Add(($"{GetVorzeichenPositive(e.statMulti)}{e.value * 100f}% {GetEffectText(e.statMulti)}", e.value));
+        }
+
+        if (itemData.negativeEffects != null)
+        {
+            foreach (var e in itemData.negativeEffects)
+                allNegativeEffects.Add(($"{GetVorzeichenNegative(e.statType)}{e.value} {GetEffectText(e.statType)}", e.value));
+        }
+
+        if (itemData.negativeEffectMultis != null)
+        {
+            foreach (var e in itemData.negativeEffectMultis)
+                allNegativeEffects.Add(($"{GetVorzeichenNegative(e.statMulti)}{e.value * 100f}% {GetEffectText(e.statMulti)}", e.value));
+        }
+
+        for (int i = 0; i < allPositiveEffects.Count && i < 3; i++)
+        {
+            var posElement = itemElement.Q<Label>($"pos{i + 1}");
+            posElement.style.display = DisplayStyle.Flex;
+            posElement.text = allPositiveEffects[i].text;
+        }
+
+        for (int i = 0; i < allNegativeEffects.Count && i < 3; i++)
+        {
+            var negElement = itemElement.Q<Label>($"neg{i + 1}");
+            negElement.style.display = DisplayStyle.Flex;
+            negElement.text = allNegativeEffects[i].text;
+        }
+
+
         if (itemData.icon != null)
         {
             
@@ -155,6 +204,103 @@ public class ShopManager : MonoBehaviour
         itemContainer.Add(itemElement);
         itemElements[itemData] = itemElement;
     }
+
+    private string GetEffectText(StatType statType)
+    {
+        switch (statType)
+        {
+            case StatType.MaxHealth:
+                return "Max Health";
+            case StatType.AttackDamage:
+                return "Attack Damage";
+            case StatType.AttackSpeed:
+                return "Attack Speed";
+            case StatType.BulletSpeed:
+                return "Bullet Speed";
+            case StatType.BulletDistance:
+                return "Bullet Distance";
+            case StatType.BulletSpread:
+                return "Bullet Spread";
+            case StatType.Defense:
+                return "Defense";
+            case StatType.MoveSpeed:
+                return "Move Speed";
+            case StatType.DashDistance:
+                return "Dash Distance";
+            case StatType.DashCooldown:
+                return "Dash Cooldown";
+            case StatType.Dashes:
+                return "Dashes";
+            default:
+                return statType.ToString();
+        }
+    }
+
+    private string GetEffectText(StatMulti statMulti)
+    {
+        switch (statMulti)
+        {
+            case StatMulti.MaxHealthPercent:
+                return "Max Health";
+            case StatMulti.AttackPercent:
+                return "Attack Damage";
+            case StatMulti.AttackSpeedPercent:
+                return "Attack Speed";
+            case StatMulti.MovePercent:
+                return "Move Speed";
+            case StatMulti.DashCooldownPercent:
+                return "Dash Cooldown";
+            default:
+                return statMulti.ToString();
+        }
+    }
+
+    private string GetVorzeichenPositive(StatType statType)
+    {
+        switch (statType)
+        {
+            case StatType.DashCooldown:
+            case StatType.BulletSpread:
+                return "-";
+            default:
+                return "+";
+        }
+    }
+    private string GetVorzeichenPositive(StatMulti statMulti)
+    {
+        switch (statMulti)
+        {
+            case StatMulti.DashCooldownPercent:
+                return "-";
+            default:
+                return "+";
+        }
+
+    }
+    private string GetVorzeichenNegative(StatType statType)
+    {
+        switch (statType)
+        {
+            case StatType.DashCooldown:
+            case StatType.BulletSpread:
+                return "+";
+            default:
+                return "-";
+        }
+    }
+    private string GetVorzeichenNegative(StatMulti statMulti)
+    {
+        switch (statMulti)
+        {
+            case StatMulti.DashCooldownPercent:
+                return "+";
+            default:
+                return "-";
+        }
+    }
+
+
+
 
     private VisualTreeAsset GetTemplateForItem(ShopItemDataSO item)
     {

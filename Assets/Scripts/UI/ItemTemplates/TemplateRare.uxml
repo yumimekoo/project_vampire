@@ -1,13 +1,28 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/templateItemUSS.uss?fileID=7433441132597879392&amp;guid=5ec5cea8bbfa94a4c8ade975179fe972&amp;type=3#templateItemUSS" />
-    <ui:VisualElement class="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Items/rareItem.aseprite?fileID=326711510872529528&amp;guid=b8256fb23bbe38646a98546b1266b638&amp;type=3#rareItem&quot;); padding-top: 59px; padding-right: 59px; padding-bottom: 59px; padding-left: 59px; margin-left: 15px; margin-right: 15px; width: 300px; min-width: 300px; max-width: 300px; height: 600px; min-height: 600px; max-height: 600px; margin-top: 15px; margin-bottom: 15px;">
-        <ui:VisualElement style="flex-grow: 1; justify-content: space-between; align-self: center; align-items: center; width: 200px; height: 480px; max-height: 480px; min-height: 480px; max-width: 200px; min-width: 200px;">
+    <ui:VisualElement class="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Items/rareItem.aseprite?fileID=326711510872529528&amp;guid=b8256fb23bbe38646a98546b1266b638&amp;type=3#rareItem&quot;); padding-top: 48px; padding-right: 48px; padding-bottom: 48px; padding-left: 48px; margin-left: 15px; margin-right: 15px; width: 300px; min-width: 300px; max-width: 300px; height: 600px; min-height: 600px; max-height: 600px; margin-top: 15px; margin-bottom: 15px;">
+        <ui:VisualElement template="inhaltItems" name="VisualElement" style="justify-content: space-between; flex-grow: 1;">
             <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
-                <ui:Label text="Labeadsadadadadadadal" name="nameLabel" class="name-label" style="white-space: normal; height: auto; width: 200px; min-width: 200px; max-width: 200px; -unity-text-align: upper-center;" />
-                <ui:Label text="this item is super good, in this case, u need to talk about my love" name="descLabel" style="width: 200px; min-width: 200px; max-width: 200px; white-space: pre-wrap; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;);" />
+                <ui:Label text="dfsdfsfd" name="nameLabel" class="name-label" style="height: 70px; width: 200px; min-width: 200px; max-width: 200px; text-shadow: 1px 1px 0 rgb(52, 109, 201); color: rgb(10, 14, 61); -unity-text-align: middle-center;" />
+                <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 150px;">
+                    <ui:Label text="this item is super good, in this case, u need to talk about my asdasdsadsadsadsadsaasdasdasasdsdadsasadsdasdasdasadsadsdasdasadslovedfsdxfdsfdsfsdfsdfds&#10;" name="descLabel" class="desc" style="width: 130px; min-width: 130px; max-width: 130px; height: 64px; min-height: 64px; max-height: 64px; margin-top: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; color: rgb(10, 14, 61);" />
+                    <ui:VisualElement name="iconElement" style="flex-grow: 1; width: 64px; height: 64px; min-width: 64px; max-width: 64px; min-height: 64px; max-height: 64px; align-self: stretch; margin-bottom: 0; flex-direction: row; background-color: rgb(0, 0, 0);" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:Label text="Effects:" style="-unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 25px; text-shadow: 1px 1px 2px rgb(52, 109, 201); color: rgb(10, 14, 61); -unity-background-image-tint-color: rgb(215, 215, 215);" />
+                    <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none; margin-bottom: 20px; font-size: 20px;">
+                        <ui:Label text="+2000% Bullet Distance" name="pos1" class="stat-positive" style="text-shadow: 1px 1px 0 rgb(49, 49, 49);" />
+                        <ui:Label text="Label" name="pos2" class="stat-positive" />
+                        <ui:Label text="Label" name="pos3" class="stat-positive" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none;">
+                        <ui:Label text="Label" name="neg1" class="stat-negative" />
+                        <ui:Label text="Label" name="neg2" class="stat-negative" />
+                        <ui:Label text="Label" name="neg3" class="stat-negative" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 0; justify-content: space-evenly; align-items: center; align-self: auto; width: 200px; min-width: 200px; max-width: 200px;">
-                <ui:VisualElement name="iconElement" style="flex-grow: 1; width: 128px; height: 128px; min-width: 128px; max-width: 128px; min-height: 128px; max-height: 128px; align-self: center; margin-bottom: 30px;" />
                 <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
                     <ui:Button text="Button" name="buyButton" style="width: 200%; min-width: 200px; max-width: 200px; height: 32px; min-height: 32px; max-height: 32px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 20px;" />
                 </ui:VisualElement>

@@ -1,0 +1,22 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
+        <ui:Label text="Labeadsadadadadadadal" name="nameLabel" class="name-label" style="white-space: normal; height: auto; width: 200px; min-width: 200px; max-width: 200px; -unity-text-align: upper-center; color: rgb(49, 49, 49); text-shadow: 2px 2px 0 rgb(215, 215, 215);" />
+        <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 150px;">
+            <ui:Label text="this item is super good, in this case, u need to talk about my asdasdsadsadsadsadsaasdasdasasdsdadsasadsdasdasdasadsadsdasdasadslovedfsdxfdsfdsfsdfsdfds&#10;" name="descLabel" class="desc" style="width: 130px; min-width: 130px; max-width: 130px; white-space: pre-wrap; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); height: 64px; min-height: 64px; max-height: 64px; margin-top: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; color: rgb(49, 49, 49); text-shadow: 1px 1px 0 rgb(215, 215, 215);" />
+            <ui:VisualElement name="iconElement" style="flex-grow: 1; width: 64px; height: 64px; min-width: 64px; max-width: 64px; min-height: 64px; max-height: 64px; align-self: stretch; margin-bottom: 0; flex-direction: row; background-color: rgb(0, 0, 0);" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1;">
+            <ui:Label text="Effects:" style="-unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 25px; text-shadow: 1px 1px 2px rgb(255, 255, 255); color: rgb(49, 49, 49); -unity-background-image-tint-color: rgb(215, 215, 215);" />
+            <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none; margin-bottom: 20px; font-size: 20px;">
+                <ui:Label text="+2000% Bullet Distance" name="pos1" class="stat-positive" style="text-shadow: 1px 1px 0 rgb(49, 49, 49);" />
+                <ui:Label text="Label" name="pos2" class="stat-positive" />
+                <ui:Label text="Label" name="pos3" class="stat-positive" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none;">
+                <ui:Label text="Label" name="neg1" class="stat-negative" />
+                <ui:Label text="Label" name="neg2" class="stat-negative" />
+                <ui:Label text="Label" name="neg3" class="stat-negative" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

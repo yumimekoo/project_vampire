@@ -21,4 +21,12 @@ MonoBehaviour:
   positiveEffects:
   - statType: 11
     value: 10
+  positiveEffectMultis: []
   negativeEffects: []
+  negativeEffectMultis: []
+  passiveSkillEffects:
+  - effectName: 
+    trigger: 0
+    duration: 0
+    value: 0
+    cooldown: 0

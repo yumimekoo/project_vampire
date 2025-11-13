@@ -7,4 +7,41 @@
 .name-label {
     -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
     font-size: 30px;
+    color: rgb(223, 113, 38);
+    white-space: normal;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.stat-positive {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    padding-top: -3px;
+    padding-right: -3px;
+    padding-bottom: -3px;
+    padding-left: -3px;
+    color: rgb(90, 122, 9);
+    text-shadow: 1px 1px 0 rgb(49, 49, 49);
+    font-size: 18px;
+}
+
+.stat-negative {
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
+    padding-top: -3px;
+    padding-right: -3px;
+    padding-bottom: -3px;
+    padding-left: -3px;
+    font-size: 18px;
+    color: rgb(110, 14, 31);
+    text-shadow: 1px 1px 0 rgb(49, 49, 49);
+}
+
+.desc {
+    width: 130px;
+    min-width: 130px;
+    max-width: 130px;
+    height: 64px;
+    min-height: 64px;
+    max-height: 64px;
+    color: rgb(223, 113, 38);
+    white-space: normal;
+    -unity-font-definition: url("project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&guid=21bdbdc904a27364ab64e421957f4e3a&type=3#alagard");
 }
