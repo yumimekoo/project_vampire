@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private bool isInvulnerable;
 
     public event System.Action<float, float> OnHealthChanged;
+    public event System.Action OnPlayerDeath;
     void Start()
     {
         if (statsManager == null)
@@ -54,9 +55,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        GameState.isDead = true;
         isDead = true;
         currentHealth = 0f;
 
+        OnPlayerDeath?.Invoke();
         Debug.Log("Player DIED!");
         // Death screen implement
     }

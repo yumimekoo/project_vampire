@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -7,8 +8,8 @@ using UnityEngine.UIElements;
 public class PauseControllerUI : MonoBehaviour
 {
     [SerializeField] private UIDocument pauseUI;
-
     [SerializeField] private OverlayUI overlayUI;
+    [SerializeField] private UIDocument loadingUI;
     [SerializeField] private HealthBarUnderlayUI underlayUI;
 
     private Button
@@ -35,7 +36,9 @@ public class PauseControllerUI : MonoBehaviour
     {
         GameState.inPauseMenu = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        loadingUI.rootVisualElement.style.opacity = 0f;
+        loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
+        StartCoroutine(LoadScene("MainMenu"));
     }
 
     private void NewGameButton()
@@ -43,7 +46,23 @@ public class PauseControllerUI : MonoBehaviour
         pauseUI.rootVisualElement.style.display = DisplayStyle.None;
         GameState.inPauseMenu = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SampleScene");
+        loadingUI.rootVisualElement.style.opacity = 0f;
+        loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
+        StartCoroutine(LoadScene("SampleScene"));
+    }
+
+    public IEnumerator LoadScene(string name)
+    {
+        DOTween.To(
+            () => (float) loadingUI.rootVisualElement.resolvedStyle.opacity,
+            x => loadingUI.rootVisualElement.style.opacity = x,
+            1f, 1f
+            ).OnComplete(() =>
+            {
+                GameState.Reset();
+                SceneManager.LoadSceneAsync(name);
+            });
+        yield return null;
     }
 
     private void ContinueButton()
@@ -61,7 +80,7 @@ public class PauseControllerUI : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !GameState.inShop && !GameState.inTabPauseMenu)
+        if(Input.GetKeyDown(KeyCode.Escape) && !GameState.inShop && !GameState.inTabPauseMenu && !GameState.isDead)
         {
             if (!GameState.inPauseMenu)
             {

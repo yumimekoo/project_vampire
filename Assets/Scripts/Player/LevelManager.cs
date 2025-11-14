@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Level Settings")]
     [SerializeField] private int playerMoney = 0;
-    [SerializeField] private int playerScore = 0;
+    [SerializeField] public int playerScore = 0;
     [SerializeField] public int playerHighscore = 0;
 
     [Header("Level Settings")]

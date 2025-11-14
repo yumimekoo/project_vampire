@@ -22,6 +22,13 @@ public class WaveManager : MonoBehaviour
     {
         waveActive = false;
         StartCoroutine(StartNextWave());
+        playerHealth.OnPlayerDeath += () =>
+        {
+            waveActive = false;
+            StopAllCoroutines();
+            enemySpawner.StopSpawning();
+            enemySpawner.ClearAllEnemies();
+        };
     }
 
     private IEnumerator StartNextWave()

@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Shooty
   maxHealth: 5
   moveSpeed: 2
-  attackDamage: 20
+  attackDamage: 250
   attackRange: 4
   attackCooldown: 2
   droppedExperience: 12
