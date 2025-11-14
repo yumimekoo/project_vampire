@@ -26,6 +26,7 @@ public class DeathUI : MonoBehaviour
     private Button quitGame;
     private Label score;
     private Label highScore;
+    private Label deathMessage;
 
     public void Awake()
     {
@@ -39,21 +40,13 @@ public class DeathUI : MonoBehaviour
         highScore = root.Q<Label>("highscoreLabel");
         newGame.clicked += () => StartCoroutine(LoadScene("SampleScene"));
         quitGame.clicked += () => StartCoroutine(LoadScene("MainMenu"));
+        deathMessage = root.Q<Label>("deathMessage");
 
         playerHealth.OnPlayerDeath += ShowDeathUI;
         deathUI.rootVisualElement.style.display = DisplayStyle.None;
         loadingUI.rootVisualElement.style.display = DisplayStyle.None;
-    }
 
-    private void OnQuitGameClicked()
-    {
-        throw new NotImplementedException();
-    }
 
-    private void OnNewGameClicked()
-    {
-        GameState.Reset();
-        SceneManager.LoadScene("SampleScene");
     }
 
     public IEnumerator LoadScene(string name)
@@ -75,8 +68,9 @@ public class DeathUI : MonoBehaviour
         loadingUI.rootVisualElement.style.opacity = 0f;
         score.style.opacity = 0f;
         highScore.style.opacity = 0f;
-        score.text = $"Score: {levelManager.GetScore()}";
-        highScore.text = $"High Score: {PlayerPrefs.GetInt("highscore", 0)}";
+        score.text = $"{levelManager.GetScore()}";
+        highScore.text = $"{GetHighscoreText()}";
+        deathMessage.text = $"{GetDeathMessageRandom()}";
         quitGame.style.opacity = 0f;
         newGame.style.opacity = 0f;
         stillFrame.style.display = DisplayStyle.None;
@@ -103,6 +97,36 @@ public class DeathUI : MonoBehaviour
             deathImage.style.backgroundImage = new StyleBackground(frames[i]);
             yield return new WaitForSeconds(1f / frameRate);
         }
+    }
+
+    public string GetDeathMessageRandom()
+    {
+        string[] messages = new string[]
+        {
+            "are you even trying?",
+            "kinda disappointing that you died here...",
+            "tutorials help .. u know that?",
+            "seriously? u died here?",
+            "i think thats an skill issue",
+            "try something else .. maybe candycrush?",
+            "left click to shoot. just saying..",
+            "i did not expect that level of incompetence",
+            "first time using a keyboard?",
+            "classic 'layer 8 problem' ",
+            "screen is turned on?",
+        };
+        int index = UnityEngine.Random.Range(0, messages.Length);
+        return messages[index];
+    }
+
+    public string GetHighscoreText()
+    {
+        int highscore = PlayerPrefs.GetInt("highscore", 0);
+        if (highscore <= levelManager.GetScore())
+        {
+            return $"new highscore, but u could have done better tbh..";
+        }
+        return $"highscore: {highscore}";
     }
 
     private IEnumerator FadeInStillFrame()

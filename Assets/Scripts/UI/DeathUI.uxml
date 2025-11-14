@@ -2,10 +2,20 @@
     <ui:VisualElement name="deathScreen" picking-mode="Ignore" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/UI/deathOverlay.aseprite?fileID=-5877155474825725734&amp;guid=e4798fede8127f540b76c1bddc1b1430&amp;type=3#Frame_10&quot;); justify-content: center; align-self: stretch;">
         <ui:VisualElement picking-mode="Ignore" name="stillFrame" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/UI/deathOverlay.aseprite?fileID=7748976197962456205&amp;guid=e4798fede8127f540b76c1bddc1b1430&amp;type=3#Frame_11&quot;);">
             <ui:VisualElement picking-mode="Ignore" name="ashes" style="flex-grow: 1; justify-content: center; align-self: stretch;">
-                <ui:Button text="Button" name="buttonNewGame" />
-                <ui:Button text="Button" name="buttonQuitGame" />
-                <ui:Label text="Label" name="scoreLabel" />
-                <ui:Label text="Label" name="highscoreLabel" />
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:VisualElement style="flex-grow: 0; height: 130px;" />
+                    <ui:Label text="are you even trying? " name="deathMessage" enable-rich-text="true" parse-escape-sequences="false" style="-unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 92px; white-space: normal; -unity-text-align: upper-center; color: rgb(209, 159, 255); text-shadow: 2px 2px 0 rgb(255, 255, 255);" />
+                    <ui:VisualElement style="flex-grow: 0; height: 129px;" />
+                    <ui:Label text="Label" name="scoreLabel" style="-unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 80px; -unity-text-align: upper-center; color: rgb(209, 209, 209); text-shadow: 2px 2px 0 rgb(209, 159, 255);" />
+                    <ui:Label text="Label" name="highscoreLabel" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); -unity-text-align: upper-center; color: rgb(209, 159, 255); text-shadow: 1px 1px 0 rgb(255, 255, 255);" />
+                    <ui:VisualElement style="flex-grow: 0; height: 130px;" />
+                    <ui:VisualElement style="flex-grow: 0; align-self: center; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+                        <ui:Button text="New Game" name="buttonNewGame" class="button" style="width: 384px; height: 96px; min-width: 384px; max-width: 384px; min-height: 96px; max-height: 96px; background-image: url(&quot;project://database/Assets/Sprites/UI/buttonPrefab.aseprite?fileID=1782798293583943734&amp;guid=6809ba3236bdbd142b573f4c0ecaa0bf&amp;type=3#buttonPrefab&quot;); background-color: rgba(0, 0, 0, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); color: rgb(209, 209, 209); -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 50px; text-shadow: 2px 1px 0 rgb(209, 159, 255);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 0; align-self: center; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+                        <ui:Button text="Exit" name="buttonQuitGame" class="button" style="width: 384px; height: 96px; min-width: 384px; max-width: 384px; min-height: 96px; max-height: 96px; background-image: url(&quot;project://database/Assets/Sprites/UI/buttonPrefab.aseprite?fileID=1782798293583943734&amp;guid=6809ba3236bdbd142b573f4c0ecaa0bf&amp;type=3#buttonPrefab&quot;); background-color: rgba(0, 0, 0, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); font-size: 50px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); color: rgb(209, 209, 209); text-shadow: 2px 1px 0 rgb(209, 159, 255);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
