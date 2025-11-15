@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,8 @@ public class OverlayUI : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private PlayerStatsManager playerStatsManager;
+    [SerializeField] private Sprite[] sprites;
+    private int frames = 8;
 
     // UI Elements
     private Label 
@@ -71,6 +74,18 @@ public class OverlayUI : MonoBehaviour
         if (levelLabel == null)
             return;
         levelLabel.text = $"{levelManager.currentLevel}";
+        StartCoroutine(PlayAnimation());
+    }
+
+    private IEnumerator PlayAnimation()
+    {
+        overlayUI.rootVisualElement.style.backgroundImage = new StyleBackground();
+
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            overlayUI.rootVisualElement.style.backgroundImage = new StyleBackground(sprites[i]);
+            yield return new WaitForSeconds(1f / frames);
+        }
     }
 
     private void UpdateMoneyUI(int money)

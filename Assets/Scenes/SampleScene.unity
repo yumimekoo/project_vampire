@@ -11138,6 +11138,15 @@ MonoBehaviour:
   levelManager: {fileID: 1815376185}
   waveManager: {fileID: 1936386366}
   playerStatsManager: {fileID: 1194823393}
+  sprites:
+  - {fileID: 4859197657027296263, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
+  - {fileID: 1330255074494652107, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
+  - {fileID: 7167300545776722051, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
+  - {fileID: 2618410554918626269, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
+  - {fileID: 6946026921896435005, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
+  - {fileID: -1190075091522182005, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
+  - {fileID: 6795771287746170369, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
+  - {fileID: -7512427873470979785, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
 --- !u!1 &386959076
 GameObject:
   m_ObjectHideFlags: 0

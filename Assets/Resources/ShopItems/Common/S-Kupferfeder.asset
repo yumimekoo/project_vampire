@@ -21,4 +21,9 @@ MonoBehaviour:
   positiveEffects:
   - statType: 0
     value: 2
+  positiveEffectMultis:
+  - statMulti: 1
+    value: 0.2
   negativeEffects: []
+  negativeEffectMultis: []
+  passiveSkillEffects: []

@@ -19,8 +19,15 @@ MonoBehaviour:
   basePrice: 14
   icon: {fileID: 0}
   positiveEffects:
-  - statType: 7
+  - statType: 0
     value: 10
+  positiveEffectMultis:
+  - statMulti: 0
+    value: 0.4
   negativeEffects:
-  - statType: 10
+  - statType: 2
     value: 3
+  negativeEffectMultis:
+  - statMulti: 2
+    value: 0.5
+  passiveSkillEffects: []

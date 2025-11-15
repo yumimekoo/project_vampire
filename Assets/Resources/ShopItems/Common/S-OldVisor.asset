@@ -20,10 +20,16 @@ MonoBehaviour:
   icon: {fileID: 0}
   positiveEffects:
   - statType: 11
+    value: 5
+  positiveEffectMultis:
+  - statMulti: 0
+    value: 0
+  negativeEffects:
+  - statType: 11
     value: 10
-  positiveEffectMultis: []
-  negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 3
+    value: 0.2
   passiveSkillEffects:
   - effectName: 
     trigger: 0
