@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   data: {fileID: 11400000, guid: 148a1ffc466a37d44b85b379ccc0f912, type: 2}
+  deathEffectPrefab: {fileID: 5206956598611317583, guid: b2e47529d7862854592f7f055a1b858b, type: 3}
   lastAttackTime: -999
 --- !u!61 &7867074972177094202
 BoxCollider2D:

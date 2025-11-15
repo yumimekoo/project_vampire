@@ -11138,6 +11138,7 @@ MonoBehaviour:
   levelManager: {fileID: 1815376185}
   waveManager: {fileID: 1936386366}
   playerStatsManager: {fileID: 1194823393}
+  levelAndWave: {fileID: 1215489615}
   sprites:
   - {fileID: 4859197657027296263, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
   - {fileID: 1330255074494652107, guid: 6d8dbd5075a968743a423b4c56d0fd02, type: 3}
@@ -12694,8 +12695,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   statsManager: {fileID: 1194823393}
+  movement: {fileID: 1078518622}
   currentHealth: 0
   maxHealth: 0
+  hitCooldown: 1
 --- !u!61 &1078518626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13147,6 +13150,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1091622508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1215489613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1215489614}
+  - component: {fileID: 1215489615}
+  m_Layer: 0
+  m_Name: UILevelUpWaveUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1215489614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215489613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1300497470}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215489615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215489613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 8e1b4be3ca65bbd45bc3ee23732c8098, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 784e94ab2e3db6941b98c8b0218747e1, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
 --- !u!1 &1256904430
 GameObject:
   m_ObjectHideFlags: 0
@@ -13321,6 +13379,7 @@ Transform:
   - {fileID: 1190763276}
   - {fileID: 982691992}
   - {fileID: 545325496}
+  - {fileID: 1215489614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308250211
@@ -14188,6 +14247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a11980a2ec530045ad099c7916d9bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialLogic
+  overlay: {fileID: 381500393}
 --- !u!1 &1853937286
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
+    [SerializeField] private GameObject deathEffectPrefab;
     private EnemyHealthBar healthBarInstance;
 
     private Transform player;
@@ -73,6 +74,10 @@ public class EnemyBase : MonoBehaviour
 
     public void Die()
     {
+        if(deathEffectPrefab != null)
+        {
+            Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        }
         // TODO: Add death effects, pooling usw. experience to player
         levelManager.AddXP(data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier());
         levelManager.AddScore((int) (data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier() * levelManager.GetLevel()));

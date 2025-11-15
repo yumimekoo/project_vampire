@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   data: {fileID: 11400000, guid: 255b0ce763b332a4bba5ae92a2e20cf3, type: 2}
+  deathEffectPrefab: {fileID: 5206956598611317583, guid: b2e47529d7862854592f7f055a1b858b, type: 3}
   lastAttackTime: -999
 --- !u!58 &8504401243939783800
 CircleCollider2D:
