@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: P-HealOverTime
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
   itemName: HealOverTimeOnPlayerHit
-  description: HealOverTimeOnPlayerHit
+  description: Heals Player for 2HP/s over 5s. Has a 10s Cooldown (Stacks if bought
+    multiple times)
   type: 2
   rarity: 0
   basePrice: 0

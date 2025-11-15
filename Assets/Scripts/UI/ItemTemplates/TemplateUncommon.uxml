@@ -6,7 +6,7 @@
                 <ui:Label text="asdasd" name="nameLabel" class="name-label" style="height: 70px; width: 200px; min-width: 200px; max-width: 200px; text-shadow: 1px 1px 0 rgb(65, 87, 16); color: rgb(41, 19, 2); -unity-text-align: middle-center;" />
                 <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 150px;">
                     <ui:Label text="this item is super good, in this case, u need to talk about my asdasdsadsadsadsadsaasdasdasasdsdadsasadsdasdasdasadsadsdasdasadslovedfsdxfdsfdsfsdfsdfds&#10;" name="descLabel" class="desc" style="width: 130px; min-width: 130px; max-width: 130px; height: 64px; min-height: 64px; max-height: 64px; margin-top: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; color: rgb(41, 19, 2);" />
-                    <ui:VisualElement name="iconElement" style="flex-grow: 1; width: 64px; height: 64px; min-width: 64px; max-width: 64px; min-height: 64px; max-height: 64px; align-self: stretch; margin-bottom: 0; flex-direction: row; background-color: rgb(0, 0, 0);" />
+                    <ui:VisualElement name="iconElement" style="flex-grow: 1; width: 64px; height: 64px; min-width: 64px; max-width: 64px; min-height: 64px; max-height: 64px; align-self: stretch; margin-bottom: 0; flex-direction: row; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1;">
                     <ui:Label text="Effects:" style="-unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 25px; text-shadow: 1px 1px 2px rgb(65, 87, 16); color: rgb(41, 19, 2); -unity-background-image-tint-color: rgb(215, 215, 215);" />

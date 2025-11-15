@@ -151,12 +151,15 @@ public class ShopManager : MonoBehaviour
         var buyButton = itemElement.Q<Button>("buyButton");
         var iconElement = itemElement.Q<VisualElement>("iconElement");
 
-    
-        for (int i = 1; i <= 3; i++)
+        if(itemData.type == ItemType.StatUpgrade)
         {
-            itemElement.Q<Label>($"pos{i}").style.display = DisplayStyle.None;
-            itemElement.Q<Label>($"neg{i}").style.display = DisplayStyle.None;
+            for (int i = 1; i <= 3; i++)
+            {
+                itemElement.Q<Label>($"pos{i}").style.display = DisplayStyle.None;
+                itemElement.Q<Label>($"neg{i}").style.display = DisplayStyle.None;
+            }
         }
+
        
 
         var allPositiveEffects = new List<(string text, float value)>();

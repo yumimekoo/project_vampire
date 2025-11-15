@@ -1,30 +1,23 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/templateItemUSS.uss?fileID=7433441132597879392&amp;guid=5ec5cea8bbfa94a4c8ade975179fe972&amp;type=3#templateItemUSS" />
-    <ui:VisualElement class="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Items/uncommonItem.aseprite?fileID=-6620457852551658643&amp;guid=f841df9956127464e84c756f87b42991&amp;type=3#uncommonItem&quot;); padding-top: 59px; padding-right: 59px; padding-bottom: 59px; padding-left: 59px; margin-left: 15px; margin-right: 15px; width: 300px; min-width: 300px; max-width: 300px; height: 600px; min-height: 600px; max-height: 600px; margin-top: 15px; margin-bottom: 15px;">
+    <ui:VisualElement class="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Items/mythicItem.aseprite?fileID=-3486510152554974183&amp;guid=fcf055930d8d1ae4cb08665e4a15d555&amp;type=3#mythicItem&quot;); padding-top: 59px; padding-right: 59px; padding-bottom: 59px; padding-left: 59px; margin-left: 15px; margin-right: 15px; width: 300px; min-width: 300px; max-width: 300px; height: 600px; min-height: 600px; max-height: 600px; margin-top: 15px; margin-bottom: 15px; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgb(255, 255, 255);">
         <ui:VisualElement template="inhaltItems" name="VisualElement" style="justify-content: space-between; flex-grow: 1;">
-            <ui:VisualElement name="VisualElement" style="flex-grow: 0;">
+            <ui:VisualElement name="VisualElement" style="flex-grow: 0; align-self: center; align-items: center;">
+                <ui:Label text="Skill-Effect" name="asdasd" class="name-label" style="height: auto; width: 200px; min-width: 200px; max-width: 200px; color: rgb(35, 13, 44); -unity-text-outline-color: rgb(130, 27, 171); text-shadow: 1px 1px 1px rgb(130, 27, 171); -unity-text-align: upper-center;" />
                 <ui:Label text="Labeadsadadadadadadal" name="nameLabel" class="name-label" style="height: auto; width: 200px; min-width: 200px; max-width: 200px; color: rgb(35, 13, 44); -unity-text-outline-color: rgb(130, 27, 171); text-shadow: 1px 1px 1px rgb(130, 27, 171); -unity-text-align: upper-center;" />
+                <ui:VisualElement name="iconElement" style="flex-grow: 1; width: 128px; height: 128px; min-width: 128px; max-width: 128px; min-height: 128px; max-height: 128px; align-self: center; margin-bottom: 0; flex-direction: row; background-color: rgba(0, 0, 0, 0); justify-content: space-between;" />
+                <ui:Label text="Skill Effects:" style="-unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 25px; text-shadow: 1px 1px 2px rgb(130, 27, 171); color: rgb(35, 13, 44); -unity-background-image-tint-color: rgb(215, 215, 215);" />
                 <ui:VisualElement style="flex-grow: 0; flex-direction: row; height: 150px;">
-                    <ui:Label text="this item is super good, in this case, u need to talk about my asdasdsadsadsadsadsaasdasdasasdsdadsasadsdasdasdasadsadsdasdasadslovedfsdxfdsfdsfsdfsdfds&#10;" name="descLabel" class="desc" style="width: 130px; min-width: 130px; max-width: 130px; height: 64px; min-height: 64px; max-height: 64px; margin-top: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; color: rgb(35, 13, 44);" />
-                    <ui:VisualElement name="iconElement" style="flex-grow: 1; width: 64px; height: 64px; min-width: 64px; max-width: 64px; min-height: 64px; max-height: 64px; align-self: stretch; margin-bottom: 0; flex-direction: row; background-color: rgb(0, 0, 0);" />
+                    <ui:Label text="this item is super good, in this case, u need to talk about my asdasdsadsadsadsadsaasdasdasasdsdadsasadsdasdasdasadsadsdasdasadslovedfsdxfdsfdsfsdfsdfds&#10;" name="descLabel" class="desc" style="width: 190px; min-width: 190px; max-width: 190px; height: 64px; min-height: 64px; max-height: 64px; margin-top: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; color: rgb(35, 13, 44);" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1;">
-                    <ui:Label text="Skill Effects:" style="-unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 25px; text-shadow: 1px 1px 2px rgb(130, 27, 171); color: rgb(35, 13, 44); -unity-background-image-tint-color: rgb(215, 215, 215);" />
-                    <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none; margin-bottom: 20px; font-size: 20px;">
-                        <ui:Label text="+2000% Bullet Distance" name="pos1" class="stat-positive" />
-                        <ui:Label text="Label" name="pos2" class="stat-positive" />
-                        <ui:Label text="Label" name="pos3" class="stat-positive" />
-                    </ui:VisualElement>
-                    <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none;">
-                        <ui:Label text="Label" name="neg1" class="stat-negative" />
-                        <ui:Label text="Label" name="neg2" class="stat-negative" />
-                        <ui:Label text="Label" name="neg3" class="stat-negative" />
-                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none; margin-bottom: 20px; font-size: 20px;" />
+                    <ui:VisualElement style="flex-grow: 0; height: auto; min-height: auto; max-height: none;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement style="flex-grow: 0; justify-content: space-evenly; align-items: center; align-self: auto; width: 200px; min-width: 200px; max-width: 200px;">
+            <ui:VisualElement style="flex-grow: 0; justify-content: space-evenly; align-items: center; align-self: center; width: 200px; min-width: 200px; max-width: 200px;">
                 <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
-                    <ui:Button text="Button" name="buyButton" style="width: 200%; min-width: 200px; max-width: 200px; height: 32px; min-height: 32px; max-height: 32px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 20px;" />
+                    <ui:Button text="Button" name="buyButton" style="width: 120px; min-width: 120px; max-width: 120px; height: 39px; min-height: 39px; max-height: 39px; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 20px; background-image: url(&quot;project://database/Assets/Sprites/Items/mythicButton.aseprite?fileID=6938936534314119802&amp;guid=06ad1c979d2174a46bfe45e13bca9e4a&amp;type=3#mythicButton&quot;);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

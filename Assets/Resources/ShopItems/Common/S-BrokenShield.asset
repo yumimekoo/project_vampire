@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
   itemName: Broken Shield
   description: Raises Defense and reduces Attack
-  type: 2
+  type: 0
   rarity: 0
   basePrice: 12
   icon: {fileID: 3399281503542806899, guid: 83fe82e786584cc478b6cc7365ba28d8, type: 3}
