@@ -7,6 +7,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private PlayerStatsManager statsManager;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
+    [SerializeField] private DashUI dashUIManager;
 
     private Vector2 moveInput;
     private bool isDashing = false;
@@ -97,6 +98,16 @@ public class PlayerMovementController : MonoBehaviour
             int possibleDashes = Mathf.FloorToInt(dashTimer / statsManager.GetStat(StatType.DashCooldown));
             int newDashes = MaxDashes - possibleDashes;
 
+            if(newDashes > dashes)
+            {
+                int diff = newDashes - dashes;
+                for(int i = 0; i < diff; i++)
+                {
+                    // dash refill sound play
+                    dashUIManager.AddDash();
+                }
+            }
+
             dashes = Mathf.Clamp(newDashes, 0, MaxDashes);
 
             if (dashTimer < 0f)
@@ -118,6 +129,8 @@ public class PlayerMovementController : MonoBehaviour
                 dashes--;
                 dashTimer += statsManager.GetStat(StatType.DashCooldown);
                 StartDash();
+                dashUIManager.RemoveDash();
+                // dash sound play
             }
         }
     }
@@ -135,6 +148,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         dashes = 0;
         dashTimer = MaxDashes * statsManager.GetStat(StatType.DashCooldown);
+        dashUIManager.ClearContainer();
     }
 
     private void OnGUI()

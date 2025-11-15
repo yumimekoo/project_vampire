@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Skull
   maxHealth: 10
-  moveSpeed: 3
-  attackDamage: 7
+  moveSpeed: 4
+  attackDamage: 15
   attackRange: 0.6
   attackCooldown: 1
   droppedExperience: 12

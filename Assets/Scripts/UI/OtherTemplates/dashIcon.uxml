@@ -1,0 +1,3 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 0; width: 8px; height: 8px; background-image: url(&quot;project://database/Assets/Sprites/Player/dashSpritefill.aseprite?fileID=-8554669591783500742&amp;guid=ab1990f236681bc4cbece5f9a3547a2c&amp;type=3#dashSpritefill&quot;); background-size: 100% 100%; background-position-x: left 0; flex-direction: row;" />
+</ui:UXML>
