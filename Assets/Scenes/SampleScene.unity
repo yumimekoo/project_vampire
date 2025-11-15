@@ -13363,6 +13363,7 @@ MonoBehaviour:
   overlayUI: {fileID: 381500393}
   loadingUI: {fileID: 545325497}
   underlayUI: {fileID: 495452091}
+  stats: {fileID: 1194823393}
 --- !u!114 &1308250214
 MonoBehaviour:
   m_ObjectHideFlags: 0

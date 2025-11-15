@@ -408,24 +408,57 @@ public class ShopManager : MonoBehaviour
 
     private void AssignValues()
     {
-        labelMaxHealth.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.MaxHealth) * 10) / 10}";
-        labelAttackDamage.text = $"{Mathf.Round(stats.GetStat(StatType.AttackDamage) * 10) / 10}";
-        labelAttackSpeed.text = $"{Mathf.Round(stats.GetStat(StatType.AttackSpeed) * 10) / 10}";
+        // --- MAX HEALTH ---
+        float mhFlat = stats.GetStat(StatType.MaxHealth);
+        float mhMulti = stats.GetStatMulti(StatMulti.MaxHealthPercent);
+        float mhFinal = mhFlat * mhMulti;
+        labelMaxHealth.text = $"{Mathf.Round(mhFinal)}";
+        labelMaxHealthP.text = FormatPercent(mhFlat, mhMulti);
+
+        // --- ATTACK DAMAGE ---
+        float adFlat = stats.GetStat(StatType.AttackDamage);
+        float adMulti = stats.GetStatMulti(StatMulti.AttackPercent);
+        float adFinal = adFlat * adMulti;
+        labelAttackDamage.text = $"{Mathf.Round(adFinal * 10) / 10}";
+        labelAttackDamageP.text = FormatPercent(adFlat, adMulti);
+
+        // --- ATTACK SPEED ---
+        float asFlat = stats.GetStat(StatType.AttackSpeed);
+        float asMulti = stats.GetStatMulti(StatMulti.AttackSpeedPercent);
+        float asFinal = asFlat * asMulti;
+        labelAttackSpeed.text = $"{Mathf.Round(asFinal * 10) / 10}";
+        labelAttackSpeedP.text = FormatPercent(asFlat, asMulti);
+
+        // --- MOVE SPEED ---
+        float msFlat = stats.GetStat(StatType.MoveSpeed);
+        float msMulti = stats.GetStatMulti(StatMulti.MovePercent);
+        float msFinal = msFlat * msMulti;
+        labelMoveSpeed.text = $"{Mathf.Round(msFinal * 10) / 10}";
+        labelMoveSpeedP.text = FormatPercent(msFlat, msMulti);
+
+        // --- DASH COOLDOWN ---
+        float dcFlat = stats.GetStat(StatType.DashCooldown);
+        float dcMulti = stats.GetStatMulti(StatMulti.DashCooldownPercent);
+        float dcFinal = dcFlat * dcMulti;
+        labelDashCooldown.text = $"{Mathf.Round(dcFinal * 10) / 10}";
+        labelDashCooldownP.text = FormatPercent(dcFlat, dcMulti);
+
+        // --- VALUES OHNE MULTI ---
         labelBulletSpread.text = $"{Mathf.Round(stats.GetStat(StatType.BulletSpread) * 10) / 10}";
         labelBulletDistance.text = $"{Mathf.Round(stats.GetStat(StatType.BulletDistance) * 10) / 10}";
         labelBulletSpeed.text = $"{Mathf.Round(stats.GetStat(StatType.BulletSpeed) * 10) / 10}";
-        labelDefense.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.Defense) * 10) / 10}";
-        labelMoveSpeed.text = $"{Mathf.Round(stats.GetStat(StatType.MoveSpeed) * 10) / 10}";
+        labelDefense.text = $"{Mathf.Round(stats.GetStat(StatType.Defense) * 10) / 10}";
         labelDashDistance.text = $"{Mathf.Round(stats.GetStat(StatType.DashDistance) * 10) / 10}";
-        labelDashCooldown.text = $"{Mathf.Round(stats.GetStat(StatType.DashCooldown) * 10) / 10}";
-        labelDashes.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.Dashes) * 10) / 10}";
+        labelDashes.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.Dashes))}";
+    }
 
-        labelMaxHealthP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.MaxHealthPercent) * 20) / 20}";
-        labelAttackDamageP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.AttackPercent) * 20) / 20}";
-        labelAttackSpeedP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.AttackSpeedPercent) * 20) / 20}";
-        labelMoveSpeedP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.MovePercent) * 20) / 20}";
-        labelDashCooldownP.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.DashCooldownPercent) * 20) / 20}";
+    private string FormatPercent(float flat, float multi)
+    {
+        float percent = (multi - 1f) * 100f;
 
+        string sign = percent >= 0 ? "+ " : " ";
+
+        return $"{Mathf.Round(flat)} {sign}{percent:F0}%)";
     }
 
     public void HideUI()
