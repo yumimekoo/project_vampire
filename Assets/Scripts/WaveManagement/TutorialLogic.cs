@@ -7,6 +7,8 @@ public class TutorialLogic : MonoBehaviour
     private bool dashed;
     private bool tutorialCompleted;
 
+    [SerializeField] private OverlayUI overlay;
+
     private void Update()
     {
         if (tutorialCompleted)
@@ -32,6 +34,7 @@ public class TutorialLogic : MonoBehaviour
             tutorialCompleted = true;
             Debug.Log("Tutorial completed! in dem register logic");
             GameState.isTutroial = false;
+            StartCoroutine(overlay.PlayWaveAnimation());
         }
     }
 }

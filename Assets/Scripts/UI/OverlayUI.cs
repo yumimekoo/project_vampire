@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class OverlayUI : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private PlayerStatsManager playerStatsManager;
+    [SerializeField] private UIDocument levelAndWave;
     [SerializeField] private Sprite[] sprites;
     private int frames = 8;
 
@@ -22,7 +24,14 @@ public class OverlayUI : MonoBehaviour
         moneyLabel,
         lowHealthLabel,
         highHealthLabel,
-        remainingTime;
+        remainingTime,
+        waveUpLabel;
+
+
+    private VisualElement 
+        waveUp,
+        levelUp;
+
 
     private void Awake()
     {
@@ -34,6 +43,13 @@ public class OverlayUI : MonoBehaviour
         lowHealthLabel = root.Q<Label>("lowHealthLabel");
         highHealthLabel = root.Q<Label>("highHealthLabel");
         remainingTime = root.Q<Label>("remainingTime");
+
+        waveUp = levelAndWave.rootVisualElement.Q<VisualElement>("waveVisual");
+        levelUp = levelAndWave.rootVisualElement.Q<VisualElement>("levelUpVisual");
+        waveUpLabel = levelAndWave.rootVisualElement.Q<Label>("waveLabel");
+
+        waveUp.style.opacity = 0;
+        levelUp.style.opacity = 0;
 
         playerHealth.OnHealthChanged += UpdateHealthBar;
         levelManager.OnLevelChanged += UpdateLevelUI;
@@ -79,6 +95,27 @@ public class OverlayUI : MonoBehaviour
 
     private IEnumerator PlayAnimation()
     {
+        if (!GameState.isTutroial)
+        {
+            Sequence s = DOTween.Sequence()
+            .Append(
+                DOTween.To(() => (float) levelUp.style.opacity.value,
+                           x => levelUp.style.opacity = x,
+                           1f,                  // Ziel=1
+                           0.5f                 // Fade-In Dauer
+                )
+            )
+            .AppendInterval(1f)                 // 1 Sekunde warten
+            .Append(
+                DOTween.To(() => (float) levelUp.style.opacity.value,
+                           x => levelUp.style.opacity = x,
+                           0f,                  // Ziel=0
+                           0.5f                 // Fade-Out Dauer
+                )
+            )
+            .SetUpdate(true);
+        }
+
         overlayUI.rootVisualElement.style.backgroundImage = new StyleBackground();
 
         for (int i = 0; i < sprites.Length; i++)
@@ -86,6 +123,32 @@ public class OverlayUI : MonoBehaviour
             overlayUI.rootVisualElement.style.backgroundImage = new StyleBackground(sprites[i]);
             yield return new WaitForSeconds(1f / frames);
         }
+    }
+
+    public IEnumerator PlayWaveAnimation()
+    {
+        if (!GameState.isTutroial)
+        {
+            Sequence s = DOTween.Sequence()
+        .Append(
+            DOTween.To(() => (float) waveUp.style.opacity.value,
+                       x => waveUp.style.opacity = x,
+                       1f,                  // Ziel=1
+                       0.5f                 // Fade-In Dauer
+            )
+        )
+        .AppendInterval(1f)                 // 1 Sekunde warten
+        .Append(
+            DOTween.To(() => (float) waveUp.style.opacity.value,
+                       x => waveUp.style.opacity = x,
+                       0f,                  // Ziel=0
+                       0.5f                 // Fade-Out Dauer
+            )
+        )
+        .SetUpdate(true);
+            yield return s.WaitForCompletion();
+        }
+           
     }
 
     private void UpdateMoneyUI(int money)
@@ -100,6 +163,8 @@ public class OverlayUI : MonoBehaviour
         if (waveLabel == null)
             return;
         waveLabel.text = $"{waveManager.currentWaveIndex + 1}";
+        waveUpLabel.text = $"Wave {waveManager.currentWaveIndex + 1}";
+        StartCoroutine(PlayWaveAnimation());
     }
 
     private void TimerUI()

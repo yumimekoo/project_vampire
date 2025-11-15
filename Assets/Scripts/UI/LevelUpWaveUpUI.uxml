@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="waveVisual" picking-mode="Ignore" style="flex-grow: 0; height: 70%; justify-content: center;">
+        <ui:Label text="Label" name="waveLabel" picking-mode="Ignore" style="-unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 110px; color: rgb(195, 158, 38); text-shadow: 4px 4px 0 rgb(0, 0, 0);" />
+    </ui:VisualElement>
+    <ui:VisualElement name="levelUpVisual" picking-mode="Ignore" style="flex-grow: 1;">
+        <ui:Label text="Level Up!" picking-mode="Ignore" style="-unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Assets/Downloaded/Fonts/alagard.ttf?fileID=12800000&amp;guid=21bdbdc904a27364ab64e421957f4e3a&amp;type=3#alagard&quot;); font-size: 50px; color: rgb(108, 149, 5); text-shadow: 2px 2px 0 rgb(217, 217, 217);" />
+    </ui:VisualElement>
+</ui:UXML>
