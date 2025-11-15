@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -56,6 +55,7 @@ public class OverlayUI : MonoBehaviour
         levelManager.OnScoreChanged += UpdateScoreUI;
         levelManager.OnMoneyChanged += UpdateMoneyUI;
         waveManager.OnWaveChanged += UpdateWaveUI;
+        GameEvents.OnPlayerHit += ScreenFlash;
     }
 
     private void Start()
@@ -75,6 +75,7 @@ public class OverlayUI : MonoBehaviour
         levelManager.OnMoneyChanged -= UpdateMoneyUI;
         waveManager.OnWaveChanged -= UpdateWaveUI;
         levelManager.OnScoreChanged -= UpdateScoreUI;
+        GameEvents.OnPlayerHit -= ScreenFlash;
     }
 
     // ======== Update-Methoden ========
@@ -150,6 +151,49 @@ public class OverlayUI : MonoBehaviour
         }
            
     }
+
+    public void ScreenFlash(PlayerHealth s, float damage)
+    {
+        if (this == null) return;
+        if ( damage <= 0) return;
+        StartCoroutine(Flash());
+    }
+
+    public IEnumerator Flash()
+    {
+        if (this == null)
+            yield break;
+
+        var originalTranslate = overlayUI.rootVisualElement.style.translate.value;
+
+        // Shake-Range in Pixel
+        float shakeAmount = 10f;
+
+        DOTween.Sequence()
+            .AppendInterval(0f) // nötig für manchen UI Toolkit Kram
+            .Append(DOTween.To(
+                () => 0f,
+                x =>
+                {
+                    float offsetX = Random.Range(-shakeAmount, shakeAmount);
+                    float offsetY = Random.Range(-shakeAmount, shakeAmount);
+
+                    overlayUI.rootVisualElement.style.translate = new Translate(
+                        new Length(offsetX, LengthUnit.Pixel),
+                        new Length(offsetY, LengthUnit.Pixel)
+                    );
+                },
+                1f,
+                0.1f // Gesamtdauer des Shakes
+            ).SetLoops(4, LoopType.Yoyo)) // 6 kleine Wackler
+            .OnComplete(() =>
+            {
+                overlayUI.rootVisualElement.style.translate = originalTranslate;
+            });
+        yield return null;
+    }
+
+
 
     private void UpdateMoneyUI(int money)
     {

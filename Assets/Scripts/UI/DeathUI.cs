@@ -49,6 +49,11 @@ public class DeathUI : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        playerHealth.OnPlayerDeath -= ShowDeathUI;
+    }
+
     public IEnumerator LoadScene(string name)
     {
         DOTween.To(

@@ -33,7 +33,7 @@ public class HealOverTimeOnPlayerHit : ISkillEffect
         hps += extraHps;
     }
 
-    private void OnPlayerHit(PlayerHealth player)
+    private void OnPlayerHit(PlayerHealth player, float damage)
     {
         //Debug.Log("BleedOnHitEffect triggered");
         if (Time.time < lastTriggerTime + cooldown)

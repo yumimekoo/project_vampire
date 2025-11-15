@@ -4,11 +4,15 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] PlayerStatsManager statsManager;
+    [SerializeField] PlayerMovementController movement;
     public float currentHealth;
     public float maxHealth;
 
     private bool isDead = false;
     private bool isInvulnerable;
+
+    private float lastHitTime = -999f;
+    public float hitCooldown = 1f;
 
     public event System.Action<float, float> OnHealthChanged;
     public event System.Action OnPlayerDeath;
@@ -29,6 +33,9 @@ public class PlayerHealth : MonoBehaviour
         if (isDead)
             return;
 
+        if (Time.time < lastHitTime + hitCooldown)
+            return;
+
         float defense = statsManager.GetStat(StatType.Defense);
         float finalDamage = Mathf.Max(amount - defense, 0f);
 
@@ -41,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
-        GameEvents.OnPlayerHit?.Invoke(this);
+        GameEvents.OnPlayerHit?.Invoke(this, finalDamage);
     }
 
     public void Heal(float amount)
@@ -58,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
         GameState.isDead = true;
         isDead = true;
         currentHealth = 0f;
-
+        movement.VelocityRemove();
         OnPlayerDeath?.Invoke();
         Debug.Log("Player DIED!");
         // Death screen implement

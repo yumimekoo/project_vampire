@@ -13,6 +13,7 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 dashDirection;
     private Vector2 currentVelocity;
 
+    bool isMoving;
     private float dashTimer;
     private int dashes;
     private int MaxDashes => Mathf.FloorToInt(statsManager.GetStat(StatType.Dashes));
@@ -27,7 +28,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        if (!GameState.inPauseMenu && !GameState.inShop && !GameState.inPauseMenu)
+        if (!GameState.inPauseMenu && !GameState.inShop && !GameState.inPauseMenu && !GameState.isDead)
         {
             HandleInput();
             UpdateDashTimer();
@@ -37,11 +38,18 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!GameState.inPauseMenu && !GameState.inShop)
+        if (!GameState.inPauseMenu && !GameState.inShop && !GameState.isDead)
         {
             if (!isDashing)
                 Move();
         }
+    }
+
+    public void VelocityRemove()
+    {
+        isMoving = false;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 
     public void SetToZero()
@@ -116,7 +124,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void UpdateAnimator() 
     {
-        bool isMoving = moveInput.sqrMagnitude > 0.01f;
+        isMoving = moveInput.sqrMagnitude > 0.01f;
 
         animator.SetFloat("MoveX", moveInput.x);
         animator.SetFloat("MoveY", moveInput.y);
