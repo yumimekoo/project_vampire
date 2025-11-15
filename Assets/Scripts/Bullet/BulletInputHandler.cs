@@ -37,7 +37,10 @@ private void Shoot()
 
         GameObject bullet = BulletPool.Instance.GetBullet();
         bullet.transform.position = firePoint.position;
-        bullet.transform.rotation = Quaternion.identity;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+
         bullet.GetComponent<Bullet>().Init(direction, statsManager);
     }
 

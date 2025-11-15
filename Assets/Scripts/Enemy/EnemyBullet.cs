@@ -11,8 +11,8 @@ public class EnemyBullet : MonoBehaviour
     public void InitEnemy(Transform player ,EnemyBase enemy)
     {
         directionEnemy = ((Vector2) player.position - (Vector2) enemy.transform.position).normalized;
-        speedEnemy = 6f; // LATER MODULAR MACHEN stats.GetStat(StatType.BulletSpeed);
-        distanceEnemy = 5f; // LATER MODULAR mACHEN stats.GetStat(StatType.BulletDistance);
+        speedEnemy = 9f;
+        distanceEnemy = 10f; 
         damageEnemy = enemy.GetData().attackDamage;
         startPosEnemy = transform.position;
     }

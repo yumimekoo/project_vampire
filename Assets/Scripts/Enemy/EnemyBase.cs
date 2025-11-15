@@ -6,6 +6,7 @@ public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
     [SerializeField] private GameObject deathEffectPrefab;
+    [SerializeField] private Animator animator;
     private EnemyHealthBar healthBarInstance;
 
     private Transform player;
@@ -20,7 +21,7 @@ public class EnemyBase : MonoBehaviour
     {
         player = playerTransform;
         levelManager = level;
-        behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform, pool);
+        behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform, pool, animator);
         Health = data.maxHealth * levelManager.GetEnemyDifficultyMultiplier();
         maxHealthMultiplied = data.maxHealth * levelManager.GetEnemyDifficultyMultiplier();
     }

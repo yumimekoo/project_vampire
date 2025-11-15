@@ -21,9 +21,21 @@ MonoBehaviour:
     possibleEnemies:
     - {fileID: 3748472330514613518, guid: 9f6ba863f5c2f384484e276a1e97e719, type: 3}
   - waveNumber: 1
-    waveDuration: 5
+    waveDuration: 60
+    minEnemies: 3
+    maxEnemies: 3
+    spawnRate: 10
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+    - {fileID: 3748472330514613518, guid: 167d6e9abe06ee7489a146825b37e53a, type: 3}
+    - {fileID: 875816021685369896, guid: 5673cf883b5d49e48ad976c6487ae20c, type: 3}
+    - {fileID: 875816021685369896, guid: 059b7ad72bbd9dc47a048e8ad0f223be, type: 3}
+    - {fileID: 875816021685369896, guid: 333bcc26f6416b74c93623181584f514, type: 3}
+  - waveNumber: 2
+    waveDuration: 50
     minEnemies: 1
     maxEnemies: 1
-    spawnRate: 2
+    spawnRate: 30
     possibleEnemies:
-    - {fileID: 3748472330514613518, guid: 6fba62ab0b363f34499465d4b633358d, type: 3}
+    - {fileID: 3748472330514613518, guid: 9d8fc562e89a19e4e89929314d996613, type: 3}
+    - {fileID: 3748472330514613518, guid: 8428b386129337c468c0c7a43ebeaba7, type: 3}
