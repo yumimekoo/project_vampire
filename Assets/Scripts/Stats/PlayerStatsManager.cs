@@ -55,7 +55,7 @@ public class PlayerStatsManager : MonoBehaviour
     {
         minStats[StatType.MoveSpeed] = 0.1f;
         minStats[StatType.DashDistance] = 0.5f;
-        minStats[StatType.DashCooldown] = 0.01f;
+        minStats[StatType.DashCooldown] = 1f;
         minStats[StatType.Dashes] = 0f;
         minStats[StatType.DashRegenerationRate] = 0f;
         minStats[StatType.MaxHealth] = 1f;

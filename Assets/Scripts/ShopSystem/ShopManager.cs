@@ -29,6 +29,17 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private VisualTreeAsset legendaryItemTemplate;
     [SerializeField] private VisualTreeAsset passiveSkillTemplate;
 
+    private static readonly HashSet<StatType> InvertedFlatStats = new()
+    {
+        StatType.BulletSpread,
+        StatType.DashCooldown
+    };
+
+    private static readonly HashSet<StatMulti> InvertedMultiStats = new()
+    {
+        StatMulti.DashCooldownPercent
+    };
+
     private List<ShopItemDataSO> currentItems = new List<ShopItemDataSO>();
     private VisualElement root,
         itemContainer;
@@ -353,19 +364,31 @@ public class ShopManager : MonoBehaviour
             case ItemType.StatUpgrade:
                 foreach (var effect in item.positiveEffects)
                 {
-                    playerStatsManager.AddFlatStat(effect.statType, effect.value);
+                    if (InvertedFlatStats.Contains(effect.statType))
+                        playerStatsManager.ReduceFlatStat(effect.statType, effect.value);
+                    else
+                        playerStatsManager.AddFlatStat(effect.statType, effect.value);
                 }
                 foreach (var effect in item.negativeEffects)
                 {
-                    playerStatsManager.ReduceFlatStat(effect.statType, effect.value);
+                    if (InvertedFlatStats.Contains(effect.statType))
+                        playerStatsManager.AddFlatStat(effect.statType, effect.value);
+                    else
+                        playerStatsManager.ReduceFlatStat(effect.statType, effect.value);
                 }
                 foreach (var effect in item.positiveEffectMultis)
                 {
-                    playerStatsManager.AddPercentStat(effect.statMulti, effect.value);
+                    if(InvertedMultiStats.Contains(effect.statMulti))
+                        playerStatsManager.ReducePercentStat(effect.statMulti, effect.value);
+                    else
+                        playerStatsManager.AddPercentStat(effect.statMulti, effect.value);
                 }
                 foreach (var effect in item.negativeEffectMultis)
                 {
-                    playerStatsManager.ReducePercentStat(effect.statMulti, effect.value);
+                    if(InvertedMultiStats.Contains(effect.statMulti))
+                        playerStatsManager.AddPercentStat(effect.statMulti, effect.value);
+                    else
+                        playerStatsManager.ReducePercentStat(effect.statMulti, effect.value);
                 }
                 break;
             case ItemType.ActiveSkill:

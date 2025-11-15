@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
@@ -69,7 +70,7 @@ public class PlayerMovementController : MonoBehaviour
         animator.SetFloat("MoveY", dashDirection.y);
         animator.SetTrigger("Dash");
 
-        float dashDistance = statsManager.GetStat(StatType.DashDistance);
+        float dashDistance = statsManager.GetStat(StatType.DashDistance) * (Mathf.Max((statsManager.GetStat(StatType.MoveSpeed) / 4 ), 1f));
         rb.linearVelocity = dashDirection.normalized * dashDistance / 0.1f;
 
         float dashDuration = 0.1f;
