@@ -1,8 +1,10 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Bullet : MonoBehaviour
 {
+    private PlayerStatsManager statsmanager;
     private Vector2 direction;
     private float speed;
     private float distance;
@@ -12,9 +14,10 @@ public class Bullet : MonoBehaviour
     public void Init(Vector2 dir, PlayerStatsManager stats)
     {
         direction = dir.normalized;
-        speed = stats.GetStat(StatType.BulletSpeed);
-        distance = stats.GetStat(StatType.BulletDistance);
+        speed = stats.GetStat(StatType.BulletSpeed) / 10;
+        distance = stats.GetStat(StatType.BulletDistance) / 10;
         damage = stats.GetStat(StatType.AttackDamage);
+        statsmanager = stats;
         startPos = transform.position;
         GameEvents.OnBulletFired?.Invoke(this);
     }
@@ -42,7 +45,7 @@ public class Bullet : MonoBehaviour
         {
             var data = other.GetComponent<EnemyBase>();
             data.TakeDamage(damage);
-            // TakeDamage in EnemyBase.cs of other
+            GameEvents.OnBulletLifeSteal?.Invoke(damage);
             GameEvents.OnBulletHit?.Invoke(this, data);
             BulletPool.Instance.ReturnBullet(gameObject);
         }

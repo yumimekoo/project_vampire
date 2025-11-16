@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
+  m_Name: S-SteelNerves
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
+  itemName: Steel Nerves
+  description: Courage, reinforced with cold metal
+  type: 0
+  rarity: 1
+  basePrice: 72
+  icon: {fileID: 21300000, guid: e504bf3779bda9c40ba6d311e0611951, type: 3}
+  positiveEffects:
+  - statType: 6
+    value: 4
+  positiveEffectMultis:
+  - statMulti: 3
+    value: 0.01
+  negativeEffects: []
+  negativeEffectMultis: []
+  passiveSkillEffects: []

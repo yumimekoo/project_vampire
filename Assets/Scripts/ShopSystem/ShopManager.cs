@@ -62,7 +62,8 @@ public class ShopManager : MonoBehaviour
         labelBulletSpeed,
         labelBulletDistance,
         labelBulletSpread,
-        labelDefense;
+        labelDefense,
+        labelLifeSteal;
 
     private Label
         labelMoveSpeed,
@@ -103,6 +104,7 @@ public class ShopManager : MonoBehaviour
         labelBulletDistance = root.Q<Label>("labelBulletDistance");
         labelBulletSpread = root.Q<Label>("labelBulletSpread");
         labelDefense = root.Q<Label>("labelDefense");
+        labelLifeSteal = root.Q<Label>("labelLifeSteal");
 
         labelMoveSpeed = root.Q<Label>("labelMoveSpeed");
         labelMoveSpeedP = root.Q<Label>("labelMoveSpeedP");
@@ -264,6 +266,8 @@ public class ShopManager : MonoBehaviour
                 return "Move Speed";
             case StatMulti.DashCooldownPercent:
                 return "Dash Cooldown";
+            case StatMulti.LifeSteal:
+                return "Life Steal";
             default:
                 return statMulti.ToString();
         }
@@ -476,6 +480,7 @@ public class ShopManager : MonoBehaviour
         labelDefense.text = $"{Mathf.Round(stats.GetStat(StatType.Defense) * 10) / 10}";
         labelDashDistance.text = $"{Mathf.Round(stats.GetStat(StatType.DashDistance) * 10) / 10}";
         labelDashes.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.Dashes))}";
+        labelLifeSteal.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.LifeSteal) * 100f)}%";
     }
 
     private string FormatPercent(float flat, float multi)

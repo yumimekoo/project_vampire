@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="TemplateRare" src="project://database/Assets/Scripts/UI/ItemTemplates/TemplateRare.uxml?fileID=9197481963319205126&amp;guid=fcb5a5e7b65637a4fbd2318150b53236&amp;type=3#TemplateRare" />
-    <Style src="project://database/Assets/shop.uss?fileID=7433441132597879392&amp;guid=6033f10bbd25d814b9ec78ab79191070&amp;type=3" />
+    <Style src="project://database/Assets/shop.uss?fileID=7433441132597879392&amp;guid=6033f10bbd25d814b9ec78ab79191070&amp;type=3#shop" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.78); flex-direction: column; justify-content: center;">
         <ui:VisualElement name="VisualElement" style="flex-grow: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 1536px; height: 864px; justify-content: space-between; align-self: center; align-items: stretch; flex-direction: row; background-image: url(&quot;project://database/Assets/Sprites/UI/shop.aseprite?fileID=-860619460986185638&amp;guid=c0b7d0072dbd267419ae94ee6474c472&amp;type=3#shop&quot;);">
             <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
@@ -76,6 +76,10 @@
                 <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
                     <ui:Label text="Defense: " class="stat-name" />
                     <ui:Label text="Label" name="labelDefense" class="stat-value" />
+                </ui:VisualElement>
+                <ui:VisualElement name="VisualElement" class="stat-container" style="flex-grow: 0; flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto;">
+                    <ui:Label text="Life Steal:" class="stat-name" />
+                    <ui:Label text="Label" name="labelLifeSteal" class="stat-value" />
                 </ui:VisualElement>
                 <ui:VisualElement name="Movement" style="flex-grow: 0;">
                     <ui:Label text="Movement:" class="stat-category" />

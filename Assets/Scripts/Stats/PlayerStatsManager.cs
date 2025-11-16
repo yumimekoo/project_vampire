@@ -33,6 +33,7 @@ public class PlayerStatsManager : MonoBehaviour
         currentStatMultis[StatMulti.DashCooldownPercent] = 1f;
         currentStatMultis[StatMulti.MaxHealthPercent] = 1f;
         currentStatMultis[StatMulti.AttackSpeedPercent] = 1f;
+        currentStatMultis[StatMulti.LifeSteal] = 0f;
     }
 
     private void InitBaseStats()
@@ -118,7 +119,10 @@ public class PlayerStatsManager : MonoBehaviour
     public void ReducePercentStat(StatMulti stat, float percent)
     {
         if(currentStatMultis.ContainsKey(stat))
-            currentStatMultis[stat] = Mathf.Max(0.1f, currentStatMultis[stat] - percent);
+            if(stat == StatMulti.LifeSteal)
+                currentStatMultis[stat] = Mathf.Max(0f, currentStatMultis[stat] - percent);
+            else
+                currentStatMultis[stat] = Mathf.Max(0.1f, currentStatMultis[stat] - percent);
         else
             currentStatMultis.Add(stat, 1f - percent);
 

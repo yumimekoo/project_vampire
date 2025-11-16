@@ -16,7 +16,7 @@ public class BulletInputHandler : MonoBehaviour
             {
                 Shoot();
 
-                float attackSpeed = statsManager.GetStat(StatType.AttackSpeed);
+                float attackSpeed = statsManager.GetStat(StatType.AttackSpeed) / 100;
                 nextShootTime = Time.time + 1f / attackSpeed;
             }
         }

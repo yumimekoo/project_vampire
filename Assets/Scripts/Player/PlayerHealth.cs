@@ -26,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
         maxHealth = statsManager.GetStat(StatType.MaxHealth);
         currentHealth = maxHealth;
+        GameEvents.OnBulletLifeSteal += ApplyLifeSteal;
     }
 
     public void TakeDamage(float amount)
@@ -39,16 +40,29 @@ public class PlayerHealth : MonoBehaviour
         float defense = statsManager.GetStat(StatType.Defense);
         float finalDamage = Mathf.Max(amount - defense, 0f);
 
-        currentHealth -= finalDamage;
-        Debug.Log($"Player took {finalDamage} damage ({ currentHealth}/{ maxHealth})");
-
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
-
-        if(currentHealth <= 0f)
+        if (finalDamage < 1f)
         {
-            Die();
+            // play blocked sound
+        } else
+        {
+            currentHealth -= finalDamage;
+            Debug.Log($"Player took {finalDamage} damage ({currentHealth}/{maxHealth})");
+
+            OnHealthChanged?.Invoke(currentHealth, maxHealth);
+            // take damage effects here
+            if (currentHealth <= 0f)
+            {
+                Die();
+            }
+            GameEvents.OnPlayerHit?.Invoke(this, finalDamage);
         }
-        GameEvents.OnPlayerHit?.Invoke(this, finalDamage);
+    }
+
+    public void ApplyLifeSteal(float damageDealt)
+    {
+        float lifeStealPercent = statsManager.GetStatMulti(StatMulti.LifeSteal);
+        float healAmount = damageDealt * lifeStealPercent;
+        Heal(healAmount);
     }
 
     public void Heal(float amount)

@@ -18,6 +18,7 @@ public enum StatType
 
 public enum StatMulti
 {
+    LifeSteal,
     MovePercent,
     AttackPercent,
     DashCooldownPercent,

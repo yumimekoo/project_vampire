@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     [Header("Level Settings")]
     [SerializeField] public int currentLevel = 1;
     [SerializeField] private float currentXP = 0f;
-    [SerializeField] private float xpToNextLevel = 100f;
+    [SerializeField] private float xpToNextLevel = 150f;
 
     [Header("Level Settings")]
     [SerializeField] private int playerMoney = 0;
@@ -15,8 +15,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public int playerHighscore = 0;
 
     [Header("Level Settings")]
-    [SerializeField] private float xpGrowthFactor = 1.25f;
-    [SerializeField] private float enemyDifficultyMultiplier = 1.1f;
+    [SerializeField] private float xpGrowthFactor = 1.5f;
+    [SerializeField] private float enemyDifficultyMultiplier = 1.07f;
 
     //public System.Action<int> OnLevelUp;
     //public System.Action<int> OnMoneyChanged;

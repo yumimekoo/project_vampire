@@ -29,7 +29,8 @@ public class PauseControllerUI : MonoBehaviour
         labelBulletSpeed,
         labelBulletDistance,
         labelBulletSpread,
-        labelDefense;
+        labelDefense,
+        labelLifeSteal;
 
     private Label
         labelMoveSpeed,
@@ -67,6 +68,7 @@ public class PauseControllerUI : MonoBehaviour
         labelDashCooldown = root.Q<Label>("labelDashCooldown");
         labelDashCooldownP = root.Q<Label>("labelDashCooldownP");
         labelDashes = root.Q<Label>("labelDashes");
+        labelLifeSteal = root.Q<Label>("labelLifeSteal");
 
         pauseUI.rootVisualElement.style.display = DisplayStyle.None;
     }
@@ -191,6 +193,7 @@ public class PauseControllerUI : MonoBehaviour
         labelDefense.text = $"{Mathf.Round(stats.GetStat(StatType.Defense) * 10) / 10}";
         labelDashDistance.text = $"{Mathf.Round(stats.GetStat(StatType.DashDistance) * 10) / 10}";
         labelDashes.text = $"{Mathf.RoundToInt(stats.GetStat(StatType.Dashes))}";
+        labelLifeSteal.text = $"{Mathf.Round(stats.GetStatMulti(StatMulti.LifeSteal) * 100f)}%";
     }
 
     private string FormatPercent(float flat, float multi)

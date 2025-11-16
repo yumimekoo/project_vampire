@@ -64,7 +64,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Move()
     {
-        float speed = statsManager.GetStat(StatType.MoveSpeed) + statsManager.GetStatMulti(StatMulti.MovePercent);
+        float speed = (statsManager.GetStat(StatType.MoveSpeed) / 100) + statsManager.GetStatMulti(StatMulti.MovePercent);
         Vector2 targetVelocity = moveInput * speed;
 
         rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref currentVelocity, 0.075f);
@@ -79,7 +79,7 @@ public class PlayerMovementController : MonoBehaviour
         animator.SetFloat("MoveY", dashDirection.y);
         animator.SetTrigger("Dash");
 
-        float dashDistance = statsManager.GetStat(StatType.DashDistance) * (Mathf.Max((statsManager.GetStat(StatType.MoveSpeed) / 4 ), 1f));
+        float dashDistance = statsManager.GetStat(StatType.DashDistance)/100 * (Mathf.Max(((statsManager.GetStat(StatType.MoveSpeed)/ 100) / 3 ), 1f));
         rb.linearVelocity = dashDirection.normalized * dashDistance / 0.1f;
 
         float dashDuration = 0.1f;
