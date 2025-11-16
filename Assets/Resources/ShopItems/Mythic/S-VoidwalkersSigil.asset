@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-VoidwalkersSigil
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Void Sigil
+  description: "A pact with emptiness \u2014 step into nothing, return with everything."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
+  rarity: 3
+  basePrice: 1250
+  icon: {fileID: 21300000, guid: edcbd57032ccbd44e9f228cdd323ab50, type: 3}
+  positiveEffects:
+  - statType: 1
+    value: 40
+  - statType: 3
+    value: 1
+  positiveEffectMultis:
+  - statMulti: 3
+    value: 0.1
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 4
+    value: 0.1
   passiveSkillEffects: []

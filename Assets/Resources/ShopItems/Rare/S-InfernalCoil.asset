@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-InfernalCoil
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Infernal Coil
+  description: It burns both your foes and your patience.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 2
+  basePrice: 255
+  icon: {fileID: 21300000, guid: b6da46610f2e67c47ab4f5011422203a, type: 3}
+  positiveEffects:
+  - statType: 7
+    value: 10
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.18
+  negativeEffects:
+  - statType: 5
+    value: 13
   negativeEffectMultis: []
   passiveSkillEffects: []

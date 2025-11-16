@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-SolarReign
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Solar Reign
+  description: A miniature sun chained to your trigger finger.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
+  rarity: 3
+  basePrice: 1320
+  icon: {fileID: 21300000, guid: 70e92df91699f664ab5bad7bf4723022, type: 3}
+  positiveEffects:
+  - statType: 9
+    value: 70
+  - statType: 11
+    value: 5
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.1
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 0
+    value: 0.05
   passiveSkillEffects: []

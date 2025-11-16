@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-StaticPotion
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Static Potion
+  description: "Lightning doesn\u2019t wait for permission."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
+  rarity: 2
+  basePrice: 210
+  icon: {fileID: 21300000, guid: 805736230f06ac449a72b0ecb951e522, type: 3}
+  positiveEffects:
+  - statType: 9
+    value: 60
+  - statType: 0
+    value: 20
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.15
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 1
+    value: 0.12
   passiveSkillEffects: []

@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-Heart Harmonizer
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Heart Harmonizer
+  description: Calms the rhythm of chaos inside you.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
+  rarity: 1
+  basePrice: 66
+  icon: {fileID: 21300000, guid: 87a7c4321fd50514c8e41d6779a071da, type: 3}
   positiveEffects: []
-  positiveEffectMultis: []
+  positiveEffectMultis:
+  - statMulti: 4
+    value: 0.05
   negativeEffects: []
   negativeEffectMultis: []
   passiveSkillEffects: []

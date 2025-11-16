@@ -82,7 +82,7 @@ public class EnemyBase : MonoBehaviour
         // TODO: Add death effects, pooling usw. experience to player
         levelManager.AddXP(data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier());
         levelManager.AddScore((int) (data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier() * levelManager.GetLevel()));
-        levelManager.AddMoney((int)(data.droppedMoney * levelManager.GetEnemyDifficultyMultiplier()));
+        levelManager.AddMoney((int)(data.droppedMoney * levelManager.GetEnemyDifficultyMultiplier()) * 2);
         Destroy(gameObject);
         Destroy(healthBarInstance.gameObject);
     }

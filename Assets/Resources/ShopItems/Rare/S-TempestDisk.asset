@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-TempestDisk
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Wine
+  description: Dont drink and drive.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 2
+  basePrice: 310
+  icon: {fileID: 21300000, guid: d1b0810a7bee633469a729543f4e6659, type: 3}
+  positiveEffects:
+  - statType: 8
+    value: 30
+  - statType: 0
+    value: 10
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.15
+  negativeEffects:
+  - statType: 11
+    value: 15
   negativeEffectMultis: []
   passiveSkillEffects: []

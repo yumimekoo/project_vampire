@@ -16,12 +16,12 @@ MonoBehaviour:
   description: Threads vitality back into broken skin.
   type: 0
   rarity: 1
-  basePrice: 0
+  basePrice: 65
   icon: {fileID: 21300000, guid: 14e62563269c11443b9c936be93b95f4, type: 3}
   positiveEffects: []
   positiveEffectMultis:
   - statMulti: 0
-    value: 50
+    value: 0.02
   negativeEffects: []
   negativeEffectMultis: []
   passiveSkillEffects: []

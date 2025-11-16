@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-WaveLens
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Water
+  description: Makes your bullets wet and flow.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 1
+  basePrice: 70
+  icon: {fileID: 21300000, guid: 3a481bc5b3972b54ab4918d5226622af, type: 3}
+  positiveEffects:
+  - statType: 9
+    value: 12
+  - statType: 11
+    value: 1
   positiveEffectMultis: []
   negativeEffects: []
   negativeEffectMultis: []

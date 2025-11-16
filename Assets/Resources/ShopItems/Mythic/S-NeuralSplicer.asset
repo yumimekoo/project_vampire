@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-NeuralSplicer
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Neural Splicer
+  description: Your mind sees trajectories before your hands do.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 3
+  basePrice: 1450
+  icon: {fileID: 21300000, guid: bbf8638a8a75d9c42b93639213c92c9b, type: 3}
+  positiveEffects:
+  - statType: 10
+    value: 20
+  - statType: 9
+    value: 20
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.15
+  negativeEffects:
+  - statType: 11
+    value: 8
   negativeEffectMultis: []
   passiveSkillEffects: []

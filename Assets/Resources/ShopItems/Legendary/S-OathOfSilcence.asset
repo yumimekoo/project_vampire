@@ -12,14 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-OathOfSilcence
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Oath of Silence
+  description: "Every shot is a prayer \u2014 and a promise."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 4
+  basePrice: 4100
+  icon: {fileID: 21300000, guid: 6b22156af64babe4f9bff6441c5b942f, type: 3}
+  positiveEffects:
+  - statType: 11
+    value: 25
+  - statType: 8
+    value: 30
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.5
+  negativeEffects:
+  - statType: 10
+    value: 30
+  - statType: 0
+    value: 30
   negativeEffectMultis: []
   passiveSkillEffects: []

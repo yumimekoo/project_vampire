@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-StarlitAegis
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Starlit Aegis
+  description: "A barrier blessed by a forgotten constellation.\u201D"
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
+  rarity: 3
+  basePrice: 1550
+  icon: {fileID: 21300000, guid: 567fdd2e557fefc478f8aaa7ae56fb11, type: 3}
+  positiveEffects:
+  - statType: 6
+    value: 25
+  positiveEffectMultis:
+  - statMulti: 4
+    value: 0.2
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 1
+    value: 0.15
   passiveSkillEffects: []

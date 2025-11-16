@@ -8,10 +8,10 @@ public class JumpBehavior : IEnemyBehavior
 
     private float jumpTimer;
     private bool isJumping = false;
-    private float jumpDuration = 0.3f; // wie lange der Sprung andauert
+    private float jumpDuration = 0.4f; // wie lange der Sprung andauert
     private float jumpTimeRemaining;
     private float jumpCooldown = 3f;
-    private float jumpForce = 15f;
+    private float jumpForce = 18f;
 
     private Animator animator;
     private float chargeTime = 1f;

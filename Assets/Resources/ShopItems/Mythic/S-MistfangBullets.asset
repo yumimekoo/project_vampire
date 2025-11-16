@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-MistfangBullets
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Mistfang Bullet
+  description: Twin bullets that cut through fog and fate alike.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 3
+  basePrice: 1020
+  icon: {fileID: 21300000, guid: 68f03904aa02ba244a61e03fee3f6293, type: 3}
+  positiveEffects:
+  - statType: 11
+    value: 10
+  - statType: 8
+    value: 40
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 7
+    value: 15
   negativeEffectMultis: []
   passiveSkillEffects: []

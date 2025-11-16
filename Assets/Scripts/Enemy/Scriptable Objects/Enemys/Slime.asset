@@ -18,7 +18,7 @@ MonoBehaviour:
   attackDamage: 5
   attackRange: 1
   attackCooldown: 1
-  droppedExperience: 12
-  droppedMoney: 12
+  droppedExperience: 18
+  droppedMoney: 36
   isDealingContactDamage: 0
   behaviorType: 0

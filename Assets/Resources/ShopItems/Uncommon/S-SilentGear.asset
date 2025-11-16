@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-SilentGear
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Silent Gear
+  description: "Precision at range \u2014 silence is its echo."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 1
+  basePrice: 73
+  icon: {fileID: 21300000, guid: 042fae2dd68bce044b8fbd1f26724a2d, type: 3}
+  positiveEffects:
+  - statType: 10
+    value: 15
   positiveEffectMultis: []
   negativeEffects: []
   negativeEffectMultis: []

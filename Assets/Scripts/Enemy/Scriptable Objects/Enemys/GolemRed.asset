@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GolemRed
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: GolemRed
-  maxHealth: 200
-  moveSpeed: 2
-  attackDamage: 40
-  attackRange: 4
-  attackCooldown: 1.5
+  maxHealth: 180
+  moveSpeed: 3
+  attackDamage: 60
+  attackRange: 5.5
+  attackCooldown: 1
   droppedExperience: 12
-  droppedMoney: 12
+  droppedMoney: 24
   isDealingContactDamage: 0
   behaviorType: 3

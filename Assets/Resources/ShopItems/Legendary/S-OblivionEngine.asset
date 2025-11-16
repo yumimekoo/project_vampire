@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-OblivionEngine
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Oblivion Engine
+  description: "It doesn\u2019t just kill. It deletes."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 4
+  basePrice: 4200
+  icon: {fileID: 21300000, guid: 2c523fa3ca4e1fc4b9a5713e504e6cce, type: 3}
+  positiveEffects:
+  - statType: 7
+    value: 140
+  positiveEffectMultis:
+  - statMulti: 3
+    value: 0.25
+  negativeEffects:
+  - statType: 5
+    value: 300
   negativeEffectMultis: []
   passiveSkillEffects: []

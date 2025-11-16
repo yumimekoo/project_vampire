@@ -18,7 +18,9 @@ MonoBehaviour:
   rarity: 1
   basePrice: 74
   icon: {fileID: 21300000, guid: b7f77607c82ea4142a2070c0e37e1756, type: 3}
-  positiveEffects: []
+  positiveEffects:
+  - statType: 5
+    value: 10
   positiveEffectMultis:
   - statMulti: 4
     value: 0.08

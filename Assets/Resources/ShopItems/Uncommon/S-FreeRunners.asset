@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-FreeRunners
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Free Runners
+  description: A faint hum follows your every step.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
+  rarity: 1
+  basePrice: 69
+  icon: {fileID: 21300000, guid: 29a1226f7b5e20240942612e151c3c4c, type: 3}
+  positiveEffects:
+  - statType: 5
+    value: 9
+  positiveEffectMultis:
+  - statMulti: 1
+    value: 0.07
   negativeEffects: []
   negativeEffectMultis: []
   passiveSkillEffects: []

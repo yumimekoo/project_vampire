@@ -21,12 +21,14 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 95052c6b62fb3de4695beaa99f842ac2, type: 3}
   positiveEffects:
   - statType: 7
-    value: 15
+    value: 20
+  - statType: 0
+    value: 20
   positiveEffectMultis:
   - statMulti: 1
-    value: 0.07
+    value: 0.05
   negativeEffects: []
   negativeEffectMultis:
   - statMulti: 3
-    value: 0.05
+    value: 0.1
   passiveSkillEffects: []

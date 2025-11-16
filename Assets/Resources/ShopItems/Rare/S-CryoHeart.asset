@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-CryoHeart
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Cryo Heart
+  description: A frozen pulse that steadies the body, not the spirit.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 2
+  basePrice: 280
+  icon: {fileID: 21300000, guid: 3c9805506cdde8f44889fc034ab0097e, type: 3}
+  positiveEffects:
+  - statType: 6
+    value: 10
+  - statType: 5
+    value: 40
+  positiveEffectMultis:
+  - statMulti: 4
+    value: 0.05
+  negativeEffects:
+  - statType: 0
+    value: 8
   negativeEffectMultis: []
   passiveSkillEffects: []

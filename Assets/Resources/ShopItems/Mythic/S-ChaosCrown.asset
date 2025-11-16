@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-ChaosCrown
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Chaos Crown
+  description: Power that laughs at order
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 3
+  basePrice: 1200
+  icon: {fileID: 21300000, guid: b227c6c1c35b36940b602110d9556b13, type: 3}
+  positiveEffects:
+  - statType: 7
+    value: 15
+  positiveEffectMultis:
+  - statMulti: 2
+    value: 0.15
+  - statMulti: 0
+    value: 0.15
+  negativeEffects:
+  - statType: 6
+    value: 15
   negativeEffectMultis: []
   passiveSkillEffects: []

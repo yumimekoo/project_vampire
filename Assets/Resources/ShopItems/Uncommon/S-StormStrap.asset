@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-StormStrap
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Potion of Storm
+  description: The faster you move, the louder it roars.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 1
+  basePrice: 97
+  icon: {fileID: 21300000, guid: 2d7d9ae02b7159843ac7d5ead0f8b89a, type: 3}
+  positiveEffects:
+  - statType: 8
+    value: 15
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.12
+  negativeEffects:
+  - statType: 10
+    value: 10
   negativeEffectMultis: []
   passiveSkillEffects: []

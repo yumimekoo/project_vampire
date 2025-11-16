@@ -14,28 +14,143 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveDataSO
   waves:
   - waveNumber: 0
-    waveDuration: 5
-    minEnemies: 4
-    maxEnemies: 4
-    spawnRate: 3
-    possibleEnemies:
-    - {fileID: 3748472330514613518, guid: 9f6ba863f5c2f384484e276a1e97e719, type: 3}
-  - waveNumber: 1
-    waveDuration: 60
-    minEnemies: 3
-    maxEnemies: 3
-    spawnRate: 10
+    waveDuration: 20
+    minEnemies: 1
+    maxEnemies: 2
+    spawnRate: 5
     possibleEnemies:
     - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+  - waveNumber: 1
+    waveDuration: 20
+    minEnemies: 1
+    maxEnemies: 3
+    spawnRate: 5
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+    - {fileID: 875816021685369896, guid: 333bcc26f6416b74c93623181584f514, type: 3}
+  - waveNumber: 2
+    waveDuration: 20
+    minEnemies: 2
+    maxEnemies: 3
+    spawnRate: 5
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+    - {fileID: 875816021685369896, guid: 333bcc26f6416b74c93623181584f514, type: 3}
+  - waveNumber: 3
+    waveDuration: 20
+    minEnemies: 1
+    maxEnemies: 1
+    spawnRate: 2
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+    - {fileID: 875816021685369896, guid: 5673cf883b5d49e48ad976c6487ae20c, type: 3}
+  - waveNumber: 4
+    waveDuration: 20
+    minEnemies: 1
+    maxEnemies: 1
+    spawnRate: 2
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 333bcc26f6416b74c93623181584f514, type: 3}
+  - waveNumber: 5
+    waveDuration: 25
+    minEnemies: 3
+    maxEnemies: 4
+    spawnRate: 2
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+  - waveNumber: 6
+    waveDuration: 30
+    minEnemies: 2
+    maxEnemies: 4
+    spawnRate: 4
+    possibleEnemies:
+    - {fileID: 3748472330514613518, guid: 9d8fc562e89a19e4e89929314d996613, type: 3}
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+    - {fileID: 875816021685369896, guid: 059b7ad72bbd9dc47a048e8ad0f223be, type: 3}
+  - waveNumber: 7
+    waveDuration: 35
+    minEnemies: 2
+    maxEnemies: 4
+    spawnRate: 4
+    possibleEnemies:
+    - {fileID: 3748472330514613518, guid: 167d6e9abe06ee7489a146825b37e53a, type: 3}
+    - {fileID: 875816021685369896, guid: 5673cf883b5d49e48ad976c6487ae20c, type: 3}
+  - waveNumber: 8
+    waveDuration: 35
+    minEnemies: 4
+    maxEnemies: 6
+    spawnRate: 6
+    possibleEnemies:
     - {fileID: 3748472330514613518, guid: 167d6e9abe06ee7489a146825b37e53a, type: 3}
     - {fileID: 875816021685369896, guid: 5673cf883b5d49e48ad976c6487ae20c, type: 3}
     - {fileID: 875816021685369896, guid: 059b7ad72bbd9dc47a048e8ad0f223be, type: 3}
-    - {fileID: 875816021685369896, guid: 333bcc26f6416b74c93623181584f514, type: 3}
-  - waveNumber: 2
-    waveDuration: 50
-    minEnemies: 1
-    maxEnemies: 1
-    spawnRate: 30
-    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
     - {fileID: 3748472330514613518, guid: 9d8fc562e89a19e4e89929314d996613, type: 3}
+    - {fileID: 875816021685369896, guid: 333bcc26f6416b74c93623181584f514, type: 3}
+  - waveNumber: 9
+    waveDuration: 35
+    minEnemies: 6
+    maxEnemies: 8
+    spawnRate: 6
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+  - waveNumber: 10
+    waveDuration: 35
+    minEnemies: 6
+    maxEnemies: 8
+    spawnRate: 6
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 76482c5f78f6d6a4bba24fd6527dd768, type: 3}
+  - waveNumber: 11
+    waveDuration: 35
+    minEnemies: 6
+    maxEnemies: 8
+    spawnRate: 6
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 76482c5f78f6d6a4bba24fd6527dd768, type: 3}
+    - {fileID: 875816021685369896, guid: 92409d84e690633449e4a76f0e903c04, type: 3}
+  - waveNumber: 12
+    waveDuration: 35
+    minEnemies: 6
+    maxEnemies: 8
+    spawnRate: 6
+    possibleEnemies:
+    - {fileID: 3748472330514613518, guid: a25a8dd15010c4b428c700b2cc7eeb48, type: 3}
+  - waveNumber: 13
+    waveDuration: 35
+    minEnemies: 1
+    maxEnemies: 2
+    spawnRate: 1
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: db70c1807b1d6f04a9892989a35c4627, type: 3}
+  - waveNumber: 14
+    waveDuration: 60
+    minEnemies: 1
+    maxEnemies: 2
+    spawnRate: 1
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 0d7ba0d8e2e479146be2153c17c5b69f, type: 3}
+  - waveNumber: 15
+    waveDuration: 60
+    minEnemies: 1
+    maxEnemies: 2
+    spawnRate: 3
+    possibleEnemies:
+    - {fileID: 875816021685369896, guid: 358f63818951ca1449c27f757faa1aa2, type: 3}
+    - {fileID: 875816021685369896, guid: 76482c5f78f6d6a4bba24fd6527dd768, type: 3}
+    - {fileID: 875816021685369896, guid: 4435d8bacb6057b47a47a3058a2dce14, type: 3}
+    - {fileID: 3748472330514613518, guid: 9d8fc562e89a19e4e89929314d996613, type: 3}
+    - {fileID: 3748472330514613518, guid: a25a8dd15010c4b428c700b2cc7eeb48, type: 3}
     - {fileID: 3748472330514613518, guid: 8428b386129337c468c0c7a43ebeaba7, type: 3}
+    - {fileID: 3748472330514613518, guid: 167d6e9abe06ee7489a146825b37e53a, type: 3}
+    - {fileID: 3748472330514613518, guid: 15809441a76b625498b539cb8339f028, type: 3}
+    - {fileID: 3748472330514613518, guid: 9fcbc2e9ee47b384ab2190f7026e96d7, type: 3}
+    - {fileID: 875816021685369896, guid: 333bcc26f6416b74c93623181584f514, type: 3}
+    - {fileID: 875816021685369896, guid: 92409d84e690633449e4a76f0e903c04, type: 3}
+    - {fileID: 875816021685369896, guid: fe15cc47340442148943338c48cc66f8, type: 3}
+    - {fileID: 875816021685369896, guid: 5673cf883b5d49e48ad976c6487ae20c, type: 3}
+    - {fileID: 875816021685369896, guid: db70c1807b1d6f04a9892989a35c4627, type: 3}
+    - {fileID: 875816021685369896, guid: 837f2493ee5b44f43b065b91749a5069, type: 3}
+    - {fileID: 875816021685369896, guid: 059b7ad72bbd9dc47a048e8ad0f223be, type: 3}
+    - {fileID: 875816021685369896, guid: 0d7ba0d8e2e479146be2153c17c5b69f, type: 3}
+    - {fileID: 875816021685369896, guid: f48853d8a302ba24ea934e36164802d0, type: 3}

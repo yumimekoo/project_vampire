@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-ObsidianVeil
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Obsidian Veil
+  description: A cloak woven from nightmares and silence.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 2
+  basePrice: 300
+  icon: {fileID: 21300000, guid: edcbd57032ccbd44e9f228cdd323ab50, type: 3}
+  positiveEffects:
+  - statType: 6
+    value: 15
+  - statType: 5
+    value: 45
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 2
+    value: 0.5
   negativeEffectMultis: []
   passiveSkillEffects: []

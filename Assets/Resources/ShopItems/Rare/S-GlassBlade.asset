@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-GlassBlade
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Glass Blade
+  description: "Every strike feels perfect \u2014 until you shatter."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 2
+  basePrice: 250
+  icon: {fileID: 21300000, guid: 8f28955d92038974a9b04aafaeea79b0, type: 3}
+  positiveEffects:
+  - statType: 7
+    value: 30
+  - statType: 8
+    value: 30
   positiveEffectMultis: []
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 4
+    value: 0.1
   passiveSkillEffects: []

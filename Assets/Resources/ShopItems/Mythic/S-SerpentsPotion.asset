@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-SerpentsPotion
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Serpent's Apple
+  description: "The bite of infinity \u2014 it circles faster each second."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
+  rarity: 3
+  basePrice: 1850
+  icon: {fileID: 21300000, guid: c1d0e6764d9c5f8458571840fb1d57d3, type: 3}
+  positiveEffects:
+  - statType: 9
+    value: 140
+  positiveEffectMultis:
+  - statMulti: 5
+    value: 0.15
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 0
+    value: 0.15
   passiveSkillEffects: []

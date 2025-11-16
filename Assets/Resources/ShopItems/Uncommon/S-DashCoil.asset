@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-DashCoil
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Dash Boots
+  description: Each dash feels like lightning snapping loose.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 1
+  basePrice: 69
+  icon: {fileID: 21300000, guid: 5170e0068a8cf184fb119834fa7ba0f3, type: 3}
+  positiveEffects:
+  - statType: 1
+    value: 15
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 0
+    value: 5
   negativeEffectMultis: []
   passiveSkillEffects: []

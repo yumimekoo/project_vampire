@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Gargoyle
   maxHealth: 40
-  moveSpeed: 2
+  moveSpeed: 3
   attackDamage: 10
   attackRange: 2
   attackCooldown: 2
-  droppedExperience: 12
-  droppedMoney: 12
+  droppedExperience: 6
+  droppedMoney: 9
   isDealingContactDamage: 1
   behaviorType: 2

@@ -22,10 +22,10 @@ MonoBehaviour:
   - statType: 3
     value: 1
   positiveEffectMultis:
-  - statMulti: 0
+  - statMulti: 1
     value: 0.12
   negativeEffects: []
   negativeEffectMultis:
-  - statMulti: 1
+  - statMulti: 0
     value: 0.03
   passiveSkillEffects: []

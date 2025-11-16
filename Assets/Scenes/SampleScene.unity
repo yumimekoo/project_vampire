@@ -124295,11 +124295,11 @@ MonoBehaviour:
   currentLevel: 1
   currentXP: 0
   xpToNextLevel: 100
-  playerMoney: 60000
+  playerMoney: 0
   playerScore: 0
   playerHighscore: 0
-  xpGrowthFactor: 1.25
-  enemyDifficultyMultiplier: 1.1
+  xpGrowthFactor: 1.5
+  enemyDifficultyMultiplier: 1.07
 --- !u!1 &1846694480
 GameObject:
   m_ObjectHideFlags: 0

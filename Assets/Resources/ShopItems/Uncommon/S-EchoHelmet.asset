@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-EchoHelmet
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Echo Helmet
+  description: "Leave afterimages of yourself where bullets should\u2019ve been."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 1
+  basePrice: 69
+  icon: {fileID: 21300000, guid: 5ff9b869a12e70b4db7a137f84ed920b, type: 3}
+  positiveEffects:
+  - statType: 0
+    value: 15
+  - statType: 2
+    value: 0.2
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 1
+    value: 10
   negativeEffectMultis: []
   passiveSkillEffects: []

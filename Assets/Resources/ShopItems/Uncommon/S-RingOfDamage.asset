@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-RingOfDamage
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Cheese Of Damage
+  description: It stinks. You stink.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
+  rarity: 1
+  basePrice: 72
+  icon: {fileID: 21300000, guid: 988aad686dc1fec48bbc0dee20cead64, type: 3}
   positiveEffects: []
-  positiveEffectMultis: []
+  positiveEffectMultis:
+  - statMulti: 2
+    value: 0.05
   negativeEffects: []
   negativeEffectMultis: []
   passiveSkillEffects: []

@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-MomentumBand
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Morellonomicon
+  description: Speed becomes habit, habit becomes survival.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 1
+  basePrice: 74
+  icon: {fileID: 21300000, guid: 7972dd97521bb1c44ba8e3774391b996, type: 3}
+  positiveEffects:
+  - statType: 3
+    value: 1
+  - statType: 0
+    value: 7
   positiveEffectMultis: []
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 0
+    value: 0.05
   passiveSkillEffects: []

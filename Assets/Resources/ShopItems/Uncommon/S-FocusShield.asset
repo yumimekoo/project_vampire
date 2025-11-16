@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-FocusShield
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Focus Shield
+  description: "Blocks what matters, ignores what doesn\u2019t."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 1
+  basePrice: 73
+  icon: {fileID: 21300000, guid: 615f3cdaa1374bd4db14286066f31cde, type: 3}
+  positiveEffects:
+  - statType: 6
+    value: 4
+  - statType: 11
+    value: 1
   positiveEffectMultis: []
   negativeEffects: []
   negativeEffectMultis: []

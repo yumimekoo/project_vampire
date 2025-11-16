@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-SeraphCore
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Seraph Core
+  description: Blessed by light, burdened by duty.
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
-  positiveEffectMultis: []
-  negativeEffects: []
+  rarity: 2
+  basePrice: 297
+  icon: {fileID: 21300000, guid: 3281e91e074a48d4eb5d6a1fdd332a36, type: 3}
+  positiveEffects:
+  - statType: 0
+    value: 10
+  positiveEffectMultis:
+  - statMulti: 4
+    value: 0.16
+  - statMulti: 0
+    value: 0.08
+  negativeEffects:
+  - statType: 6
+    value: 12
   negativeEffectMultis: []
   passiveSkillEffects: []

@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-GaleMedallion
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Gale Medallion
+  description: "The wind gives\u2026 and takes a moment to rest."
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 2
+  basePrice: 265
+  icon: {fileID: 21300000, guid: 83f2beb3e2ba2e347b4b0d5d63d0373b, type: 3}
+  positiveEffects:
+  - statType: 1
+    value: 30
+  - statType: 8
+    value: 20
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 2
+    value: 1
   negativeEffectMultis: []
   passiveSkillEffects: []

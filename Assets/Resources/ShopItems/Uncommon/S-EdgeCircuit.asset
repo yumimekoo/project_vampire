@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
   m_Name: S-EdgeCircuit
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: 
-  description: 
+  itemName: Ciruit Gel
+  description: Remembers you of something else..
   type: 0
-  rarity: 0
-  basePrice: 0
-  icon: {fileID: 0}
-  positiveEffects: []
+  rarity: 1
+  basePrice: 77
+  icon: {fileID: 21300000, guid: d1f94eb541d98c94c9e0a776707e9c7c, type: 3}
+  positiveEffects:
+  - statType: 7
+    value: 11
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 5
+    value: 7
   negativeEffectMultis: []
   passiveSkillEffects: []
