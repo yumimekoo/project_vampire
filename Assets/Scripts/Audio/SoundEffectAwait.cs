@@ -3,7 +3,7 @@ using UnityEngine;
 public class SoundEffectAwait : MonoBehaviour
 {
     [SerializeField] private float delay = 1f;
-    [SerializeField] private float targetVolume = 0.4f;
+    [SerializeField] private float targetVolume = 0.5f;
 
     private AudioSource audioSource;
 

@@ -70,6 +70,9 @@ public class DeathUI : MonoBehaviour
 
     public void ShowDeathUI()
     {
+        if (IngameMusic.Instance != null)
+            IngameMusic.Instance.PitchDownDeath(3f);
+
         loadingUI.rootVisualElement.style.opacity = 0f;
         score.style.opacity = 0f;
         highScore.style.opacity = 0f;

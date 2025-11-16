@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: BleedingPotion
+  m_Name: BleedOrb
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Bleeding Potion
-  description: 'Bleeding: On-Hit, Enemies take 5 Damage/s over 5s. Has 8s Cooldown
+  itemName: Bleed Orb
+  description: 'Bleeding: On-Hit, Enemies take 15 Damage/s over 5s. Has 12s Cooldown
     (Multiple Bleed-Items stack Damage/s and reduce Cooldown)'
   type: 2
-  rarity: 1
-  basePrice: 230
-  icon: {fileID: 21300000, guid: 117b17facff65dc42b1b57deb7c21551, type: 3}
+  rarity: 2
+  basePrice: 467
+  icon: {fileID: 21300000, guid: 70e92df91699f664ab5bad7bf4723022, type: 3}
   positiveEffects: []
   positiveEffectMultis: []
   negativeEffects: []
@@ -27,5 +27,5 @@ MonoBehaviour:
   - effectName: BleedOnHit
     trigger: 1
     duration: 5
-    value: 5
-    cooldown: 8
+    value: 15
+    cooldown: 12

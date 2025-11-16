@@ -76,9 +76,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   data: {fileID: 11400000, guid: f522c3e8839e534459edf1d7f5805f1e, type: 2}
   deathEffectPrefab: {fileID: 5206956598611317583, guid: b2e47529d7862854592f7f055a1b858b, type: 3}
+  explosionEffectPrefab: {fileID: 5206956598611317583, guid: c8cedd7f4e9b4a646a5f9b0190b659c0, type: 3}
   animator: {fileID: 7612926884288113035}
   deathSound: {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
   attackSound: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  shootSound: {fileID: 0}
   lastAttackTime: 0
 --- !u!61 &2441537270201026442
 BoxCollider2D:

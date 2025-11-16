@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 public class VolumeFader : MonoBehaviour
 {
     [SerializeField] private float targetVolume = 0.4f;
-    [SerializeField] private float delay = 1f;
     [SerializeField] private float fadeTime = 1f;
 
     private AudioSource audioSource;
@@ -27,9 +26,6 @@ public class VolumeFader : MonoBehaviour
 
     private System.Collections.IEnumerator FadeIn()
     {
-        // 1 Sekunde warten (oder der eingestellte delay)
-        yield return new WaitForSeconds(delay);
-
         float elapsed = 0f;
 
         while (elapsed < fadeTime)

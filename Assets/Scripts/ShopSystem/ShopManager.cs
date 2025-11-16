@@ -81,6 +81,7 @@ public class ShopManager : MonoBehaviour
         labelDashes;
 
     private Dictionary<ShopItemDataSO, VisualElement> itemElements = new();
+
     private void Awake()
     {
         root = shopUI.rootVisualElement;
@@ -122,8 +123,8 @@ public class ShopManager : MonoBehaviour
         labelDashCooldownP = root.Q<Label>("labelDashCooldownP");
         labelDashes = root.Q<Label>("labelDashes");
 
-        HideUI();
-        
+        root.style.display = DisplayStyle.None;
+
     }
 
     private void Start()
@@ -508,6 +509,8 @@ public class ShopManager : MonoBehaviour
 
     public void HideUI()
     {
+        if (IngameMusic.Instance != null)
+            IngameMusic.Instance.PitchUp(0.2f);
         audioSource.PlayOneShot(shopCloseSound);
         overlayUI.ShowUI();
         underlayUI.ShowUI();
@@ -517,6 +520,8 @@ public class ShopManager : MonoBehaviour
 
     public void ShowUI()
     {
+        if (IngameMusic.Instance != null)
+            IngameMusic.Instance.PitchDown(0.2f);
         audioSource.PlayOneShot(shopOpenSound);
         UpdateMoneyDisplay();
         overlayUI.HideUI();

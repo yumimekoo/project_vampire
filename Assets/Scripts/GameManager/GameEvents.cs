@@ -7,5 +7,5 @@ public static class GameEvents
     public static System.Action<float> OnBulletLifeSteal;
     public static System.Action OnDash;
     public static System.Action<PlayerHealth, float>OnPlayerHit;
-    public static System.Action<Vector3> OnEnemyKilled;
+    public static System.Action<EnemyBase> OnEnemyKilled;
 }

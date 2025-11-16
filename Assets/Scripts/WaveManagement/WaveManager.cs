@@ -35,16 +35,13 @@ public class WaveManager : MonoBehaviour
     {
         if(waveData == null || waveData.waves.Count == 0)
         {
-            Debug.LogWarning("No Wave Data");
             yield break;
         }
 
         WaveInfo currentWave = GetCurrentWave();
-        Debug.Log($"Starting waave {currentWave.waveNumber}");
 
         if(GameState.isTutroial && currentWave.waveNumber == 0)
         {
-            Debug.Log("Tutorial wave - waiting for player to start");
             tutorialUI.rootVisualElement.style.display = DisplayStyle.Flex;
 
             while(GameState.isTutroial)
@@ -53,7 +50,6 @@ public class WaveManager : MonoBehaviour
             }
             tutorialUI.rootVisualElement.style.display = DisplayStyle.None;
             yield return new WaitForSeconds(3f);
-            Debug.Log("Tutorial completed");
         }
 
 
@@ -61,8 +57,6 @@ public class WaveManager : MonoBehaviour
         waveTimer = currentWave.waveDuration;
 
         enemySpawner.StartSpawning(currentWave);
-
-        // hier UI animieren mit wave number etc.
 
         while (waveTimer > 0f)
         {
@@ -81,7 +75,6 @@ public class WaveManager : MonoBehaviour
 
     private void EndWave()
     {
-        Debug.Log("Wave ended.");
         waveActive = false;
         enemySpawner.StopSpawning();
         enemySpawner.ClearAllEnemies();

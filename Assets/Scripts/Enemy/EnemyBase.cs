@@ -6,6 +6,7 @@ public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
     [SerializeField] private GameObject deathEffectPrefab;
+    [SerializeField] private GameObject explosionEffectPrefab;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip attackSound;
@@ -91,12 +92,20 @@ public class EnemyBase : MonoBehaviour
         {
             Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
         }
+        GameEvents.OnEnemyKilled?.Invoke(this);
         // TODO: Add death effects, pooling usw. experience to player
         levelManager.AddXP(data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier());
         levelManager.AddScore((int) (data.droppedExperience * levelManager.GetEnemyDifficultyMultiplier() * levelManager.GetLevel()));
         levelManager.AddMoney((int)(data.droppedMoney * levelManager.GetEnemyDifficultyMultiplier()) * 2);
         Destroy(gameObject);
         Destroy(healthBarInstance.gameObject);
+        
+    }
+
+    public void Explode()
+    {
+        Debug.Log("Enemy exploded");
+        Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

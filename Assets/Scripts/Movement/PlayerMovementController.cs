@@ -153,9 +153,4 @@ public class PlayerMovementController : MonoBehaviour
         dashTimer = MaxDashes * statsManager.GetStat(StatType.DashCooldown);
         dashUIManager.ClearContainer();
     }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 200, 20), $"Dashes: {dashes} | Timer: {dashTimer:F2}");
-    }
 }

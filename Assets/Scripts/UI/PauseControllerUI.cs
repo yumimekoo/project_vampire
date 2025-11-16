@@ -12,6 +12,10 @@ public class PauseControllerUI : MonoBehaviour
     [SerializeField] private UIDocument loadingUI;
     [SerializeField] private HealthBarUnderlayUI underlayUI;
     [SerializeField] private PlayerStatsManager stats;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip buttonClickSound;
+    [SerializeField] private AudioClip openMenuSound;
+    [SerializeField] private AudioClip closeMenuSound;
 
     private Button
         continueButton,
@@ -75,8 +79,13 @@ public class PauseControllerUI : MonoBehaviour
 
     private void ExitButton()
     {
+        audioSource.PlayOneShot(buttonClickSound);
         GameState.inPauseMenu = false;
         Time.timeScale = 1f;
+
+        if (IngameMusic.Instance != null)
+            IngameMusic.Instance.FadeOutAndStop(1f);
+
         loadingUI.rootVisualElement.style.opacity = 0f;
         loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
         StartCoroutine(LoadScene("MainMenu"));
@@ -85,8 +94,11 @@ public class PauseControllerUI : MonoBehaviour
     private void NewGameButton()
     { 
         pauseUI.rootVisualElement.style.display = DisplayStyle.None;
+        audioSource.PlayOneShot(buttonClickSound);
         GameState.inPauseMenu = false;
         Time.timeScale = 1f;
+        if (IngameMusic.Instance != null)
+            IngameMusic.Instance.FadeOutAndStop(1f);
         loadingUI.rootVisualElement.style.opacity = 0f;
         loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
         StartCoroutine(LoadScene("SampleScene"));
@@ -108,6 +120,10 @@ public class PauseControllerUI : MonoBehaviour
 
     private void ContinueButton()
     {
+    
+        audioSource.PlayOneShot(closeMenuSound);
+        if (IngameMusic.Instance != null)
+            IngameMusic.Instance.PitchUp(0.3f);
         overlayUI.ShowUI();
         underlayUI.ShowUI();
         pauseUI.rootVisualElement.style.display = DisplayStyle.None;
@@ -125,7 +141,9 @@ public class PauseControllerUI : MonoBehaviour
         {
             if (!GameState.inPauseMenu)
             {
-
+                audioSource.PlayOneShot(openMenuSound);
+                if (IngameMusic.Instance != null)
+                    IngameMusic.Instance.PitchDown(0.3f);
                 pauseUI.rootVisualElement.style.display = DisplayStyle.Flex;
                 pauseUI.rootVisualElement.style.opacity = 0f;
                 DOTween.To(

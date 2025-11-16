@@ -39,8 +39,11 @@ public class SkillManager : MonoBehaviour
                             return new BleedOnHitEffect(data.duration, data.value, data.cooldown);
             case "HealOverTimeOnPlayerHit":
                             return new HealOverTimeOnPlayerHit(data.duration, data.value, data.cooldown);
+            case "ExplosionOnKill":
+                            return new ExplosionOnKillEffect(data.duration, data.value, data.cooldown);                                                         
             // case "AnotherEffect": etc.
             default:
+                Debug.LogWarning($"Effect not recognized: {data.effectName}");
                 return null;
         }
     }

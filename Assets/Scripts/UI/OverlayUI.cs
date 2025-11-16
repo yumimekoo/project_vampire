@@ -134,16 +134,16 @@ public class OverlayUI : MonoBehaviour
         .Append(
             DOTween.To(() => (float) waveUp.style.opacity.value,
                        x => waveUp.style.opacity = x,
-                       1f,                  // Ziel=1
-                       0.5f                 // Fade-In Dauer
+                       1f,                  
+                       0.5f                
             )
         )
-        .AppendInterval(1f)                 // 1 Sekunde warten
+        .AppendInterval(1f)                 
         .Append(
             DOTween.To(() => (float) waveUp.style.opacity.value,
                        x => waveUp.style.opacity = x,
-                       0f,                  // Ziel=0
-                       0.5f                 // Fade-Out Dauer
+                       0f,                  
+                       0.5f                 
             )
         )
         .SetUpdate(true);
@@ -166,11 +166,10 @@ public class OverlayUI : MonoBehaviour
 
         var originalTranslate = overlayUI.rootVisualElement.style.translate.value;
 
-        // Shake-Range in Pixel
         float shakeAmount = 10f;
 
         DOTween.Sequence()
-            .AppendInterval(0f) // nötig für manchen UI Toolkit Kram
+            .AppendInterval(0f) 
             .Append(DOTween.To(
                 () => 0f,
                 x =>
@@ -184,8 +183,8 @@ public class OverlayUI : MonoBehaviour
                     );
                 },
                 1f,
-                0.1f // Gesamtdauer des Shakes
-            ).SetLoops(4, LoopType.Yoyo)) // 6 kleine Wackler
+                0.1f 
+            ).SetLoops(4, LoopType.Yoyo)) 
             .OnComplete(() =>
             {
                 overlayUI.rootVisualElement.style.translate = originalTranslate;
@@ -232,7 +231,7 @@ private void UpdateScoreUI(int score)
 
     private void UpdateAllUIs()
     {
-        UpdateHealthBar(200, 200);
+        UpdateHealthBar(75, 75);
         UpdateLevelUI();
         UpdateWaveUI();
         UpdateMoneyUI(0);

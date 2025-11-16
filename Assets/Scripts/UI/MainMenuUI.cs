@@ -88,10 +88,9 @@ public class MainMenuUI : MonoBehaviour
 
     void StartPulse()
     {
-        // Holt den aktuellen Wert als Startpunkt
         float currentSize = 130;
 
-        // DOTween-Animation
+
         DOTween.To(
             () => currentSize,
             x => {
@@ -102,13 +101,8 @@ public class MainMenuUI : MonoBehaviour
             1f
         )
         .SetEase(Ease.InOutSine)
-        .SetLoops(-1, LoopType.Yoyo); // endloses Hin-und-Her
+        .SetLoops(-1, LoopType.Yoyo); 
     }
-
-    //public void LoadSceneWithProgress(string name)
-    //{
-    //    StartCoroutine(LoadSceneAsync(name));
-    //}
 
     public void LoadScene(string name)
     {
@@ -121,26 +115,5 @@ public class MainMenuUI : MonoBehaviour
                 SceneManager.LoadSceneAsync(name);
             });
     }
-
-    //public IEnumerator LoadSceneAsync(string name)
-    //{
-    //    loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
-    //    loadingBar.value = 0f;
-       
-    //    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
-    //    asyncLoad.allowSceneActivation = false;
-
-    //    while (!asyncLoad.isDone)
-    //    {
-    //        float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
-    //        loadingBar.value = progress * 100f;
-    //        if (asyncLoad.progress >= 0.9f)
-    //        {
-    //            asyncLoad.allowSceneActivation = true;
-    //        }
-    //        yield return null;
-    //    }
-    //}
-
 
 }

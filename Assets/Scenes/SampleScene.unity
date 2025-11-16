@@ -123555,6 +123555,10 @@ MonoBehaviour:
   loadingUI: {fileID: 545325497}
   underlayUI: {fileID: 495452091}
   stats: {fileID: 1194823393}
+  audioSource: {fileID: 1772693292}
+  buttonClickSound: {fileID: 8300000, guid: 35cf7766e9e2aa542811e896fde57989, type: 3}
+  openMenuSound: {fileID: 8300000, guid: b83bf8726a7fac349a54389f0c57cda6, type: 3}
+  closeMenuSound: {fileID: 8300000, guid: e58d8bd078f188a4ba314e933b98528b, type: 3}
 --- !u!114 &1308250214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123881,7 +123885,7 @@ MonoBehaviour:
   statsManager: {fileID: 1194823393}
   bulletPrefab: {fileID: 5985331975659742761, guid: bebaf7cd9f003934abf82ec587e46d33, type: 3}
   firePoint: {fileID: 1451168851}
-  shootSoundEffect: {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
+  shootSoundEffect: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
   audioSource: {fileID: 1772693292}
 --- !u!114 &1390285342
 MonoBehaviour:
@@ -124358,7 +124362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffectAwait
   delay: 1
-  targetVolume: 0.4
+  targetVolume: 1
 --- !u!1 &1803160556
 GameObject:
   m_ObjectHideFlags: 0
@@ -124458,7 +124462,7 @@ MonoBehaviour:
   playerMoney: 0
   playerScore: 0
   playerHighscore: 0
-  xpGrowthFactor: 1.5
+  xpGrowthFactor: 1.4
   enemyDifficultyMultiplier: 1.07
   levelUpSound: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   audioSource: {fileID: 1772693292}
@@ -125121,6 +125125,7 @@ GameObject:
   - component: {fileID: 2146495143}
   - component: {fileID: 2146495144}
   - component: {fileID: 2146495145}
+  - component: {fileID: 2146495146}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -125154,9 +125159,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 676f401760a597f46acac9cb4a62b67e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -125252,9 +125257,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401e9609451088a41ad60fdcc0d9f08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolumeFader
-  targetVolume: 0.4
-  delay: 1
+  targetVolume: 0.2
   fadeTime: 1
+--- !u!114 &2146495146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146495142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea9c4f2cde222e40a2be1a6f99bf5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IngameMusic
+  audioSource: {fileID: 2146495144}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

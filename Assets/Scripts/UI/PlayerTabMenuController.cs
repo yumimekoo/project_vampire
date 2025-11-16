@@ -60,13 +60,17 @@ public class PlayerTabMenuController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             if(!isTabHeld)
-                OpenTabMenu();
+                if (IngameMusic.Instance != null)
+                    IngameMusic.Instance.PitchDown(0.3f);
+            OpenTabMenu();
         }
 
         if(Input.GetKeyUp(KeyCode.Tab))
         {
             if(isTabHeld)
-                CloseTabMenu();
+                if (IngameMusic.Instance != null)
+                    IngameMusic.Instance.PitchUp(0.3f);
+            CloseTabMenu();
         }
     }
 
@@ -175,7 +179,6 @@ public class PlayerTabMenuController : MonoBehaviour
 
         if (GameState.inTabPauseMenu && !isTabHeld)
         {
-            Debug.Log("Tab menu closed");
             GameState.inTabPauseMenu = false;
         }
     }
