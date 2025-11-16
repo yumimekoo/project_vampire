@@ -8,8 +8,8 @@ using UnityEngine.UIElements;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private UIDocument shopUI;
-    [SerializeField] private int rerollCost = 50;
-    [SerializeField] private int rerollCount = 0;
+    private int rerollCost = 0;
+    private int rerollCount = 0;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private RarityScalingDataSO rarityScalingData;
     [SerializeField] private PlayerStatsManager playerStatsManager;
@@ -28,6 +28,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private VisualTreeAsset mythicItemTemplate;
     [SerializeField] private VisualTreeAsset legendaryItemTemplate;
     [SerializeField] private VisualTreeAsset passiveSkillTemplate;
+
+    [SerializeField] private AudioClip itemBought;
+    [SerializeField] private AudioClip errorSound;
+    [SerializeField] private AudioClip buttonPress;
+    [SerializeField] private AudioClip shopOpenSound;
+    [SerializeField] private AudioClip shopCloseSound;
+    [SerializeField] private AudioSource audioSource;
 
     private static readonly HashSet<StatType> InvertedFlatStats = new()
     {
@@ -85,6 +92,8 @@ public class ShopManager : MonoBehaviour
 
         nextWave.clicked += () =>
         {
+            
+            rerollCost = 0;
             rerollCount = 0;
             waveManager.OnNextWaveButton();
             HideUI();
@@ -126,6 +135,8 @@ public class ShopManager : MonoBehaviour
 
     public void RollItems()
     {
+        
+        rerollLabel.text = $"{rerollCost} $";
         itemContainer.Clear();
         currentItems.Clear();
 
@@ -341,6 +352,7 @@ public class ShopManager : MonoBehaviour
     {
         if (levelManager.TrySpendMoney(item.basePrice))
         {
+            audioSource.PlayOneShot(itemBought);
             ApplyItemEffect(item);
             playerHealth.UpdateMaxHealth();
             if (itemElements.TryGetValue(item, out var element))
@@ -353,7 +365,7 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            // play sound and visual here
+            audioSource.PlayOneShot(errorSound);
             Debug.Log("Not Enough Money");
         }
         UpdateMoneyDisplay();
@@ -417,14 +429,16 @@ public class ShopManager : MonoBehaviour
     {
         if (levelManager.TrySpendMoney(rerollCost))
         {
+            audioSource.PlayOneShot(buttonPress);
             UpdateMoneyDisplay();
             rerollCount++;
-            rerollCost += 25 * (rerollCount + 1);
+            rerollCost += 5 * (rerollCount + 1);
             rerollLabel.text = $"{rerollCost} $";
             RollItems();
         }
         else
         {
+            audioSource.PlayOneShot(errorSound);
             Debug.Log("Not enough Money");
         }
     }
@@ -494,6 +508,7 @@ public class ShopManager : MonoBehaviour
 
     public void HideUI()
     {
+        audioSource.PlayOneShot(shopCloseSound);
         overlayUI.ShowUI();
         underlayUI.ShowUI();
         GameState.inShop = false;
@@ -502,6 +517,7 @@ public class ShopManager : MonoBehaviour
 
     public void ShowUI()
     {
+        audioSource.PlayOneShot(shopOpenSound);
         UpdateMoneyDisplay();
         overlayUI.HideUI();
         underlayUI.HideUI();

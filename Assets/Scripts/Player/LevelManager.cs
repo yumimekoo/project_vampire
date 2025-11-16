@@ -18,9 +18,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float xpGrowthFactor = 1.5f;
     [SerializeField] private float enemyDifficultyMultiplier = 1.07f;
 
-    //public System.Action<int> OnLevelUp;
-    //public System.Action<int> OnMoneyChanged;
-    //public System.Action<int> OnScoreChanged;
+    [SerializeField] private AudioClip levelUpSound;
+    [SerializeField] private AudioSource audioSource;
 
     public event System.Action<float, float> OnXPChanged;
     public event System.Action OnLevelChanged;
@@ -55,7 +54,11 @@ public class LevelManager : MonoBehaviour
         currentLevel++;
         xpToNextLevel *= xpGrowthFactor;
 
-        // TODO levelup animation screen 
+        if(currentLevel > 1)
+        {
+            audioSource.PlayOneShot(levelUpSound);
+        }
+
         Debug.Log($"LEVEL UP TO: {currentLevel}");
         OnLevelChanged?.Invoke();
     }

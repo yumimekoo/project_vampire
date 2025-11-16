@@ -77,6 +77,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2381120cd7bc90649b01a37dccca0b60, type: 2}
   deathEffectPrefab: {fileID: 5206956598611317583, guid: b2e47529d7862854592f7f055a1b858b, type: 3}
   animator: {fileID: 2363197787362262108}
+  deathSound: {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
+  attackSound: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
   lastAttackTime: -999
 --- !u!61 &1357921382811158673
 BoxCollider2D:

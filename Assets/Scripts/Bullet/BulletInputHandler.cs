@@ -6,6 +6,9 @@ public class BulletInputHandler : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
 
+    [SerializeField] private AudioClip shootSoundEffect;
+    [SerializeField] private AudioSource audioSource;
+
     //private float attackTimer = 0f;
     private float nextShootTime = 0f;
     void Update()
@@ -15,7 +18,7 @@ public class BulletInputHandler : MonoBehaviour
             if (Input.GetButton("Fire1") && Time.time >= nextShootTime)
             {
                 Shoot();
-
+                audioSource.PlayOneShot(shootSoundEffect);
                 float attackSpeed = statsManager.GetStat(StatType.AttackSpeed) / 100;
                 nextShootTime = Time.time + 1f / attackSpeed;
             }

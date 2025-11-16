@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -20,8 +21,12 @@ public class MainMenuMusic : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         audioSource.loop = true;
+      
+    }
+
+    private void OnEnable()
+    {
         FadeInAndPlay(2f);
-   
     }
 
     public void FadeOutAndStop(float duration)
@@ -44,18 +49,20 @@ public class MainMenuMusic : MonoBehaviour
 
     private IEnumerator FadeInCoroutine(float duration)
     {
-        float targetVolume = 0.4f;
-        float time = 0;
+        // 1 Sekunde warten (oder der eingestellte delay)
+        yield return new WaitForSeconds(0.2f);
 
-        while (time < duration)
+        float elapsed = 0f;
+
+        while (elapsed < duration)
         {
-            time += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0, targetVolume, time / duration);
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            audioSource.volume = Mathf.Lerp(0f, 0.4f, t);
             yield return null;
         }
 
-        audioSource.volume = targetVolume;
-        isFading = false;
+        audioSource.volume = 0.4f;
     }
 
     private IEnumerator FadeOutCoroutine(float duration)
@@ -70,6 +77,6 @@ public class MainMenuMusic : MonoBehaviour
             yield return null;
         }
         audioSource.Stop();
-        audioSource.volume = startVolume;
+        isFading = false;
     }
 }

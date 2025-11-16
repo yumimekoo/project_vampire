@@ -5,6 +5,12 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] PlayerStatsManager statsManager;
     [SerializeField] PlayerMovementController movement;
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip hitSound;
+    [SerializeField] AudioClip healSound;
+    [SerializeField] AudioClip blockedSound;
+
     public float currentHealth;
     public float maxHealth;
 
@@ -42,14 +48,14 @@ public class PlayerHealth : MonoBehaviour
 
         if (finalDamage < 1f)
         {
-            // play blocked sound
+            audioSource.PlayOneShot(blockedSound);
         } else
         {
             currentHealth -= finalDamage;
             Debug.Log($"Player took {finalDamage} damage ({currentHealth}/{maxHealth})");
 
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
-            // take damage effects here
+            audioSource.PlayOneShot(hitSound);
             if (currentHealth <= 0f)
             {
                 Die();
@@ -62,14 +68,23 @@ public class PlayerHealth : MonoBehaviour
     {
         float lifeStealPercent = statsManager.GetStatMulti(StatMulti.LifeSteal);
         float healAmount = damageDealt * lifeStealPercent;
-        Heal(healAmount);
+        HealLifeSteal(healAmount);
     }
 
     public void Heal(float amount)
     {
         if (isDead) return;
-
+        audioSource.PlayOneShot(healSound);
         currentHealth = Mathf.Min(currentHealth+amount, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        Debug.Log($"Healed {amount}. Current HP: {currentHealth}/{maxHealth}");
+    }
+
+    public void HealLifeSteal(float amount)
+    {
+        if (isDead)
+            return;
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
         Debug.Log($"Healed {amount}. Current HP: {currentHealth}/{maxHealth}");
     }
@@ -81,8 +96,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = 0f;
         movement.VelocityRemove();
         OnPlayerDeath?.Invoke();
-        Debug.Log("Player DIED!");
-        // Death screen implement
     }
 
     public float GetHealthPercent()
@@ -92,10 +105,8 @@ public class PlayerHealth : MonoBehaviour
 
     internal void HealToFull()
     {
-        Debug.Log("Healed to Full");
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
-        //UpdateHealthUI();
     }
 
     public void UpdateMaxHealth()

@@ -106,6 +106,7 @@ public class ShootBehavior : IEnemyBehavior
 
     private void ShootAtPlayer()
     {
+        enemy.PlayShootSound();
         GameObject bullet = pool.GetBullet();
         bullet.transform.position = rb.position;
         Vector2 dir = (player.position - rb.transform.position).normalized;

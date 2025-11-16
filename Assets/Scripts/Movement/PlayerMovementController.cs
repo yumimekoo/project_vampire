@@ -9,6 +9,10 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private DashUI dashUIManager;
 
+    [SerializeField] private AudioClip dashSoundEffect;
+    [SerializeField] private AudioClip dashRefillEffect;
+    [SerializeField] private AudioSource audioSource;
+
     private Vector2 moveInput;
     private bool isDashing = false;
     private Vector2 dashDirection;
@@ -55,8 +59,6 @@ public class PlayerMovementController : MonoBehaviour
 
     public void SetToZero()
     {
-        //Debug.Log("Ist richtung null");
-        //rb.MovePosition(Vector3.zero);
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.transform.position = Vector3.zero;
@@ -72,6 +74,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void StartDash()
     {
+        audioSource.PlayOneShot(dashSoundEffect);
         isDashing = true;
         dashDirection = moveInput != Vector2.zero ? moveInput : Vector2.up;
 
@@ -103,7 +106,7 @@ public class PlayerMovementController : MonoBehaviour
                 int diff = newDashes - dashes;
                 for(int i = 0; i < diff; i++)
                 {
-                    // dash refill sound play
+                    audioSource.PlayOneShot(dashRefillEffect);
                     dashUIManager.AddDash();
                 }
             }

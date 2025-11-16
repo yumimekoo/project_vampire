@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyBulletPool pool;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private EnemyHealthBar healthBarPrefab;
+    [SerializeField] private AudioSource audioSource;
 
     public Transform[] spawnPoints;
     private List<GameObject> activeEnemies = new();
@@ -52,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
                 EnemyHealthBar bar = Instantiate(healthBarPrefab, enemyObj.transform.position, Quaternion.identity);
 
                 if (enemyBase != null)
-                    enemyBase.Initialize(playerTransform, pool, levelManager);
+                    enemyBase.Initialize(playerTransform, pool, levelManager, audioSource);
                 activeEnemies.Add(enemyObj);
                 enemyBase.SetHealthBar(bar);
                 activeHealthBars.Add(bar.gameObject);

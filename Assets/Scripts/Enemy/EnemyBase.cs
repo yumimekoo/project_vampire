@@ -7,18 +7,24 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private EnemyData data;
     [SerializeField] private GameObject deathEffectPrefab;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip shootSound;
+
     private EnemyHealthBar healthBarInstance;
 
     private Transform player;
     private IEnemyBehavior behavior;
     private Rigidbody2D rb;
     private LevelManager levelManager;
+    private AudioSource audioSource;
     public float Health {  get; private set; }
     public float maxHealthMultiplied {  get; private set; }
     public float lastAttackTime = -999f;
 
-    public void Initialize(Transform playerTransform, EnemyBulletPool pool, LevelManager level)
+    public void Initialize(Transform playerTransform, EnemyBulletPool pool, LevelManager level, AudioSource audio)
     {
+        audioSource = audio;
         player = playerTransform;
         levelManager = level;
         behavior = EnemyBehaviorFactory.CreateBehavior(data.behaviorType, this, rb, player.transform, pool, animator);
@@ -44,6 +50,10 @@ public class EnemyBase : MonoBehaviour
         behavior?.UpdateBehavior();
     }
 
+    public void PlayShootSound() { 
+        audioSource.PlayOneShot(shootSound);
+    }
+
     public bool TryAttack()
     {
         if (Time.time < lastAttackTime + data.attackCooldown)
@@ -57,6 +67,7 @@ public class EnemyBase : MonoBehaviour
 
         if(distance <= data.attackRange)
         {
+            audioSource.PlayOneShot(attackSound);
             player.GetComponent<PlayerHealth>()?.TakeDamage(data.attackDamage * levelManager.GetEnemyDifficultyMultiplier());
             return true;
         }
@@ -75,7 +86,8 @@ public class EnemyBase : MonoBehaviour
 
     public void Die()
     {
-        if(deathEffectPrefab != null)
+        audioSource.PlayOneShot(deathSound);
+        if (deathEffectPrefab != null)
         {
             Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
         }
