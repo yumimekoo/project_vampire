@@ -10,18 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-ChronoChip
+  m_Name: S-WhisperwindCloak
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Chrono Chip
-  description: Shaves milliseconds off mortality.
+  itemName: Whispered Hat
+  description: The air folds around you, carrying your footsteps away.
   type: 0
-  rarity: 1
-  basePrice: 80
-  icon: {fileID: 21300000, guid: 4605338a5a51383478a6b8eb3707e90c, type: 3}
+  rarity: 2
+  basePrice: 230
+  icon: {fileID: 21300000, guid: b28311bcbf17b47458fddc96553ce9c8, type: 3}
   positiveEffects:
-  - statType: 2
-    value: 0.5
-  positiveEffectMultis: []
+  - statType: 3
+    value: 1
+  positiveEffectMultis:
+  - statMulti: 0
+    value: 0.12
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 1
+    value: 0.03
   passiveSkillEffects: []

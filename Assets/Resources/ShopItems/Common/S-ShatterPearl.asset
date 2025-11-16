@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-ChronoChip
+  m_Name: S-ShatterPearl
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Chrono Chip
-  description: Shaves milliseconds off mortality.
+  itemName: Shatter Pearl
+  description: "Chaos in crystal form \u2014 accurate shooters hate it."
   type: 0
-  rarity: 1
-  basePrice: 80
-  icon: {fileID: 21300000, guid: 4605338a5a51383478a6b8eb3707e90c, type: 3}
+  rarity: 0
+  basePrice: 13
+  icon: {fileID: 21300000, guid: 4461c87bad5222349b14c22b26d43b95, type: 3}
   positiveEffects:
-  - statType: 2
+  - statType: 8
     value: 0.5
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 11
+    value: 0.7
   negativeEffectMultis: []
   passiveSkillEffects: []

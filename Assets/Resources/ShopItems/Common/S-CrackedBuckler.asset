@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-ChronoChip
+  m_Name: S-CrackedBuckler
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Chrono Chip
-  description: Shaves milliseconds off mortality.
+  itemName: Cracked Buckler
+  description: Barely holds together, but better than bare hands.
   type: 0
-  rarity: 1
-  basePrice: 80
-  icon: {fileID: 21300000, guid: 4605338a5a51383478a6b8eb3707e90c, type: 3}
+  rarity: 0
+  basePrice: 12
+  icon: {fileID: 21300000, guid: 615f3cdaa1374bd4db14286066f31cde, type: 3}
   positiveEffects:
-  - statType: 2
-    value: 0.5
+  - statType: 6
+    value: 3
   positiveEffectMultis: []
   negativeEffects: []
-  negativeEffectMultis: []
+  negativeEffectMultis:
+  - statMulti: 1
+    value: 0.01
   passiveSkillEffects: []

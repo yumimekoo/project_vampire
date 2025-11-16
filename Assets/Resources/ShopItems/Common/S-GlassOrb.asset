@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-ChronoChip
+  m_Name: S-GlassOrb
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Chrono Chip
-  description: Shaves milliseconds off mortality.
+  itemName: Glass Orb
+  description: Your bullets gleam brighter, faster, hungrier.
   type: 0
-  rarity: 1
-  basePrice: 80
-  icon: {fileID: 21300000, guid: 4605338a5a51383478a6b8eb3707e90c, type: 3}
+  rarity: 0
+  basePrice: 8
+  icon: {fileID: 21300000, guid: 8f6d58fd471ba8a45a4b681953e29c26, type: 3}
   positiveEffects:
-  - statType: 2
+  - statType: 9
     value: 0.5
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 11
+    value: 0.2
   negativeEffectMultis: []
   passiveSkillEffects: []

@@ -10,18 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-ChronoChip
+  m_Name: S-StartforgeLens
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Chrono Chip
-  description: Shaves milliseconds off mortality.
+  itemName: Starforge Lens
+  description: Forged in cosmic heat, its shots burn across the horizon.
   type: 0
-  rarity: 1
-  basePrice: 80
-  icon: {fileID: 21300000, guid: 4605338a5a51383478a6b8eb3707e90c, type: 3}
+  rarity: 2
+  basePrice: 240
+  icon: {fileID: 21300000, guid: d62fc87d7e2c1d740b3afc4193abf641, type: 3}
   positiveEffects:
-  - statType: 2
-    value: 0.5
+  - statType: 9
+    value: 3
+  - statType: 10
+    value: 1
   positiveEffectMultis: []
-  negativeEffects: []
+  negativeEffects:
+  - statType: 11
+    value: 0.5
   negativeEffectMultis: []
   passiveSkillEffects: []

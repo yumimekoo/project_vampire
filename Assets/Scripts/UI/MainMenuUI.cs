@@ -23,6 +23,13 @@ public class MainMenuUI : MonoBehaviour
     public Sprite[] frames;
     public float frameRate = 8f;
 
+    private void OnEnable()
+    {
+        MainMenuMusic music = MainMenuMusic.Instance;
+        if (music != null)
+            music.FadeInAndPlay(2f);
+    }
+
     void Start()
     {
         var root = mainUI.rootVisualElement;
@@ -37,10 +44,8 @@ public class MainMenuUI : MonoBehaviour
 
         highscore.text = $"{PlayerPrefs.GetInt("highscore", 0)} !";
 
-        playButton.clicked += () =>
-        {
-            LoadScene("SampleScene");
-        };
+        playButton.clicked -= OnPlayClicked;
+        playButton.clicked += OnPlayClicked;
 
         quitButton.clicked += () =>
         {
@@ -57,7 +62,13 @@ public class MainMenuUI : MonoBehaviour
             0f, 1f
             );
 
+
         StartPulse();
+    }
+    private void OnPlayClicked()
+    {
+        MainMenuMusic.Instance?.FadeOutAndStop(1f);
+        LoadScene("SampleScene");
     }
 
     private void Update()

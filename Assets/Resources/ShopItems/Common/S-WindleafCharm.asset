@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518ac8124e5902c4ea37268f33c98606, type: 3}
-  m_Name: S-ChronoChip
+  m_Name: S-WindleafCharm
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemDataSO
-  itemName: Chrono Chip
-  description: Shaves milliseconds off mortality.
+  itemName: Windleaf Charm
+  description: A whisper of wind tied around your ankle.
   type: 0
-  rarity: 1
-  basePrice: 80
-  icon: {fileID: 21300000, guid: 4605338a5a51383478a6b8eb3707e90c, type: 3}
+  rarity: 0
+  basePrice: 13
+  icon: {fileID: 21300000, guid: 587503b6015abc741ad5147fff8f4a06, type: 3}
   positiveEffects:
-  - statType: 2
-    value: 0.5
+  - statType: 0
+    value: 0.2
   positiveEffectMultis: []
   negativeEffects: []
   negativeEffectMultis: []

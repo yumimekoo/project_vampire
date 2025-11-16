@@ -18,8 +18,12 @@ MonoBehaviour:
   m_PlatformId: 4e3c793746204150860bf175a9a41a05
   m_PlatformBuildProfile:
     rid: 543204340023164992
-  m_OverrideGlobalSceneList: 0
-  m_Scenes: []
+  m_OverrideGlobalSceneList: 1
+  m_Scenes:
+  - m_enabled: 1
+    m_path: Assets/Scenes/MainMenu.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/SampleScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -35,11 +39,11 @@ MonoBehaviour:
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
     - line: '|   companyName: mysagames'
-    - line: '|   productName: vampire_devbuild'
+    - line: '|   productName: Wizard67'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
-    - line: '|   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b:
-        0.1254902, a: 1}'
+    - line: '|   m_SplashScreenBackgroundColor: {r: 0.21987222, g: 0.1747063, b:
+        0.24528301, a: 1}'
     - line: '|   m_ShowUnitySplashScreen: 1'
     - line: '|   m_ShowUnitySplashLogo: 1'
     - line: '|   m_SplashScreenOverlayOpacity: 1'
@@ -165,7 +169,7 @@ MonoBehaviour:
     - line: '|   loadStoreDebugModeEnabled: 0'
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
-    - line: '|   bundleVersion: 1.0'
+    - line: '|   bundleVersion: 1.2'
     - line: '|   preloadedAssets:'
     - line: '|   - {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
         type: 3}'
@@ -316,7 +320,15 @@ MonoBehaviour:
     - line: '|   AndroidAppBundleSizeToValidate: 150'
     - line: '|   AndroidReportGooglePlayAppDependencies: 1'
     - line: '|   androidSymbolsSizeThreshold: 800'
-    - line: '|   m_BuildTargetIcons: []'
+    - line: '|   m_BuildTargetIcons:'
+    - line: '|   - m_BuildTarget: '
+    - line: '|     m_Icons:'
+    - line: '|     - serializedVersion: 2'
+    - line: '|       m_Icon: {fileID: 2800000, guid: 042fae2dd68bce044b8fbd1f26724a2d,
+        type: 3}'
+    - line: '|       m_Width: 128'
+    - line: '|       m_Height: 128'
+    - line: '|       m_Kind: 0'
     - line: '|   m_BuildTargetPlatformIcons: []'
     - line: '|   m_BuildTargetBatching:'
     - line: '|   - m_BuildTarget: Standalone'
@@ -611,7 +623,23 @@ MonoBehaviour:
     - line: '|   webGLCloseOnQuit: 0'
     - line: '|   webWasm2023: 0'
     - line: '|   webEnableSubmoduleStrippingCompatibility: 0'
-    - line: '|   scriptingDefineSymbols: {}'
+    - line: '|   scriptingDefineSymbols:'
+    - line: '|     Android: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     GameCoreScarlett: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     Kepler: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     LinuxHeadlessSimulation: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     Nintendo Switch: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     PS4: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     PS5: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     QNX: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     ReservedCFE: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     Standalone: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     VisionOS: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     WebGL: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     XboxOne: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     tvOS: UNITY_POST_PROCESSING_STACK_V2'
     - line: '|   additionalCompilerArguments: {}'
     - line: '|   platformArchitecture: {}'
     - line: '|   scriptingBackend:'
